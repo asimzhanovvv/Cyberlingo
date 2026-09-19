@@ -126,6 +126,8 @@ export const useProgress = create<ProgressState>()(
 
       reset: () => set({ ...defaults, settings: get().settings }),
     }),
+    // ключ localStorage намеренно остался старым: переименование стёрло бы весь
+    // локальный прогресс у тех, кто уже занимался до смены названия
     { name: 'cyberpath-v1', version: 1 },
   ),
 )

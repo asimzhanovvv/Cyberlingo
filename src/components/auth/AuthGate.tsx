@@ -72,7 +72,7 @@ export function AuthGate({ children }: { children: ReactNode }) {
         <div className="flex flex-col items-center gap-3 text-center">
           <img src="/icon.svg" alt="" className="h-16 w-16 animate-float" />
           <div>
-            <h1 className="font-display text-2xl font-black">CyberPath</h1>
+            <h1 className="font-display text-2xl font-black">Cyberlingo</h1>
             <p className="text-sm text-muted">Тренажёр по Cybersecurity Essentials</p>
           </div>
         </div>

@@ -37,7 +37,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <aside className="sticky top-0 hidden h-dvh w-56 shrink-0 flex-col gap-1 py-6 lg:flex">
         <div className="mb-5 flex items-center gap-2 px-3">
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary font-display text-lg font-black text-on-primary">C</span>
-          <span className="font-display text-lg font-extrabold">CyberPath</span>
+          <span className="font-display text-lg font-extrabold">Cyberlingo</span>
         </div>
         {nav.map((n) => (
           <NavLink
@@ -60,7 +60,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b border-line-soft bg-bg/85 px-4 py-3 backdrop-blur-lg safe-t lg:hidden">
           <span className="flex items-center gap-2">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary font-display text-base font-black text-on-primary">C</span>
-            <span className="font-display text-base font-extrabold">CyberPath</span>
+            <span className="font-display text-base font-extrabold">Cyberlingo</span>
           </span>
           <span className="flex gap-2">
             <Stat icon={Flame} value={streak} tone="text-accent" />

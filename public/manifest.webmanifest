@@ -1,6 +1,6 @@
 {
-  "name": "CyberPath — Cybersecurity Essentials",
-  "short_name": "CyberPath",
+  "name": "Cyberlingo — Cybersecurity Essentials",
+  "short_name": "Cyberlingo",
   "description": "Тренажёр по курсу Cisco Cybersecurity Essentials: теория, карточки и экзамены",
   "start_url": "/",
   "scope": "/",

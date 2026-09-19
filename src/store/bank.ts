@@ -51,6 +51,7 @@ export const useBank = create<BankState>()(
 
       reset: () => set({ seen: {}, runs: {} }),
     }),
+    // ключ localStorage намеренно остался старым, см. store/progress.ts
     { name: 'cyberpath-bank-v1', version: 1 },
   ),
 )

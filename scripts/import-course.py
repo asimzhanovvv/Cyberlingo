@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Импорт курса из выгрузки netacad-extractor в контент CyberPath.
+Импорт курса из выгрузки netacad-extractor в контент Cyberlingo.
 
 Вход:  <repo>/../netacad-solver-master/cyberpath-data/out/modules/*.json
 Выход: src/content/auto/manifest.json  — лёгкий список модулей и островов

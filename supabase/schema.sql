@@ -1,4 +1,4 @@
--- CyberPath: схема прогресса. Выполнить целиком в Supabase -> SQL Editor -> New query -> Run.
+-- Cyberlingo: схема прогресса. Выполнить целиком в Supabase -> SQL Editor -> New query -> Run.
 
 create table if not exists public.progress (
   user_id     uuid not null references auth.users on delete cascade,
