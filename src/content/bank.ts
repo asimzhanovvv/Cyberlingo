@@ -36,6 +36,38 @@ export async function loadBank(): Promise<BankQ[]> {
 
 export const UNTAGGED = 'none'
 
+/**
+ * Порядок netacad: курс разбит на группы модулей, после каждой идёт
+ * checkpoint exam. Ключи Q1..Q7 уже проставлены в банке вопросов.
+ */
+export interface Checkpoint { key: string; n: number; label: string; modules: number[] }
+
+export const CHECKPOINTS: Checkpoint[] = [
+  { key: 'Q1', n: 1, label: 'Checkpoint Exam 1', modules: [1, 2, 3, 4, 5, 6] },
+  { key: 'Q2', n: 2, label: 'Checkpoint Exam 2', modules: [7, 8, 9, 10] },
+  { key: 'Q3', n: 3, label: 'Checkpoint Exam 3', modules: [11, 12, 13] },
+  { key: 'Q4', n: 4, label: 'Checkpoint Exam 4', modules: [14, 15, 16, 17, 18] },
+  { key: 'Q5', n: 5, label: 'Checkpoint Exam 5', modules: [19, 20, 21] },
+  { key: 'Q6', n: 6, label: 'Checkpoint Exam 6', modules: [22, 23, 24, 25, 26] },
+  { key: 'Q7', n: 7, label: 'Checkpoint Exam 7', modules: [27] },
+]
+
+export const FINAL_KEY = 'F1'
+
+/** Ключ экзамена конкретного модуля в банке. */
+export const moduleKey = (moduleId: number) => `M${moduleId}`
+
+/** Чекпоинт, который идёт сразу после этого модуля. */
+export const checkpointAfter = (moduleId: number) =>
+  CHECKPOINTS.find((c) => c.modules[c.modules.length - 1] === moduleId)
+
+/** Чекпоинт, в группу которого входит этот модуль. */
+export const checkpointOf = (moduleId: number) =>
+  CHECKPOINTS.find((c) => c.modules.includes(moduleId))
+
+export const rangeOf = (c: Checkpoint) =>
+  c.modules.length === 1 ? `модуль ${c.modules[0]}` : `модули ${c.modules[0]}-${c.modules[c.modules.length - 1]}`
+
 export function groupsOf(bank: BankQ[]): BankGroup[] {
   const count = new Map<string, number>()
   for (const q of bank) {
@@ -44,11 +76,14 @@ export function groupsOf(bank: BankQ[]): BankGroup[] {
   }
 
   const meta = (key: string): Omit<BankGroup, 'count' | 'key'> => {
-    if (key === 'F1') return { kind: 'final', label: 'Финальный экзамен', hint: 'вопросы по всему курсу' }
-    if (key === 'end') return { kind: 'end', label: 'Итоговый модуль', hint: 'завершающий блок' }
+    if (key === FINAL_KEY) return { kind: 'final', label: 'Final Exam', hint: 'вопросы по всему курсу' }
+    if (key === 'end') return { kind: 'end', label: 'Course Wrap-Up', hint: 'завершающий блок' }
     if (key === UNTAGGED) return { kind: 'other', label: 'Без модуля', hint: 'тег модуля не проставлен' }
-    if (key.startsWith('Q')) return { kind: 'quiz', label: `Квиз ${key.slice(1)}`, hint: 'по группе модулей' }
-    return { kind: 'module', label: `Модуль ${key.slice(1)}`, hint: '' }
+    if (key.startsWith('Q')) {
+      const c = CHECKPOINTS.find((x) => x.key === key)
+      return { kind: 'quiz', label: c?.label ?? `Checkpoint Exam ${key.slice(1)}`, hint: c ? rangeOf(c) : 'по группе модулей' }
+    }
+    return { kind: 'module', label: `Module ${key.slice(1)} Exam`, hint: '' }
   }
 
   const order = (k: string) => {

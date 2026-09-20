@@ -1,10 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Check, Lock, Star } from 'lucide-react'
+import { Check, Flag, Lock, Star, Trophy } from 'lucide-react'
 import { moduleMeta, type IslandMeta } from '@/content'
-import { useIslandStats, useUnlocked } from '@/lib/progressSelectors'
+import { checkpointAfter, FINAL_KEY, loadBank, questionsFor, rangeOf, type BankQ, type Checkpoint } from '@/content/bank'
+import { useIslandStats, useUnlocked, PASS_SCORE } from '@/lib/progressSelectors'
 import { useProgress } from '@/store/progress'
+import { useBank } from '@/store/bank'
 import { Ring } from '@/components/ui/Ring'
 import { IslandIcon } from '@/components/ui/IslandIcon'
 import { Card } from '@/components/ui/Card'
@@ -46,7 +48,7 @@ function IslandNode({ meta, index, color, locked }: { meta: IslandMeta; index: n
       className={cn('press-3d-sm flex flex-col items-center gap-2 rounded-3xl p-1 [--press-edge:transparent]', locked && 'opacity-60')}
     >
       <div className="relative">
-        <Ring value={s.mastery} size={92} stroke={8} color={locked ? 'var(--surface-3)' : color}>
+        <Ring value={s.rings.total} size={92} stroke={8} color={locked ? 'var(--surface-3)' : color}>
           <span
             className={cn(
               'grid h-[68px] w-[68px] place-items-center rounded-full border-2 transition-all',
@@ -78,8 +80,72 @@ function IslandNode({ meta, index, color, locked }: { meta: IslandMeta; index: n
         <p className="text-xs text-muted">
           {locked ? 'Закрыто'
             : empty ? `${meta.lessons} ${plural(meta.lessons, 'урок', 'урока', 'уроков')}, без вопросов`
-            : `${Math.round(s.mastery * 100)}% · ${meta.atomIds.length} ${plural(meta.atomIds.length, 'вопрос', 'вопроса', 'вопросов')}`}
+            : `${Math.round(s.rings.total * 100)}%`}
         </p>
+      </div>
+    </Link>
+  )
+}
+
+/** Узел checkpoint exam между группами модулей, как в netacad. */
+function CheckpointNode({ cp, count }: { cp: Checkpoint; count: number }) {
+  const best = useBank((s) => s.runs[cp.key]?.best)
+  const passed = (best ?? 0) >= PASS_SCORE
+
+  return (
+    <Link
+      to={`/exam/run/${cp.key}`}
+      className="press-3d-sm block w-full rounded-3xl border-2 border-dashed border-accent/50 bg-accent/8 p-4 [--press-edge:var(--accent-deep)]"
+    >
+      <div className="flex items-center gap-3">
+        <span className={cn('grid h-12 w-12 shrink-0 place-items-center rounded-2xl',
+          passed ? 'bg-success text-on-primary' : 'bg-accent/20 text-accent')}>
+          {passed ? <Check size={22} aria-hidden /> : <Flag size={22} aria-hidden />}
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="font-display text-[15px] font-extrabold leading-tight text-text">{cp.label}</p>
+          <p className="text-xs text-muted">
+            {rangeOf(cp)}{count > 0 && ` · ${count} ${plural(count, 'вопрос', 'вопроса', 'вопросов')}`}
+          </p>
+        </div>
+        {best !== undefined && (
+          <span className={cn('shrink-0 rounded-full px-2.5 py-1 text-xs font-bold',
+            passed ? 'bg-success/15 text-success' : 'bg-accent/15 text-accent')}>
+            {best}%
+          </span>
+        )}
+      </div>
+    </Link>
+  )
+}
+
+/** Финальный экзамен в самом конце пути. */
+function FinalNode({ count }: { count: number }) {
+  const best = useBank((s) => s.runs[FINAL_KEY]?.best)
+  const passed = (best ?? 0) >= PASS_SCORE
+
+  return (
+    <Link
+      to={`/exam/run/${FINAL_KEY}`}
+      className="press-3d-sm block w-full rounded-3xl border-2 border-violet/50 bg-violet/10 p-5 [--press-edge:var(--violet-deep)]"
+    >
+      <div className="flex items-center gap-3">
+        <span className={cn('grid h-14 w-14 shrink-0 place-items-center rounded-2xl',
+          passed ? 'bg-success text-on-primary' : 'bg-violet text-on-primary')}>
+          <Trophy size={26} aria-hidden />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="font-display text-lg font-black leading-tight text-text">Final Exam</p>
+          <p className="text-xs text-muted">
+            вопросы по всему курсу{count > 0 && ` · ${count} ${plural(count, 'вопрос', 'вопроса', 'вопросов')}`}
+          </p>
+        </div>
+        {best !== undefined && (
+          <span className={cn('shrink-0 rounded-full px-2.5 py-1 text-xs font-bold',
+            passed ? 'bg-success/15 text-success' : 'bg-accent/15 text-accent')}>
+            {best}%
+          </span>
+        )}
       </div>
     </Link>
   )
@@ -88,7 +154,13 @@ function IslandNode({ meta, index, color, locked }: { meta: IslandMeta; index: n
 export default function Roadmap() {
   const unlocked = useUnlocked()
   const touchStreak = useProgress((s) => s.touchStreak)
+  const [bank, setBank] = useState<BankQ[] | null>(null)
+
   useEffect(() => { touchStreak() }, [touchStreak])
+  useEffect(() => { void loadBank().then(setBank) }, [])
+
+  const countFor = (key: string) => (bank ? questionsFor(bank, [key]).length : 0)
+  const lastModule = moduleMeta.length ? moduleMeta[moduleMeta.length - 1].id : 0
 
   return (
     <div className="space-y-8">
@@ -96,13 +168,14 @@ export default function Roadmap() {
         <p className="text-xs font-bold uppercase tracking-widest text-primary">Cisco Cybersecurity Essentials</p>
         <h1 className="mt-1 font-display text-2xl font-black leading-tight">Путь по курсу</h1>
         <p className="mt-1.5 text-sm text-muted">
-          {moduleMeta.length} модулей курса. Каждый островок это подраздел: сначала читаешь теорию,
-          потом прогоняешь вопросы, в конце сдаёшь экзамен острова.
+          {moduleMeta.length} модулей курса. Каждый островок это подраздел: теория, термины, экзамен.
+          После группы модулей идёт checkpoint exam, в самом конце final exam.
         </p>
       </Card>
 
       {moduleMeta.map((m) => {
         const color = colorOf(m.id)
+        const cp = checkpointAfter(m.id)
         return (
           <section key={m.id} className="space-y-4">
             <div className="flex items-center gap-3">
@@ -126,6 +199,20 @@ export default function Roadmap() {
                 </div>
               ))}
             </div>
+
+            {cp && (
+              <div className="flex flex-col items-center">
+                <Trail from={offsetAt(m.islands.length - 1)} to={0} />
+                <CheckpointNode cp={cp} count={countFor(cp.key)} />
+              </div>
+            )}
+
+            {m.id === lastModule && (
+              <div className="flex flex-col items-center">
+                <Trail from={0} to={0} />
+                <FinalNode count={countFor(FINAL_KEY)} />
+              </div>
+            )}
           </section>
         )
       })}

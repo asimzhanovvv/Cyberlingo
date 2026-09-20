@@ -40,6 +40,8 @@ export default function SessionPage() {
   const { mode = 'learn', scope = '' } = useParams<{ mode: SessionMode; scope: string }>()
   const [params] = useSearchParams()
   const limit = Number(params.get('n')) || undefined
+  // ?kind=term оставляет только термины, ?kind=quiz только вопросы курса
+  const kind = params.get('kind')
   const nav = useNavigate()
 
   const progress = useProgress((s) => s.atoms)
@@ -73,7 +75,9 @@ export default function SessionPage() {
     const touched = Object.keys(progress)
     void ensureModules(modulesForScope(scope, touched)).then(() => {
       if (!alive) return
-      const atoms = resolveAtoms(scope)
+      let atoms = resolveAtoms(scope)
+      if (kind === 'term') atoms = atoms.filter((a) => a.kind !== 'quiz')
+      else if (kind === 'quiz') atoms = atoms.filter((a) => a.kind === 'quiz')
       const size = limit ?? (mode === 'learn' ? 14 : mode === 'review' ? 20 : undefined)
       const built = buildSession({ atoms, progress }, { mode: mode as SessionMode, size, groups: mode !== 'flash' })
       setQueue(built)
@@ -86,7 +90,7 @@ export default function SessionPage() {
     return () => { alive = false }
     // сессия строится один раз на вход, иначе перестраивалась бы после каждого ответа
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mode, scope, limit])
+  }, [mode, scope, limit, kind])
 
   const active = phase === 'retry' ? retry : queue
   const current = active[pos]

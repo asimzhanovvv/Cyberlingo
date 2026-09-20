@@ -57,14 +57,21 @@ export default function BankSession() {
   const [right, setRight] = useState(0)
   const [missed, setMissed] = useState<BankQ[]>([])
 
-  const keys = useMemo(() => scope.split('-').filter(Boolean), [scope])
+  // scope: "M1", "M1-Q1", "wrong" (все ошибки) или "wrong:M1" (ошибки одной группы)
+  const wrongMode = scope === 'wrong' || scope.startsWith('wrong:')
+  const keys = useMemo(
+    () => (wrongMode ? scope.slice('wrong:'.length) : scope).split('-').filter(Boolean),
+    [scope, wrongMode],
+  )
 
   useEffect(() => {
     let alive = true
     void loadBank().then((bank) => {
       if (!alive) return
       const ids = new Set(wrongIds(useBank.getState().seen))
-      let pool = scope === 'wrong' ? bank.filter((q) => ids.has(q.id)) : questionsFor(bank, keys)
+      let pool = wrongMode
+        ? (keys.length ? questionsFor(bank, keys) : bank).filter((q) => ids.has(q.id))
+        : questionsFor(bank, keys)
       pool = shuffle(pool)
       if (limit && pool.length > limit) pool = pool.slice(0, limit)
       const built = pool
@@ -77,7 +84,7 @@ export default function BankSession() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope, limit])
 
-  const title = scope === 'wrong' ? 'Мои ошибки' : keys.join(', ')
+  const title = wrongMode ? (keys.length ? `Ошибки · ${keys.join(', ')}` : 'Мои ошибки') : keys.join(', ')
   const current = queue?.[pos]
 
   const handle = (correct: boolean) => {
@@ -92,7 +99,7 @@ export default function BankSession() {
       const pct = Math.round(((right + (correct ? 1 : 0)) / total) * 100)
       touchStreak()
       playFinish()
-      if (scope !== 'wrong') for (const k of keys) recordRun(k, pct)
+      if (!wrongMode) for (const k of keys) recordRun(k, pct)
       setDone(true)
     }
   }

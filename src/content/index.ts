@@ -26,9 +26,14 @@ const handById = new Map(handIslands.map((i) => [i.id, i]))
 export interface IslandMeta {
   id: string
   moduleId: number
+  /** Название как в курсе, по-английски. */
   title: string
   lessons: number
   atomIds: string[]
+  /** Атомы-термины: определения, факты, перечисления, классификация. */
+  termIds: string[]
+  /** Готовые вопросы курса из уроков и квиза раздела. */
+  quizIds: string[]
   hand: boolean
 }
 
@@ -47,15 +52,21 @@ function buildMeta(): ModuleMeta[] {
     islands: m.islands
       .filter((i) => !handIds.has(i.id))
       .map((i) => ({
-        id: i.id, moduleId: m.id, title: i.title, lessons: i.lessons, atomIds: i.atoms, hand: false,
+        id: i.id, moduleId: m.id, title: i.title, lessons: i.lessons, atomIds: i.atoms,
+        // в автоимпорте нет терминов, только вопросы курса
+        termIds: [], quizIds: i.atoms, hand: false,
       })),
   }))
   // ручные острова встают на своё место по номеру
   for (const isl of handIslands) {
     const mod = out.find((m) => m.id === isl.moduleId)
     const meta: IslandMeta = {
-      id: isl.id, moduleId: isl.moduleId, title: isl.titleRu,
-      lessons: isl.lessons.length, atomIds: isl.atoms.map((a) => a.id), hand: true,
+      id: isl.id, moduleId: isl.moduleId, title: isl.title,
+      lessons: isl.lessons.length,
+      atomIds: isl.atoms.map((a) => a.id),
+      termIds: isl.atoms.filter((a) => a.kind !== 'quiz').map((a) => a.id),
+      quizIds: isl.atoms.filter((a) => a.kind === 'quiz').map((a) => a.id),
+      hand: true,
     }
     if (!mod) { out.push({ id: isl.moduleId, title: isl.title, islands: [meta] }); continue }
     const at = mod.islands.findIndex((x) => x.id > isl.id)

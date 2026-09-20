@@ -35,13 +35,12 @@ export default function LessonPage() {
   return (
     <article className="space-y-5">
       <Link to={`/island/${island.id}`} className="inline-flex items-center gap-1.5 text-sm font-semibold text-muted hover:text-text">
-        <ArrowLeft size={16} aria-hidden /> {island.id} {island.titleRu}
+        <ArrowLeft size={16} aria-hidden /> {island.id} {island.title}
       </Link>
 
       <header>
         <p className="text-xs font-bold uppercase tracking-widest text-primary">{lesson.id}</p>
-        <h1 className="font-display text-2xl font-black leading-tight">{lesson.titleRu ?? lesson.title}</h1>
-        {lesson.titleRu && lesson.titleRu !== lesson.title && <p className="text-sm text-muted">{lesson.title}</p>}
+        <h1 className="font-display text-2xl font-black leading-tight">{lesson.title}</h1>
       </header>
 
       <Blocks blocks={lesson.blocks} />
