@@ -2,7 +2,13 @@ import { useSyncExternalStore } from 'react'
 import type { Atom, Island, Lesson } from '@/types'
 import { island_1_1 } from './m1-1'
 import { island_1_2 } from './m1-2'
+import { island_1_3 } from './m1-3'
+import { island_1_4 } from './m1-4'
+import { island_1_5 } from './m1-5'
+import { island_1_6 } from './m1-6'
 import { island_2_1 } from './m2-1'
+import { island_2_2 } from './m2-2'
+import { island_2_3 } from './m2-3'
 import { autoModules, loadAutoModule, autoModuleCache, autoModuleLoaded, moduleOfIsland } from './course'
 
 /* ======================================================================
@@ -11,7 +17,10 @@ import { autoModules, loadAutoModule, autoModuleCache, autoModuleLoaded, moduleO
    ====================================================================== */
 
 /** Острова, собранные вручную. Они главнее автоимпорта с тем же id. */
-const handIslands: Island[] = [island_1_1, island_1_2, island_2_1]
+const handIslands: Island[] = [
+  island_1_1, island_1_2, island_1_3, island_1_4, island_1_5, island_1_6,
+  island_2_1, island_2_2, island_2_3,
+]
 const handById = new Map(handIslands.map((i) => [i.id, i]))
 
 export interface IslandMeta {
@@ -30,12 +39,16 @@ export interface ModuleMeta {
 }
 
 function buildMeta(): ModuleMeta[] {
+  const handIds = new Set(handIslands.map((i) => i.id))
   const out: ModuleMeta[] = autoModules.map((m) => ({
     id: m.id,
     title: m.title,
-    islands: m.islands.map((i) => ({
-      id: i.id, moduleId: m.id, title: i.title, lessons: i.lessons, atomIds: i.atoms, hand: false,
-    })),
+    // автоостров с тем же id выбрасываем: ручной точнее и содержит термины
+    islands: m.islands
+      .filter((i) => !handIds.has(i.id))
+      .map((i) => ({
+        id: i.id, moduleId: m.id, title: i.title, lessons: i.lessons, atomIds: i.atoms, hand: false,
+      })),
   }))
   // ручные острова встают на своё место по номеру
   for (const isl of handIslands) {
