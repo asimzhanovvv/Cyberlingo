@@ -41,7 +41,15 @@ interface RawModule {
   islands: RawIsland[]
 }
 
+/** Термины, написанные руками поверх автоимпорта: src/content/terms/m<N>.json.
+ *  Лежат отдельно, чтобы повторный прогон импортёра их не затирал. */
+interface RawTerms {
+  module: number
+  islands: Record<string, Atom[]>
+}
+
 const files = import.meta.glob<RawModule>('./auto/m*.json')
+const termFiles = import.meta.glob<RawTerms>('./terms/m*.json')
 
 const cache = new Map<number, Island[]>()
 const inflight = new Map<number, Promise<Island[]>>()
@@ -67,7 +75,7 @@ function atomFromQuiz(q: QuizPayload & { id: string; lesson: string }, islandId:
 
 const ICONS = ['ShieldAlert', 'Radar', 'Network', 'Bug', 'Smartphone', 'Fingerprint', 'Wrench', 'VenetianMask']
 
-function toIsland(raw: RawIsland, moduleId: number): Island {
+function toIsland(raw: RawIsland, moduleId: number, terms: Atom[] = []): Island {
   const lessons: Lesson[] = raw.lessons.map((l) => ({
     id: l.id,
     title: l.title,
@@ -82,7 +90,7 @@ function toIsland(raw: RawIsland, moduleId: number): Island {
     objective: '',
     icon: ICONS[Math.abs(hash(raw.id)) % ICONS.length],
     lessons,
-    atoms: raw.quiz.map((q) => atomFromQuiz(q, raw.id)),
+    atoms: [...raw.quiz.map((q) => atomFromQuiz(q, raw.id)), ...terms],
   }
 }
 
@@ -104,13 +112,19 @@ export function loadAutoModule(id: number): Promise<Island[]> {
     cache.set(id, [])
     return Promise.resolve([])
   }
-  const p = loader().then((mod) => {
-    const raw = ((mod as unknown as { default?: RawModule }).default ?? mod) as RawModule
-    const islands = raw.islands.map((i) => toIsland(i, raw.module))
-    cache.set(id, islands)
-    inflight.delete(id)
-    return islands
-  })
+  const termLoader = termFiles[`./terms/m${id}.json`]
+  const p = Promise.all([loader(), termLoader ? termLoader() : Promise.resolve(null)]).then(
+    ([mod, termMod]) => {
+      const raw = ((mod as unknown as { default?: RawModule }).default ?? mod) as RawModule
+      const terms =
+        ((termMod as unknown as { default?: RawTerms } | null)?.default ??
+          (termMod as RawTerms | null))?.islands ?? {}
+      const islands = raw.islands.map((i) => toIsland(i, raw.module, terms[i.id] ?? []))
+      cache.set(id, islands)
+      inflight.delete(id)
+      return islands
+    },
+  )
   inflight.set(id, p)
   return p
 }

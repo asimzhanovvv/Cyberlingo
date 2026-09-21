@@ -1,1 +1,1269 @@
-{"module":5,"title":"Wireless Network Communication","islands":[{"id":"5.0","title":"Introduction","lessons":[{"id":"5.0.1","title":"Why should I take this module?","blocks":[{"t":"p","md":"There are many ways to connect wirelessly. Like everything else involving networks, these connection types are best used in particular situations. They require specific devices and are also prone to certain types of attacks. And of course, there are solutions to mitigate these attacks. The WLAN Concepts module gives you the foundational knowledge you need to understand what Wireless LANs are, what they can do, and how to protect them."}]},{"id":"5.0.2","title":"What will I learn in this module?","blocks":[{"t":"p","md":"This module contains the following:"},{"t":"list","items":["3 Videos","2 Packet Tracer activities","4 Check Your Understanding activities","1 Module QuizModule Title: Wireless Network Communication"]},{"t":"p","md":"Module Objective: Troubleshoot a wireless network."}]}],"quiz":[]},{"id":"5.1","title":"Wireless Communications","lessons":[{"id":"5.1.1","title":"Video - WLAN Operation","blocks":[{"t":"note","variant":"info","title":"Видео курса","md":"5.1.1 Video - WLAN Operation. Само видео в выгрузку не попало."},{"t":"p","md":"Watch the video to learn about Wireless LAN (WLAN) operation."}]},{"id":"5.1.2","title":"Wireless versus Wired LANs","blocks":[{"t":"p","md":"WLANs use Radio Frequencies (RF) instead of cables at the physical layer and MAC sublayer of the data link layer. WLANs share a similar origin with Ethernet LANs. The IEEE has adopted the 802 LAN/MAN portfolio of computer network architecture standards. The two dominant 802 working groups are 802.3 Ethernet, which defined Ethernet for wired LANs, and 802.11 which defined Ethernet for WLANs. There are important differences between the two."},{"t":"p","md":"WLANs also differ from wired LANs as follows:"},{"t":"list","items":["WLANs connect clients to the network through a wireless access point (AP) or wireless router, instead of an Ethernet switch.","WLANs connect mobile devices that are often battery powered, as opposed to plugged-in LAN devices. Wireless NICs tend to reduce the battery life of a mobile device.","WLANs support hosts that contend for access on the RF media (frequency bands). 802.11 prescribes collision-avoidance (CSMA/CA) instead of collision-detection (CSMA/CD) for media access to proactively avoid collisions within the media.","WLANs use a different frame format than wired Ethernet LANs. WLANs require additional information in the Layer 2 header of the frame.","WLANs raise more privacy issues because radio frequencies can reach outside the facility."]},{"t":"p","md":"The table summarizes the differences between wireless and wired LANs."}]},{"id":"5.1.3","title":"802.11 Frame Structure","blocks":[{"t":"p","md":"Recall that all Layer 2 frames consist of a header, payload, and Frame Check Sequence (FCS) section. The 802.11 frame format is similar to the Ethernet frame format, except that it contains more fields, as shown in the figure."},{"t":"p","md":"All 802.11 wireless frames contain the following fields:"},{"t":"list","items":["Frame Control - This identifies the type of wireless frame and contains subfields for protocol version, frame type, address type, power management, and security settings.","Duration - This is typically used to indicate the remaining duration needed to receive the next frame transmission.","Address1 - This usually contains the MAC address of the receiving wireless device or AP.","Address2 - This usually contains the MAC address of the transmitting wireless device or AP.","Address3 - This sometimes contains the MAC address of the destination, such as the router interface (default gateway) to which the AP is attached.","Sequence Control - This contains information to control sequencing and fragmented frames.","Address4 - This usually missing because it is used only in ad hoc mode.","Payload - This contains the data for transmission.","FCS - This is used for Layer 2 error control."]}]},{"id":"5.1.4","title":"CSMA/CA","blocks":[{"t":"p","md":"WLANs are half-duplex, shared media configurations. Half-duplex means that only one client can transmit or receive at any given moment. Shared media means that wireless clients can all transmit and receive on the same radio channel. This creates a problem because a wireless client cannot hear while it is sending, which makes it impossible to detect a collision."},{"t":"p","md":"To resolve this problem, WLANs use carrier sense multiple access with collision avoidance (CSMA/CA) as the method to determine how and when to send data on the network. A wireless client does the following:"},{"t":"list","items":["Listens to the channel to see if it is idle, which means that is senses no other traffic is currently on the channel. The channel is also called the carrier.","Sends a ready to send (RTS) message to the AP to request dedicated access to the network.","Receives a clear to send (CTS) message from the AP granting access to send.","If the wireless client does not receive a CTS message, it waits a random amount of time before restarting the process.","After it receives the CTS, it transmits the data.","All transmissions are acknowledged. If a wireless client does not receive an acknowledgment, it assumes a collision occurred and restarts the process."]}]},{"id":"5.1.5","title":"Wireless Client and AP Association","blocks":[{"t":"p","md":"For wireless devices to communicate over a network, they must first associate with an AP or wireless router. An important part of the 802.11 process is discovering a WLAN and subsequently connecting to it. Wireless devices complete the following three stage process, as shown in the figure:"},{"t":"list","items":["Discover a wireless AP","Authenticate with AP","Associate with AP"]},{"t":"p","md":"In order to have a successful association, a wireless client and an AP must agree on specific parameters. Parameters must then be configured on the AP and subsequently on the client to enable the negotiation of a successful association."},{"t":"list","items":["SSID - The SSID name appears in the list of available wireless networks on a client. In larger organizations that use multiple VLANs to segment traffic, each SSID is mapped to one VLAN. Depending on the network configuration, several APs on a network can share a common SSID.","Password - This is required from the wireless client to authenticate to the AP.","Network mode - This refers to the 802.11a/b/g/n/ac/ad WLAN standards. APs and wireless routers can operate in a Mixed mode meaning that they can simultaneously support clients connecting via multiple standards.","Security mode - This refers to the security parameter settings, such as WEP, WPA, or WPA2. Always enable the highest security level supported.","Channel settings - This refers to the frequency bands used to transmit wireless data. Wireless routers and APs can scan the radio frequency channels and automatically select an appropriate channel setting. The channel can also be set manually if there is interference with another AP or wireless device."]}]},{"id":"5.1.6","title":"Passive and Active Discover Mode","blocks":[{"t":"p","md":"Wireless devices must discover and connect to an AP or wireless router. Wireless clients connect to the AP using a scanning (probing) process. This process can be passive or active."},{"t":"p","md":"Click each mode for more information."},{"t":"accordion","items":[{"title":"Passive mode","md":"In passive mode, the AP openly advertises its service by periodically sending broadcast beacon frames containing the SSID, supported standards, and security settings. The primary purpose of the beacon is to allow wireless clients to learn which networks and APs are available in a given area. This allows the wireless clients to choose which network and AP to use."},{"title":"Active mode","md":"In active mode, wireless clients must know the name of the SSID. The wireless client initiates the process by broadcasting a probe request frame on multiple channels. The probe request includes the SSID name and standards supported. APs configured with the SSID will send a probe response that includes the SSID, supported standards, and security settings. Active mode may be required if an AP or wireless router is configured to not broadcast beacon frames. A wireless client could also send a probe request without a SSID name to discover nearby WLAN networks. APs configured to broadcast beacon frames would respond to the wireless client with a probe response and provide the SSID name. APs with the broadcast SSID feature disabled do not respond."}]}]},{"id":"5.1.8","title":"Wireless Devices -AP, LWAP, and WLC","blocks":[{"t":"p","md":"A common wireless data implementation is enabling devices to connect wirelessly via a LAN. In general, a wireless LAN requires wireless access points and clients that have wireless NICs. Home and small business wireless routers integrate the functions of a router, switch, and access point into one device, as shown in the figure. Note that in small networks, the wireless router may be the only AP because only a small area requires wireless coverage. In larger networks, there can be many APs."},{"t":"p","md":"All of the control and management functions of the APs on a network can be centralized into a Wireless LAN Controller (WLC). When using a WLC, the APs no longer act autonomously, but instead act as lightweight APs (LWAPs). LWAPs only forward data between the wireless LAN and the WLC. All management functions, such as defining SSIDs and authentication are conducted on the centralized WLC rather than on each individual AP. A major benefit of centralizing the AP management functions in the WLC is simplified configuration and monitoring of numerous access points, among many other benefits."}]}],"quiz":[{"type":"multi","q":"What are two events that can occur in Step 1 (Discovery) of the client and AP association process? (Choose two.)","options":["agree with AP to share Open authentication","send client’s MAC address to AP","listen for beacon frames to find WLAN SSIDs (passive mode)","send a probe request to the AP with or without a known SSID (active mode)"],"answers":["listen for beacon frames to find WLAN SSIDs (passive mode)","send a probe request to the AP with or without a known SSID (active mode)"],"id":"5.1-q1","lesson":"5.1.6","why":"That's right, well done. In Step 1, the following happens: listen for beacon frames to find WLAN SSIDs (passive mode) or send a probe request to the AP with or without a known SSID (active mode)."},{"type":"multi","q":"What are two events that can occur in Step 2 (Authentication) of the client and AP association process? (Choose two.)","options":["send client’s MAC address to AP","agree with AP to share Open authentication","receive AP’s MAC address (BSSID)","initiate shared key authentication process"],"answers":["agree with AP to share Open authentication","initiate shared key authentication process"],"id":"5.1-q2","lesson":"5.1.6","why":"That's right, well done. In Step 2, the following occurs: agree with AP to share Open authentication or initiate the shared key authentication process."},{"type":"multi","q":"What are three events that can occur in Step 3 (Association) of the client and AP association process? (Choose three.)","options":["receive AP’s MAC address (BSSID)","send client’s MAC address to AP","agree with AP to share Open authentication","initiate shared key request","receive AP’s association identifier (AID)"],"answers":["receive AP’s MAC address (BSSID)","send client’s MAC address to AP","receive AP’s association identifier (AID)"],"id":"5.1-q3","lesson":"5.1.6","why":"That's right, well done. In Step 3, the following occurs: send client's MAC address to AP, or receive AP's association identifier (AID)."},{"type":"mcq","q":"Which device must connect to another device to gain access to the network?","options":["end devices","wireless access point","switch","router"],"answers":["end devices"],"id":"5.1-q4","lesson":"5.1.8","why":"That's right, well done. End devices must connect to another device to gain access to the network."},{"type":"mcq","q":"Which device connects wireless clients to the network?","options":["switch","router","wireless access point (WAP)","end device"],"answers":["wireless access point (WAP)"],"id":"5.1-q5","lesson":"5.1.8","why":"That's right, well done. Wireless access points connect wireless clients to the network."},{"type":"mcq","q":"Which device uses MAC addresses to determine the exit port?","options":["switch","router","end device","wireless LAN Controller"],"answers":["switch"],"id":"5.1-q6","lesson":"5.1.8","why":"That's right, well done. A switch uses a MAC address to determine the exit port."}]},{"id":"5.2","title":"WLAN Threats","lessons":[{"id":"5.2.1","title":"Video - WLAN Threats","blocks":[{"t":"note","variant":"info","title":"Видео курса","md":"5.2.1 Video - WLAN Threats. Само видео в выгрузку не попало."},{"t":"p","md":"The previous topics covered the WLAN components and configuration. Here you will learn about WLAN threats. Click Play to view a video about threats to WLANs."}]},{"id":"5.2.2","title":"Wireless Security Overview","blocks":[{"t":"p","md":"A WLAN is open to anyone within range of an AP and the appropriate credentials to associate to it. With a wireless NIC and knowledge of cracking techniques, an attacker may not have to physically enter the workplace to gain access to a WLAN."},{"t":"p","md":"Attacks can be generated by outsiders, disgruntled employees, and even unintentionally by employees. Wireless networks are specifically susceptible to several threats, including:"},{"t":"list","items":["Interception of data - Wireless data should be encrypted to prevent it from being read by eavesdroppers.","Wireless intruders - Unauthorized users attempting to access network resources can be deterred through effective authentication techniques.","Denial of Service (DoS) Attacks - Access to WLAN services can be compromised either accidentally or maliciously. Various solutions exist depending on the source of the DoS attack.","Rogue APs - Unauthorized APs installed by a well-intentioned user or for malicious purposes can be detected using management software."]}]},{"id":"5.2.3","title":"DoS Attacks","blocks":[{"t":"p","md":"Wireless DoS attacks can be the result of:"},{"t":"list","items":["Improperly configured devices - Configuration errors can disable the WLAN. For instance, an administrator could accidently alter a configuration and disable the network, or an intruder with administrator privileges could intentionally disable a WLAN.","A malicious user intentionally interfering with the wireless communication - Their goal is to disable the wireless network completely or to the point where no legitimate device can access the medium.","Accidental interference - WLANs are prone to interference from other wireless devices including microwave ovens, cordless phones, baby monitors, and more, as shown in the figure. The 2.4 GHz band is more prone to interference than the 5 GHz band."]},{"t":"p","md":"To minimize the risk of a DoS attack due to improperly configured devices and malicious attacks, harden all devices, keep passwords secure, create backups, and ensure that all configuration changes are incorporated off-hours."},{"t":"p","md":"Monitor the WLAN for any accidental interference problems and address them as they appear. Because the 2.4 GHz band is used by other devices types, the 5 GHz should be used in areas prone to interference."},{"t":"p","md":"Defeating an attack like an MITM attack depends on the sophistication of the WLAN infrastructure and the vigilance in monitoring activity on the network. The process begins with identifying legitimate devices on the WLAN. To do this, users must be authenticated. After all of the legitimate devices are known, the network can be monitored for abnormal devices or traffic."}]},{"id":"5.2.4","title":"Rogue Access Points","blocks":[{"t":"p","md":"A rogue AP is an AP or wireless router that has been connected to a corporate network without explicit authorization and against corporate policy. Anyone with access to the premises can install (maliciously or non-maliciously) an inexpensive wireless router that can potentially allow access to a secure network resource."},{"t":"p","md":"Once connected, the rogue AP can be used by an attacker to capture MAC addresses, capture data packets, gain access to network resources, or launch a man-in-the-middle attack."},{"t":"p","md":"A personal network hotspot could also be used as a rogue AP. For example, a user with secure network access enables their authorized Windows host to become a Wi-Fi AP. Doing so circumvents the security measures and other unauthorized devices can now access network resources as a shared device."},{"t":"p","md":"To prevent the installation of rogue APs, organizations must configure WLCs with rogue AP policies, as shown in the figure, and use monitoring software to actively monitor the radio spectrum for unauthorized APs."}]},{"id":"5.2.5","title":"Man-in-the-Middle Attack","blocks":[{"t":"p","md":"In a man-in-the-middle (MITM) attack, the hacker is positioned in between two legitimate entities in order to read or modify the data that passes between the two parties. There are many ways in which to create a MITM attack."},{"t":"p","md":"A popular wireless MITM attack is called the “evil twin AP” attack, where an attacker introduces a rogue AP and configures it with the same SSID as a legitimate AP, as shown in the figure. Locations offering free Wi-Fi, such as airports, cafes, and restaurants, are particularly popular spots for this type of attack due to the open authentication."},{"t":"p","md":"Wireless clients attempting to connect to a WLAN would see two APs with the same SSID offering wireless access. Those near the rogue AP find the stronger signal and most likely associate with it. User traffic is now sent to the rogue AP, which in turn captures the data and forwards it to the legitimate AP, as shown in the figure. Return traffic from the legitimate AP is sent to the rogue AP, captured, and then forwarded to the unsuspecting user. The attacker can steal the user’s passwords, personal information, gain access to their device, and compromise the system."}]}],"quiz":[{"type":"mcq","q":"Which of the following is most likely NOT the source of a wireless DoS attack?","options":["Radio interference","Improperly configured devices","Rogue AP","Malicious user"],"answers":["Rogue AP"],"id":"5.2-q7","lesson":"5.2.3","why":"That's right, well done. Improperly configured devices, malicious users, and accidental interference are likely sources for a wireless DoS attack."},{"type":"mcq","q":"True or False: A rogue AP is a misconfigured AP connected to the network and a possible source of DoS attacks.","options":["True","False"],"answers":["False"],"id":"5.2-q8","lesson":"5.2.3","why":"That's right, well done. The correct answer is False: A rogue AP is an AP or wireless router that has been connected to a corporate network without explicit authorization and against corporate policy."},{"type":"mcq","q":"What type of attack is an “evil twin AP” attack?","options":["DoS","MITM","Wireless intruder","Radio interference"],"answers":["MITM"],"id":"5.2-q9","lesson":"5.2.3","why":"That's right, well done. An “evil twin AP” attack is a popular wireless MITM attack where an attacker introduces a rogue AP and configures it with the same SSID as a legitimate AP."}]},{"id":"5.3","title":"Secure WLANs","lessons":[{"id":"5.3.1","title":"Video - Secure WLANs","blocks":[{"t":"note","variant":"info","title":"Видео курса","md":"5.3.1 Video - Secure WLANs. Само видео в выгрузку не попало."},{"t":"p","md":"The previous topic explained the WLAN threats. What can you do to secure the WLAN? Click Play to view a video about techniques for securing WLANs."}]},{"id":"5.3.2","title":"SSID Cloaking and MAC Address Filtering","blocks":[{"t":"p","md":"Wireless signals can travel through solid matter, such as ceilings, floors, walls, outside of the home, or office space. Without stringent security measures in place, installing a WLAN can be the equivalent of putting Ethernet ports everywhere, even outside."},{"t":"p","md":"To address the threats of keeping wireless intruders out and protecting data, two early security features were used and are still available on most routers and APs: SSID cloaking and MAC address filtering."},{"t":"p","md":"SSID Cloaking"},{"t":"p","md":"APs and some wireless routers allow the SSID beacon frame to be disabled, as shown in the figure. Wireless clients must manually configure the SSID to connect to the network."},{"t":"p","md":"MAC Addresses Filtering"},{"t":"p","md":"An administrator can manually permit or deny clients wireless access based on their physical MAC hardware address. In the figure, the router is configured to permit two MAC addresses. Devices with different MAC addresses will not be able to join the 2.4GHz WLAN."}]},{"id":"5.3.3","title":"802.11 Original Authentication Methods","blocks":[{"t":"p","md":"Although these two features would deter most users, the reality is that neither SSID cloaking nor MAC address filtering would deter a crafty intruder. SSIDs are easily discovered even if APs do not broadcast them and MAC addresses can be spoofed. The best way to secure a wireless network is to use authentication and encryption systems."},{"t":"p","md":"Two types of authentication were introduced with the original 802.11 standard:"},{"t":"list","items":["Open system authentication- Any wireless client should easily be able to connect and should only be used in situations where security is of no concern, such as those providing free internet access like cafes, hotels, and in remote areas. The wireless client is responsible for providing security such as using a virtual private network (VPN) to connect securely. VPNs provide authentication and encryption services. VPNs are beyond the scope of this topic.","Shared key authentication- Provides mechanisms, such as WEP, WPA, WPA2, and WPA3 to authenticate and encrypt data between a wireless client and AP. However, the password must be pre-shared between both parties to connect."]},{"t":"p","md":"The following chart summarizes these authentication methods."}]},{"id":"5.3.4","title":"Shared Key Authentication Methods","blocks":[{"t":"p","md":"There are four shared key authentication techniques available, as described in the table. Until the availability of WPA3 devices becomes ubiquitous, wireless networks should use the WPA2 standard."}]},{"id":"5.3.5","title":"Authenticating a Home User","blocks":[{"t":"p","md":"Home routers typically have two choices for authentication: WPA and WPA2. WPA2 is the stronger of the two. The figure shows the option to select one of two WPA2 authentication methods:"},{"t":"list","items":["Personal - Intended for home or small office networks, users authenticate using a pre-shared key (PSK). Wireless clients authenticate with the wireless router using a pre-shared password. No special authentication server is required.","Enterprise - Intended for enterprise networks but requires a Remote Authentication Dial-In User Service (RADIUS) authentication server. Although more complicated to set up, it provides additional security. The device must be authenticated by the RADIUS server and then users must authenticate using 802.1X standard, which uses the Extensible Authentication Protocol (EAP) for authentication."]},{"t":"p","md":"In the figure, the administrator is configuring the wireless router with WPA2 Personal authentication on the 2.4 GHz band."}]},{"id":"5.3.6","title":"Encryption Methods","blocks":[{"t":"p","md":"Encryption is used to protect data. If an intruder has captured encrypted data, they would not be able to decipher it in any reasonable amount of time."},{"t":"p","md":"The WPA and WPA2 standards use the following encryption protocols:"},{"t":"list","items":["Temporal Key Integrity Protocol (TKIP) - TKIP is the encryption method used by WPA. It provides support for legacy WLAN equipment by addressing the original flaws associated with the 802.11 WEP encryption method. It makes use of WEP, but encrypts the Layer 2 payload using TKIP, and carries out a Message Integrity Check (MIC) in the encrypted packet to ensure the message has not been altered.","Advanced Encryption Standard (AES) - AES is the encryption method used by WPA2. It is the preferred method because it is a far stronger method of encryption. It uses the Counter Cipher Mode with Block Chaining Message Authentication Code Protocol (CCMP) that allows destination hosts to recognize if the encrypted and non-encrypted bits have been altered."]},{"t":"p","md":"In the figure, the administrator is configuring the wireless router to use WPA2 with AES encryption on the 2.4 GHz band."}]},{"id":"5.3.7","title":"Authentication in the Enterprise","blocks":[{"t":"p","md":"In networks that have stricter security requirements, an additional authentication or login is required to grant wireless clients such access. The Enterprise security mode choice requires an Authentication, Authorization, and Accounting (AAA) RADIUS server."},{"t":"list","items":["RADIUS Server IP address - This is the reachable address of the RADIUS server.","UDP port numbers - Officially assigned UDP ports 1812 for RADIUS Authentication, and 1813 for RADIUS Accounting, but can also operate using UDP ports 1645 and 1646, as shown in the figure.","Shared key - Used to authenticate the AP with the RADIUS server."]},{"t":"p","md":"In the figure, the administrator is configuring the wireless router with WPA2 Enterprise authentication using AES encryption. The RADIUS server IPv4 address is configured as well with a strong password to be used between the wireless router and the RADIUS server."},{"t":"p","md":"The shared key is not a parameter that must be configured on a wireless client. It is only required on the AP to authenticate with the RADIUS server. User authentication and authorization is handled by the 802.1X standard, which provides a centralized, server-based authentication of end users."},{"t":"p","md":"The 802.1X login process uses EAP to communicate with the AP and RADIUS server. EAP is a framework for authenticating network access. It can provide a secure authentication mechanism and negotiate a secure private key which can then be used for a wireless encryption session using TKIP or AES encryption."}]},{"id":"5.3.8","title":"WPA3","blocks":[{"t":"p","md":"At the time of this writing, devices that support WPA3 authentication were not readily available. However, WPA2 is no longer considered secure. WPA3, if available, is the recommended 802.11 authentication method. WPA3 includes four features:"},{"t":"list","items":["WPA3-Personal","WPA3-Enterprise","Open Networks","Internet of Things (IoT) Onboarding"]},{"t":"accordion","items":[{"title":"WPA3-Personal","md":"In WPA2-Personal, threat actors can listen in on the “handshake” between a wireless client and the AP and use a brute force attack to try and guess the PSK. WPA3-Personal thwarts this attack by using Simultaneous Authentication of Equals (SAE), a feature specified in the IEEE 802.11-2016. The PSK is never exposed, making it impossible for the threat actor to guess."},{"title":"WPA3-Enterprise","md":"WPA3-Enterprise still uses 802.1X/EAP authentication. However, it requires the use of a 192-bit cryptographic suite and eliminates the mixing of security protocols for previous 802.11 standards. WPA3-Enterprise adheres to the Commercial National Security Algorithm (CNSA) Suite which is commonly used in high security Wi-Fi networks."},{"title":"Open Networks","md":"Open networks in WPA2 send user traffic in unauthenticated, clear text. In WPA3, open or public Wi-Fi networks still do not use any authentication. However, they do use Opportunistic Wireless Encryption (OWE) to encrypt all wireless traffic."},{"title":"IoT Onboarding","md":"Although WPA2 included Wi-Fi Protected Setup (WPS) to quickly onboard devices without configuring them first, WPS is vulnerable to a variety of attacks and is not recommended. Furthermore, IoT devices are typically headless, meaning they have no built-in GUI for configuration, and needed any easy way to get connected to the wireless network. The Device Provisioning Protocol (DPP) was designed to address this need. Each headless device has a hardcoded public key. The key is typically stamped on the outside of the device or its packaging as a Quick Response (QR) code. The network administrator can scan the QR code and quickly onboard the device. Although not strictly part of the WPA3 standard, DPP will replace WPS over time."}]}]},{"id":"5.3.10","title":"Packet Tracer - Configure Basic Wireless Security","blocks":[{"t":"note","variant":"info","title":"Packet Tracer","md":"5.3.10 Packet Tracer - Configure Basic Wireless Security. Файл активности в выгрузку не попал."},{"t":"p","md":"In this activity, you will configure wireless security using WPA2 Personal."}]},{"id":"5.3.11","title":"Packet Tracer - Troubleshoot a Wireless Connection","blocks":[{"t":"note","variant":"info","title":"Packet Tracer","md":"5.3.11 Packet Tracer - Troubleshoot a Wireless Connection. Файл активности в выгрузку не попал."},{"t":"p","md":"This Packet Tracer Tutored Activity (PTTA) has features that provide hints throughout the activity, at the level that you specify. You can practice your troubleshooting skills with minimal or as much guidance as you need."},{"t":"p","md":"In this activity, you will troubleshoot a wireless connection."},{"t":"p","md":"5.4 Wireless Network Communication Summary"}]}],"quiz":[{"type":"multi","q":"What are the best ways to secure WLANs? (Choose two.)","options":["Authentication","SSID cloaking","Encryption","MAC address filtering"],"answers":["Authentication","Encryption"],"id":"5.3-q10","lesson":"5.3.8","why":"That’s right, well done. Neither SSID cloaking nor MAC address filtering would deter a crafty intruder. The best way to secure a wireless network is to use authentication and encryption systems."},{"type":"mcq","q":"Which of the following authentication methods does not use a password shared between the wireless client and the AP?","options":["WEP","WPA","WPA2","WPA3","Open"],"answers":["Open"],"id":"5.3-q11","lesson":"5.3.8","why":"That’s right, well done. WEP, WPA, WPA2, and WPA3 all use a pre-shared password between the wireless client and the AP."},{"type":"mcq","q":"Which encryption method is used by the original 802.11 specification?","options":["AES","TKIP","AES or TKIP","RC4"],"answers":["RC4"],"id":"5.3-q12","lesson":"5.3.8","why":"That’s right, well done. The original 802.11 specification was designed to secure the data using the Rivest Cipher 4 (RC4) encryption method with a static key."},{"type":"mcq","q":"Which of the following encryption methods uses CCMP to recognize if the encrypted and non-encrypted bits have been altered?","options":["RC4","TKIP","AES"],"answers":["AES"],"id":"5.3-q13","lesson":"5.3.8","why":"That’s right, well done. AES uses the Counter Cipher Mode with Block Chaining Message Authentication Code Protocol (CCMP) that allows destination hosts to recognize if the encrypted and non-encrypted bits have been altered."},{"type":"multi","q":"Which of the following authentication methods has the user enter a pre-shared password? (Choose two)","options":["Open","WPA Personal","WPA Enterprise","WPA2 Personal","WPA2 Enterprise"],"answers":["WPA Personal","WPA2 Personal"],"id":"5.3-q14","lesson":"5.3.8","why":"That’s right, well done. WPA Personal and WPA2 Personal both use a pre-shared password that wireless clients use to authenticate with the AP."}]},{"id":"5.4","title":"Wireless Network Communication Summary","lessons":[{"id":"5.4.1","title":"What did I learn in this module?","blocks":[{"t":"p","md":"Click the headings to see a summary of the topics covered in this module."},{"t":"accordion","items":[{"title":"Wireless Communications","md":"Wireless networking devices connect to an Access Point (AP) or Wireless LAN Controller (WLC) suing the 802.11 standard. The 802.11 frame format is similar to the Ethernet frame format, except that it contains additional fields. WLAN devices use carrier sense multiple access with collision avoidance (CSMA/CA) as the method to determine how and when to send data on the network. To connect to the WLAN, wireless devices complete a three-stage process to discover a wireless AP, to authenticate with the AP, and to associate with the AP. APs can be configured autonomously (individually) or by using a WLC to simplify the configuration and monitoring of numerous access points."},{"title":"WLAN Threats","md":"Wireless networks are susceptible to threats, including: data interception, wireless intruders, DoS attacks, and rogue APs. Wireless DoS attacks can be the result of: improperly configured devices, a malicious user intentionally interfering with the wireless communication, and accidental interference. A rogue AP is an AP or wireless router that has been connected to a corporate network without explicit authorization. When connected, a threat actor can use the rogue AP to capture MAC addresses, capture data packets, gain access to network resources, or launch a MITM attack. In a MITM attack, the threat actor is positioned in between two legitimate entities to read or modify the data that passes between the two parties. A popular wireless MITM attack is called the “evil twin AP” attack, where a threat actor introduces a rogue AP and configures it with the same SSID as a legitimate AP. To prevent the installation of rogue APs, organizations must configure WLCs with rogue AP policies."},{"title":"Secure WLANs","md":"To keep wireless intruders out and protect data, two early security features are still available on most routers and APs: SSID cloaking and MAC address filtering. There are four shared key authentication techniques available: WEP, WPA, WPA2, and WPA3 (Devices with WPA3 are not yet readily available.). Home routers typically have two choices for authentication: WPA and WPA2. WPA2 is the stronger of the two. Encryption is used to protect data. The WPA and WPA2 standards use the following encryption protocols: TKIP and AES. In networks that have stricter security requirements, an additional authentication or login is required to grant wireless clients access. The Enterprise security mode choice requires an Authentication, Authorization, and Accounting (AAA) RADIUS server."}]},{"t":"p","md":"Objectives"},{"t":"p","md":"Configure basic wireless security using WPA2 Personal."},{"t":"p","md":"Background / Scenario"},{"t":"p","md":"A small business owner learns that the wireless networkshould be secured from unauthorized access. He has decided to use WPA2 Personalfor his network."},{"t":"p","md":"Instructions"},{"t":"p","md":"Part 1: Verify connectivity."},{"t":"p","md":"a. Access the Desktop > Web Browser on the laptop."},{"t":"p","md":"b. Enter www.cisco.pka into the URL. The webpage should display."},{"t":"p","md":"Part 2: Configure basic wireless security."},{"t":"p","md":"a. Enter 192.168.1.1 in the web browser to access the wirelessrouter. Enter admin as the username and password."},{"t":"p","md":"b. Click Wireless menu. Select Wireless Security menu."},{"t":"p","md":"c. The security mode is disabled currently. For 2.4 GHz network, change thesecurity mode to WPA2 Personal. For the 5 GHznetworks, you can leave them as disabled."},{"t":"p","md":"d. In the Passphrase field, enter Network123."},{"t":"p","md":"e. Scroll down to the bottom of the page and click Save Settings. Close the web browser."},{"t":"p","md":"Part 3: Update the wirelesssettings on Laptop."},{"t":"p","md":"a. Click PC Wireless in the Desktop tab."},{"t":"p","md":"b. Click Connect tab. Select the Academy and click Connect."},{"t":"p","md":"c. Enter Network123 as the pre-sharedkey. Click Connect."},{"t":"p","md":"d. Close the PC Wireless window."},{"t":"p","md":"Part 4: Verify connectivity."},{"t":"p","md":"a. Access the Web Browser."},{"t":"p","md":"b. Enter www.cisco.pka into the URL. Verify that the web page displays after the addition of basic wirelessconfiguration."},{"t":"p","md":"c. If you are unable to access the web page, verify your wireless settingson the wireless router and the laptop. Also verify that laptop is connected tothe wireless router."},{"t":"p","md":"© 2016 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public"}]}],"quiz":[{"type":"mcq","q":"City Center Hospital provides WLAN connectivity to its employees. The security policy requires that communication between employee mobile devices and the access points must be encrypted. What is the purpose of this requirement?","options":["to prevent a computer virus on a mobile device from infecting other devices","to prevent the contents of intercepted messages from being read","to block denial of service attacks originating on the Internet","to ensure that users who connect to an AP are employees of the hospital"],"answers":["to prevent the contents of intercepted messages from being read"],"id":"5.4-q15","lesson":"5.4.1","why":"Encrypting data during communication prevents the contents from intercepted communications from being read."},{"type":"mcq","q":"What is a feature that can be used by an administrator to prevent unauthorized users from connecting to a wireless access point?","options":["MAC filtering","software firewall","proxy server","WPA encryption"],"answers":["MAC filtering"],"id":"5.4-q16","lesson":"5.4.1","why":"Limiting a certain set of MAC addresses to connect to an access point is a way to ensure that only those devices are allowed to use the wireless network. A software firewall is used to prevent other users from gaining access to the protected computer. Configuring WPA encryption does not guarantee that the unauthorized user will not find the way to connect to the network. A proxy server is mostly used to filter traffic based on content."},{"type":"mcq","q":"What is an advantage of SSID cloaking?​","options":["It provides free Internet access in public locations where knowing the SSID is of no concern.","Clients will have to manually identify the SSID to connect to the network.","SSIDs are very difficult to discover because APs do not broadcast them.","It is the best way to secure a wireless network."],"answers":["Clients will have to manually identify the SSID to connect to the network."],"id":"5.4-q17","lesson":"5.4.1","why":"SSID cloaking is a weak security feature that is performed by APs and some wireless routers by allowing the SSID beacon frame to be disabled. Although clients have to manually identify the SSID to be connected to the network, the SSID can be easily discovered. The best way to secure a wireless network is to use authentication and encryption systems. SSID cloaking does not provide free Internet access in public locations, but an open system authentication could be used in that situation."},{"type":"mcq","q":"For which discovery mode will an AP generate the most traffic on a WLAN?","options":["passive mode","open mode","mixed mode","active mode"],"answers":["passive mode"],"id":"5.4-q18","lesson":"5.4.1","why":"The two discovery modes are passive and active. When operating in passive mode, an AP will generate more traffic as it continually broadcasts beacon frames to potential clients. In active mode, the client initiates the discovery process instead of the AP. Mixed mode refers to network mode settings, and open mode refers to security parameter settings."},{"type":"mcq","q":"At a local college, students are allowed to connect to the wireless network without using a password. Which mode is the access point using?","options":["network","open","passive","shared-key"],"answers":["open"],"id":"5.4-q19","lesson":"5.4.1","why":"Network mode is not an authentication mode, it refers to WLAN standards for 802.11a/b/g/n/ac/ad and the ability for access points to operate in mixed mode to support different standards, but it is not an authentication mode. Open authentication is a null authentication mode because wireless connectivity is granted to any wireless device. This authentication is used where security is not a concern. Passive mode is not an authentication mode, it refers to the open advertisement of the SSID, standards, and security settings by an access point. Shared-key authentication uses a pre-shared key between the client and the access point."},{"type":"mcq","q":"An employee connects wirelessly to the company network using a cell phone. The employee then configures the cell phone to act as a wireless access point that will allow new employees to connect to the company network. Which type of security threat best describes this situation?","options":["cracking","denial of service","rogue access point","spoofing"],"answers":["rogue access point"],"id":"5.4-q20","lesson":"5.4.1","why":"Configuring the cell phone to act as a wireless access point means that the cell phone is now a rogue access point. The employee unknowingly breached the security of the company network by allowing a user to access the network without connecting through the company access point. Cracking is the process of obtaining passwords from data stored or transmitted on a network. Denial of service attacks refer to sending large amounts of data to a networked device, such as a server, to prevent legitimate access to the server. Spoofing refers to access gained to a network or data by an attacker appearing to be a legitimate network device or user."},{"type":"mcq","q":"The company handbook states that employees cannot have microwave ovens in their offices. Instead, all employees must use the microwave ovens located in the employee cafeteria. What wireless security risk is the company trying to avoid?","options":["accidental interference","improperly configured devices","interception of data","rogue access points"],"answers":["accidental interference"],"id":"5.4-q21","lesson":"5.4.1","why":"Denial of service attacks can be the result of improperly configured devices which can disable the WLAN. Accidental interference from devices such as microwave ovens and cordless phones can impact both the security and performance of a WLAN. Man-in-the-middle attacks can allow an attacker to intercept data. Rogue access points can allow unauthorized users to access the wireless network."},{"type":"multi","q":"Which two roles are typically performed by a wireless router that is used in a home or small business? (Choose two.)","options":["repeater","access point","WLAN controller","Ethernet switch","RADIUS authentication server"],"answers":["access point","Ethernet switch"],"id":"5.4-q22","lesson":"5.4.1","why":"In addition to its roles as router, a typical SOHO wireless router acts as both a wireless access point and an Ethernet switch. RADIUS authentication is provided by an external server. A WLAN controller is used in enterprise deployments to manage groups of lightweight access points. A repeater is a device that enhances an incoming signal and retransmits it."},{"type":"mcq","q":"What method of wireless authentication is dependent on a RADIUS authentication server?","options":["WEP","WPA Personal","WPA2 Personal","WPA2 Enterprise"],"answers":["WPA2 Enterprise"],"id":"5.4-q23","lesson":"5.4.1","why":"WPA2 Enterprise relies on an external RADIUS server to authenticate clients when they attempt to connect. WEP and WPA/WPA2 Personal both use a pre-shared key that the clients must know in order to authenticate."},{"type":"mcq","q":"Which wireless encryption method is the most secure?","options":["WPA","WEP","WPA2 with TKIP","WPA2 with AES"],"answers":["WPA2 with AES"],"id":"5.4-q24","lesson":"5.4.1","why":"IEEE 802.11i and WPA2 both use the Advanced Encryption Standard (AES) for encryption. AES is currently considered the strongest encryption protocol. WPA2 does not use TKIP (Temporal Key Integrity Protocol). It is WPA that uses TKIP. Although WPA provides stronger encryption than WEP, it is is not as strong as WPA2 (AES)."},{"type":"mcq","q":"Which parameter is commonly used to identify a wireless network name when a home wireless AP is being configured?","options":["ad hoc","BESS","ESS","SSID"],"answers":["SSID"],"id":"5.4-q25","lesson":"5.4.1","why":"The SSID is used to name a wireless network. This parameter is required in order for a wireless client to attach to a wireless AP."},{"type":"mcq","q":"Which wireless parameter refers to the frequency bands used to transmit data to a wireless access point?","options":["SSID","channel settings","security mode","scanning mode"],"answers":["channel settings"],"id":"5.4-q26","lesson":"5.4.1","why":"An access point can be manually set to a specific frequency band or channel in order to avoid interference with other wireless devices in the area."},{"type":"mcq","q":"Which device can control and manage a large number of corporate APs?","options":["LWAP","router","switch","WLC"],"answers":["WLC"],"id":"5.4-q27","lesson":"5.4.1","why":"A wireless LAN controller (WLC) can be configured to manage multiple lightweight access points (LWAPs). On the WLC, a network administrator can configure SSIDs, security, IP addressing, and other wireless network parameters in a centralized management environment."},{"type":"mcq","q":"A wireless engineer is comparing the deployment of a network using WPA2 versus WPA3 authentication. How is WPA3 authentication more secure when deployed in an open WLAN network in a newly built company-owned cafe shop?","options":["WPA3 uses OWE to encrypt wireless traffic","WPA3 requires the use of a 192-bit cryptographic suite","WPA3 prevents brute force attacks by using SAE","WPA3 uses DPP to securely onboard available IoT devices"],"answers":["WPA3 uses OWE to encrypt wireless traffic"],"id":"5.4-q28","lesson":"5.4.1","why":"WPA3 uses Opportunistic Wireless Encryption (OWE) to encrypt all wireless traffic for open networks."}]}]}
+{
+ "module": 5,
+ "title": "Wireless Network Communication",
+ "islands": [
+  {
+   "id": "5.0",
+   "title": "Introduction",
+   "lessons": [
+    {
+     "id": "5.0.1",
+     "title": "Why should I take this module?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "There are many ways to connect wirelessly. Like everything else involving networks, these connection types are best used in particular situations. They require specific devices and are also prone to certain types of attacks. And of course, there are solutions to mitigate these attacks. The WLAN Concepts module gives you the foundational knowledge you need to understand what Wireless LANs are, what they can do, and how to protect them."
+      }
+     ]
+    },
+    {
+     "id": "5.0.2",
+     "title": "What will I learn in this module?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "This module contains the following:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "3 Videos",
+        "2 Packet Tracer activities",
+        "4 Check Your Understanding activities",
+        "1 Module Quiz"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Module Title: Wireless Network Communication"
+      },
+      {
+       "t": "p",
+       "md": "Module Objective: Troubleshoot a wireless network."
+      },
+      {
+       "t": "table",
+       "headers": [
+        "Topic Title",
+        "Topic Objective"
+       ],
+       "rows": [
+        [
+         "Wireless Communications",
+         "Explain how wireless devices enable network communication."
+        ],
+        [
+         "WLAN Threats",
+         "Describe threats to WLANs."
+        ],
+        [
+         "Secure WLANs",
+         "Troubleshoot a wireless connection."
+        ]
+       ],
+       "caption": "What will I learn in this module?"
+      }
+     ]
+    }
+   ],
+   "quiz": []
+  },
+  {
+   "id": "5.1",
+   "title": "Wireless Communications",
+   "lessons": [
+    {
+     "id": "5.1.1",
+     "title": "Video - WLAN Operation",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Видео курса",
+       "md": "Video - WLAN Operation. Само видео в выгрузку не попало."
+      },
+      {
+       "t": "p",
+       "md": "Watch the video to learn about Wireless LAN (WLAN) operation."
+      }
+     ]
+    },
+    {
+     "id": "5.1.2",
+     "title": "Wireless versus Wired LANs",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "WLANs use Radio Frequencies (RF) instead of cables at the physical layer and MAC sublayer of the data link layer. WLANs share a similar origin with Ethernet LANs. The IEEE has adopted the 802 LAN/MAN portfolio of computer network architecture standards. The two dominant 802 working groups are 802.3 Ethernet, which defined Ethernet for wired LANs, and 802.11 which defined Ethernet for WLANs. There are important differences between the two."
+      },
+      {
+       "t": "p",
+       "md": "WLANs also differ from wired LANs as follows:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "WLANs connect clients to the network through a wireless access point (AP) or wireless router, instead of an Ethernet switch.",
+        "WLANs connect mobile devices that are often battery powered, as opposed to plugged-in LAN devices. Wireless NICs tend to reduce the battery life of a mobile device.",
+        "WLANs support hosts that contend for access on the RF media (frequency bands). 802.11 prescribes collision-avoidance (CSMA/CA) instead of collision-detection (CSMA/CD) for media access to proactively avoid collisions within the media.",
+        "WLANs use a different frame format than wired Ethernet LANs. WLANs require additional information in the Layer 2 header of the frame.",
+        "WLANs raise more privacy issues because radio frequencies can reach outside the facility."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "The table summarizes the differences between wireless and wired LANs."
+      },
+      {
+       "t": "table",
+       "headers": [
+        "Characteristic",
+        "802.11 Wireless LAN",
+        "802.3 Wired Ethernet LANs"
+       ],
+       "rows": [
+        [
+         "Physical Layer",
+         "radio frequency (RF)",
+         "physical cables"
+        ],
+        [
+         "Media Access",
+         "collision avoidance",
+         "collision detection"
+        ],
+        [
+         "Availability",
+         "anyone with a wireless NIC in range of an access point",
+         "physical cable connection required"
+        ],
+        [
+         "Signal Interference",
+         "yes",
+         "minimal"
+        ],
+        [
+         "Regulation",
+         "different regulations by country",
+         "IEEE standard dictates"
+        ]
+       ],
+       "caption": "Wireless versus Wired LANs"
+      }
+     ]
+    },
+    {
+     "id": "5.1.3",
+     "title": "802.11 Frame Structure",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Recall that all Layer 2 frames consist of a header, payload, and Frame Check Sequence (FCS) section. The 802.11 frame format is similar to the Ethernet frame format, except that it contains more fields, as shown in the figure."
+      },
+      {
+       "t": "p",
+       "md": "All 802.11 wireless frames contain the following fields:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Frame Control - This identifies the type of wireless frame and contains subfields for protocol version, frame type, address type, power management, and security settings.",
+        "Duration - This is typically used to indicate the remaining duration needed to receive the next frame transmission.",
+        "Address1 - This usually contains the MAC address of the receiving wireless device or AP.",
+        "Address2 - This usually contains the MAC address of the transmitting wireless device or AP.",
+        "Address3 - This sometimes contains the MAC address of the destination, such as the router interface (default gateway) to which the AP is attached.",
+        "Sequence Control - This contains information to control sequencing and fragmented frames.",
+        "Address4 - This usually missing because it is used only in ad hoc mode.",
+        "Payload - This contains the data for transmission.",
+        "FCS - This is used for Layer 2 error control."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "5.1.4",
+     "title": "CSMA/CA",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "WLANs are half-duplex, shared media configurations. Half-duplex means that only one client can transmit or receive at any given moment. Shared media means that wireless clients can all transmit and receive on the same radio channel. This creates a problem because a wireless client cannot hear while it is sending, which makes it impossible to detect a collision."
+      },
+      {
+       "t": "p",
+       "md": "To resolve this problem, WLANs use carrier sense multiple access with collision avoidance (CSMA/CA) as the method to determine how and when to send data on the network. A wireless client does the following:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Listens to the channel to see if it is idle, which means that is senses no other traffic is currently on the channel. The channel is also called the carrier.",
+        "Sends a ready to send (RTS) message to the AP to request dedicated access to the network.",
+        "Receives a clear to send (CTS) message from the AP granting access to send.",
+        "If the wireless client does not receive a CTS message, it waits a random amount of time before restarting the process.",
+        "After it receives the CTS, it transmits the data.",
+        "All transmissions are acknowledged. If a wireless client does not receive an acknowledgment, it assumes a collision occurred and restarts the process."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "5.1.5",
+     "title": "Wireless Client and AP Association",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "For wireless devices to communicate over a network, they must first associate with an AP or wireless router. An important part of the 802.11 process is discovering a WLAN and subsequently connecting to it. Wireless devices complete the following three stage process, as shown in the figure:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Discover a wireless AP",
+        "Authenticate with AP",
+        "Associate with AP"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "In order to have a successful association, a wireless client and an AP must agree on specific parameters. Parameters must then be configured on the AP and subsequently on the client to enable the negotiation of a successful association."
+      },
+      {
+       "t": "list",
+       "items": [
+        "SSID - The SSID name appears in the list of available wireless networks on a client. In larger organizations that use multiple VLANs to segment traffic, each SSID is mapped to one VLAN. Depending on the network configuration, several APs on a network can share a common SSID.",
+        "Password - This is required from the wireless client to authenticate to the AP.",
+        "Network mode - This refers to the 802.11a/b/g/n/ac/ad WLAN standards. APs and wireless routers can operate in a Mixed mode meaning that they can simultaneously support clients connecting via multiple standards.",
+        "Security mode - This refers to the security parameter settings, such as WEP, WPA, or WPA2. Always enable the highest security level supported.",
+        "Channel settings - This refers to the frequency bands used to transmit wireless data. Wireless routers and APs can scan the radio frequency channels and automatically select an appropriate channel setting. The channel can also be set manually if there is interference with another AP or wireless device."
+       ]
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      }
+     ]
+    },
+    {
+     "id": "5.1.6",
+     "title": "Passive and Active Discover Mode",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Wireless devices must discover and connect to an AP or wireless router. Wireless clients connect to the AP using a scanning (probing) process. This process can be passive or active."
+      },
+      {
+       "t": "p",
+       "md": "Click each mode for more information."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Passive mode",
+         "md": "In passive mode, the AP openly advertises its service by periodically sending broadcast beacon frames containing the SSID, supported standards, and security settings. The primary purpose of the beacon is to allow wireless clients to learn which networks and APs are available in a given area. This allows the wireless clients to choose which network and AP to use."
+        },
+        {
+         "title": "Active mode",
+         "md": "In active mode, wireless clients must know the name of the SSID. The wireless client initiates the process by broadcasting a probe request frame on multiple channels. The probe request includes the SSID name and standards supported. APs configured with the SSID will send a probe response that includes the SSID, supported standards, and security settings. Active mode may be required if an AP or wireless router is configured to not broadcast beacon frames. A wireless client could also send a probe request without a SSID name to discover nearby WLAN networks. APs configured to broadcast beacon frames would respond to the wireless client with a probe response and provide the SSID name. APs with the broadcast SSID feature disabled do not respond."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "5.1.8",
+     "title": "Wireless Devices -AP, LWAP, and WLC",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A common wireless data implementation is enabling devices to connect wirelessly via a LAN. In general, a wireless LAN requires wireless access points and clients that have wireless NICs. Home and small business wireless routers integrate the functions of a router, switch, and access point into one device, as shown in the figure. Note that in small networks, the wireless router may be the only AP because only a small area requires wireless coverage. In larger networks, there can be many APs."
+      },
+      {
+       "t": "p",
+       "md": "All of the control and management functions of the APs on a network can be centralized into a Wireless LAN Controller (WLC). When using a WLC, the APs no longer act autonomously, but instead act as lightweight APs (LWAPs). LWAPs only forward data between the wireless LAN and the WLC. All management functions, such as defining SSIDs and authentication are conducted on the centralized WLC rather than on each individual AP. A major benefit of centralizing the AP management functions in the WLC is simplified configuration and monitoring of numerous access points, among many other benefits."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "multi",
+     "q": "What are two events that can occur in Step 1 (Discovery) of the client and AP association process? (Choose two.)",
+     "options": [
+      "agree with AP to share Open authentication",
+      "send client’s MAC address to AP",
+      "listen for beacon frames to find WLAN SSIDs (passive mode)",
+      "send a probe request to the AP with or without a known SSID (active mode)"
+     ],
+     "answers": [
+      "listen for beacon frames to find WLAN SSIDs (passive mode)",
+      "send a probe request to the AP with or without a known SSID (active mode)"
+     ],
+     "id": "5.1-q1",
+     "lesson": "5.1.7",
+     "why": "That’s right, well done. In Step 1, the following happens: listen for beacon frames to find WLAN SSIDs (passive mode) or send a probe request to the AP with or without a known SSID (active mode)."
+    },
+    {
+     "type": "multi",
+     "q": "What are two events that can occur in Step 2 (Authentication) of the client and AP association process? (Choose two.)",
+     "options": [
+      "send client’s MAC address to AP",
+      "agree with AP to share Open authentication",
+      "receive AP’s MAC address (BSSID)",
+      "initiate shared key authentication process"
+     ],
+     "answers": [
+      "agree with AP to share Open authentication",
+      "initiate shared key authentication process"
+     ],
+     "id": "5.1-q2",
+     "lesson": "5.1.7",
+     "why": "That’s right, well done. In Step 2, the following occurs: agree with AP to share Open authentication or initiate the shared key authentication process."
+    },
+    {
+     "type": "multi",
+     "q": "What are three events that can occur in Step 3 (Association) of the client and AP association process? (Choose three.)",
+     "options": [
+      "receive AP’s MAC address (BSSID)",
+      "send client’s MAC address to AP",
+      "agree with AP to share Open authentication",
+      "initiate shared key request",
+      "receive AP’s association identifier (AID)"
+     ],
+     "answers": [
+      "receive AP’s MAC address (BSSID)",
+      "send client’s MAC address to AP",
+      "receive AP’s association identifier (AID)"
+     ],
+     "id": "5.1-q3",
+     "lesson": "5.1.7",
+     "why": "That’s right, well done. In Step 3, the following occurs: send client's MAC address to AP, or receive AP's association identifier (AID)."
+    },
+    {
+     "type": "mcq",
+     "q": "Which device must connect to another device to gain access to the network?",
+     "options": [
+      "end devices",
+      "wireless access point",
+      "switch",
+      "router"
+     ],
+     "answers": [
+      "end devices"
+     ],
+     "id": "5.1-q4",
+     "lesson": "5.1.9",
+     "why": "That’s right, well done. End devices must connect to another device to gain access to the network."
+    },
+    {
+     "type": "mcq",
+     "q": "Which device connects wireless clients to the network?",
+     "options": [
+      "switch",
+      "router",
+      "wireless access point (WAP)",
+      "end device"
+     ],
+     "answers": [
+      "wireless access point (WAP)"
+     ],
+     "id": "5.1-q5",
+     "lesson": "5.1.9",
+     "why": "That’s right, well done. Wireless access points connect wireless clients to the network."
+    },
+    {
+     "type": "mcq",
+     "q": "Which device uses MAC addresses to determine the exit port?",
+     "options": [
+      "switch",
+      "router",
+      "end device",
+      "wireless LAN Controller"
+     ],
+     "answers": [
+      "switch"
+     ],
+     "id": "5.1-q6",
+     "lesson": "5.1.9",
+     "why": "That’s right, well done. A switch uses a MAC address to determine the exit port."
+    }
+   ]
+  },
+  {
+   "id": "5.2",
+   "title": "WLAN Threats",
+   "lessons": [
+    {
+     "id": "5.2.1",
+     "title": "Video - WLAN Threats",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Видео курса",
+       "md": "Video - WLAN Threats. Само видео в выгрузку не попало."
+      },
+      {
+       "t": "p",
+       "md": "The previous topics covered the WLAN components and configuration. Here you will learn about WLAN threats."
+      },
+      {
+       "t": "p",
+       "md": "Click Play to view a video about threats to WLANs."
+      }
+     ]
+    },
+    {
+     "id": "5.2.2",
+     "title": "Wireless Security Overview",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A WLAN is open to anyone within range of an AP and the appropriate credentials to associate to it. With a wireless NIC and knowledge of cracking techniques, an attacker may not have to physically enter the workplace to gain access to a WLAN."
+      },
+      {
+       "t": "p",
+       "md": "Attacks can be generated by outsiders, disgruntled employees, and even unintentionally by employees. Wireless networks are specifically susceptible to several threats, including:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Interception of data - Wireless data should be encrypted to prevent it from being read by eavesdroppers.",
+        "Wireless intruders - Unauthorized users attempting to access network resources can be deterred through effective authentication techniques.",
+        "Denial of Service (DoS) Attacks - Access to WLAN services can be compromised either accidentally or maliciously. Various solutions exist depending on the source of the DoS attack.",
+        "Rogue APs - Unauthorized APs installed by a well-intentioned user or for malicious purposes can be detected using management software."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "5.2.3",
+     "title": "DoS Attacks",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Wireless DoS attacks can be the result of:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Improperly configured devices - Configuration errors can disable the WLAN. For instance, an administrator could accidently alter a configuration and disable the network, or an intruder with administrator privileges could intentionally disable a WLAN.",
+        "A malicious user intentionally interfering with the wireless communication - Their goal is to disable the wireless network completely or to the point where no legitimate device can access the medium.",
+        "Accidental interference - WLANs are prone to interference from other wireless devices including microwave ovens, cordless phones, baby monitors, and more, as shown in the figure. The 2.4 GHz band is more prone to interference than the 5 GHz band."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "To minimize the risk of a DoS attack due to improperly configured devices and malicious attacks, harden all devices, keep passwords secure, create backups, and ensure that all configuration changes are incorporated off-hours."
+      },
+      {
+       "t": "p",
+       "md": "Monitor the WLAN for any accidental interference problems and address them as they appear. Because the 2.4 GHz band is used by other devices types, the 5 GHz should be used in areas prone to interference."
+      }
+     ]
+    },
+    {
+     "id": "5.2.4",
+     "title": "Rogue Access Points",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A rogue AP is an AP or wireless router that has been connected to a corporate network without explicit authorization and against corporate policy. Anyone with access to the premises can install (maliciously or non-maliciously) an inexpensive wireless router that can potentially allow access to a secure network resource."
+      },
+      {
+       "t": "p",
+       "md": "Once connected, the rogue AP can be used by an attacker to capture MAC addresses, capture data packets, gain access to network resources, or launch a man-in-the-middle attack."
+      },
+      {
+       "t": "p",
+       "md": "A personal network hotspot could also be used as a rogue AP. For example, a user with secure network access enables their authorized Windows host to become a Wi-Fi AP. Doing so circumvents the security measures and other unauthorized devices can now access network resources as a shared device."
+      },
+      {
+       "t": "p",
+       "md": "To prevent the installation of rogue APs, organizations must configure WLCs with rogue AP policies, as shown in the figure, and use monitoring software to actively monitor the radio spectrum for unauthorized APs."
+      }
+     ]
+    },
+    {
+     "id": "5.2.5",
+     "title": "Man-in-the-Middle Attack",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "In a man-in-the-middle (MITM) attack, the hacker is positioned in between two legitimate entities in order to read or modify the data that passes between the two parties. There are many ways in which to create a MITM attack."
+      },
+      {
+       "t": "p",
+       "md": "A popular wireless MITM attack is called the “evil twin AP” attack, where an attacker introduces a rogue AP and configures it with the same SSID as a legitimate AP, as shown in the figure. Locations offering free Wi-Fi, such as airports, cafes, and restaurants, are particularly popular spots for this type of attack due to the open authentication."
+      },
+      {
+       "t": "p",
+       "md": "Wireless clients attempting to connect to a WLAN would see two APs with the same SSID offering wireless access. Those near the rogue AP find the stronger signal and most likely associate with it. User traffic is now sent to the rogue AP, which in turn captures the data and forwards it to the legitimate AP, as shown in the figure. Return traffic from the legitimate AP is sent to the rogue AP, captured, and then forwarded to the unsuspecting user. The attacker can steal the user’s passwords, personal information, gain access to their device, and compromise the system."
+      },
+      {
+       "t": "p",
+       "md": "Defeating an attack like an MITM attack depends on the sophistication of the WLAN infrastructure and the vigilance in monitoring activity on the network. The process begins with identifying legitimate devices on the WLAN. To do this, users must be authenticated. After all of the legitimate devices are known, the network can be monitored for abnormal devices or traffic."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "mcq",
+     "q": "Which of the following is most likely NOT the source of a wireless DoS attack?",
+     "options": [
+      "Radio interference",
+      "Improperly configured devices",
+      "Rogue AP",
+      "Malicious user"
+     ],
+     "answers": [
+      "Rogue AP"
+     ],
+     "id": "5.2-q7",
+     "lesson": "5.2.6",
+     "why": "That’s right, well done. Improperly configured devices, malicious users, and accidental interference are likely sources for a wireless DoS attack."
+    },
+    {
+     "type": "mcq",
+     "q": "True or False: A rogue AP is a misconfigured AP connected to the network and a possible source of DoS attacks.",
+     "options": [
+      "True",
+      "False"
+     ],
+     "answers": [
+      "False"
+     ],
+     "id": "5.2-q8",
+     "lesson": "5.2.6",
+     "why": "That’s right, well done. The correct answer is False: A rogue AP is an AP or wireless router that has been connected to a corporate network without explicit authorization and against corporate policy."
+    },
+    {
+     "type": "mcq",
+     "q": "What type of attack is an “evil twin AP” attack?",
+     "options": [
+      "DoS",
+      "MITM",
+      "Wireless intruder",
+      "Radio interference"
+     ],
+     "answers": [
+      "MITM"
+     ],
+     "id": "5.2-q9",
+     "lesson": "5.2.6",
+     "why": "That’s right, well done. An “evil twin AP” attack is a popular wireless MITM attack where an attacker introduces a rogue AP and configures it with the same SSID as a legitimate AP."
+    }
+   ]
+  },
+  {
+   "id": "5.3",
+   "title": "Secure WLANs",
+   "lessons": [
+    {
+     "id": "5.3.1",
+     "title": "Video - Secure WLANs",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Видео курса",
+       "md": "Video - Secure WLANs. Само видео в выгрузку не попало."
+      },
+      {
+       "t": "p",
+       "md": "The previous topic explained the WLAN threats. What can you do to secure the WLAN?"
+      },
+      {
+       "t": "p",
+       "md": "Click Play to view a video about techniques for securing WLANs."
+      }
+     ]
+    },
+    {
+     "id": "5.3.2",
+     "title": "SSID Cloaking and MAC Address Filtering",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Wireless signals can travel through solid matter, such as ceilings, floors, walls, outside of the home, or office space. Without stringent security measures in place, installing a WLAN can be the equivalent of putting Ethernet ports everywhere, even outside."
+      },
+      {
+       "t": "p",
+       "md": "To address the threats of keeping wireless intruders out and protecting data, two early security features were used and are still available on most routers and APs: SSID cloaking and MAC address filtering."
+      },
+      {
+       "t": "p",
+       "md": "SSID Cloaking"
+      },
+      {
+       "t": "p",
+       "md": "APs and some wireless routers allow the SSID beacon frame to be disabled, as shown in the figure. Wireless clients must manually configure the SSID to connect to the network."
+      },
+      {
+       "t": "p",
+       "md": "MAC Addresses Filtering"
+      },
+      {
+       "t": "p",
+       "md": "An administrator can manually permit or deny clients wireless access based on their physical MAC hardware address. In the figure, the router is configured to permit two MAC addresses. Devices with different MAC addresses will not be able to join the 2.4GHz WLAN."
+      }
+     ]
+    },
+    {
+     "id": "5.3.3",
+     "title": "802.11 Original Authentication Methods",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Although these two features would deter most users, the reality is that neither SSID cloaking nor MAC address filtering would deter a crafty intruder. SSIDs are easily discovered even if APs do not broadcast them and MAC addresses can be spoofed. The best way to secure a wireless network is to use authentication and encryption systems."
+      },
+      {
+       "t": "p",
+       "md": "Two types of authentication were introduced with the original 802.11 standard:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Open system authentication- Any wireless client should easily be able to connect and should only be used in situations where security is of no concern, such as those providing free internet access like cafes, hotels, and in remote areas. The wireless client is responsible for providing security such as using a virtual private network (VPN) to connect securely. VPNs provide authentication and encryption services. VPNs are beyond the scope of this topic.",
+        "Shared key authentication- Provides mechanisms, such as WEP, WPA, WPA2, and WPA3 to authenticate and encrypt data between a wireless client and AP. However, the password must be pre-shared between both parties to connect."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "The following chart summarizes these authentication methods."
+      }
+     ]
+    },
+    {
+     "id": "5.3.4",
+     "title": "Shared Key Authentication Methods",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "There are four shared key authentication techniques available, as described in the table. Until the availability of WPA3 devices becomes ubiquitous, wireless networks should use the WPA2 standard."
+      },
+      {
+       "t": "table",
+       "headers": [
+        "Authentication Method",
+        "Description"
+       ],
+       "rows": [
+        [
+         "Wired Equivalent Privacy (WEP)",
+         "The original 802.11 specification designed to secure the data using the Rivest Cipher 4 (RC4) encryption method with a static key. However, the key never changes when exchanging packets. This makes it easy to hack. WEP is no longer recommended and should never be used."
+        ],
+        [
+         "Wi-Fi Protected Access (WPA)",
+         "A Wi-Fi Alliance standard that uses WEP, but secures the data with the much stronger Temporal Key Integrity Protocol (TKIP) encryption algorithm. TKIP changes the key for each packet, making it much more difficult to hack."
+        ],
+        [
+         "WPA2",
+         "WPA2 is the current industry standard for securing wireless networks. It uses the Advanced Encryption Standard (AES) for encryption. AES is currently considered the strongest encryption protocol."
+        ],
+        [
+         "WPA3",
+         "The next generation of Wi-Fi security. All WPA3-enabled devices use the latest security methods, disallow outdated legacy protocols, and require the use of Protected Management Frames (PMF). However, devices with WPA3 are not yet readily available."
+        ]
+       ],
+       "caption": "Shared Key Authentication Methods"
+      }
+     ]
+    },
+    {
+     "id": "5.3.5",
+     "title": "Authenticating a Home User",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Home routers typically have two choices for authentication: WPA and WPA2. WPA2 is the stronger of the two. The figure shows the option to select one of two WPA2 authentication methods:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Personal - Intended for home or small office networks, users authenticate using a pre-shared key (PSK). Wireless clients authenticate with the wireless router using a pre-shared password. No special authentication server is required.",
+        "Enterprise - Intended for enterprise networks but requires a Remote Authentication Dial-In User Service (RADIUS) authentication server. Although more complicated to set up, it provides additional security. The device must be authenticated by the RADIUS server and then users must authenticate using 802.1X standard, which uses the Extensible Authentication Protocol (EAP) for authentication."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "In the figure, the administrator is configuring the wireless router with WPA2 Personal authentication on the 2.4 GHz band."
+      }
+     ]
+    },
+    {
+     "id": "5.3.6",
+     "title": "Encryption Methods",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Encryption is used to protect data. If an intruder has captured encrypted data, they would not be able to decipher it in any reasonable amount of time."
+      },
+      {
+       "t": "p",
+       "md": "The WPA and WPA2 standards use the following encryption protocols:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Temporal Key Integrity Protocol (TKIP) - TKIP is the encryption method used by WPA. It provides support for legacy WLAN equipment by addressing the original flaws associated with the 802.11 WEP encryption method. It makes use of WEP, but encrypts the Layer 2 payload using TKIP, and carries out a Message Integrity Check (MIC) in the encrypted packet to ensure the message has not been altered.",
+        "Advanced Encryption Standard (AES) - AES is the encryption method used by WPA2. It is the preferred method because it is a far stronger method of encryption. It uses the Counter Cipher Mode with Block Chaining Message Authentication Code Protocol (CCMP) that allows destination hosts to recognize if the encrypted and non-encrypted bits have been altered."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "In the figure, the administrator is configuring the wireless router to use WPA2 with AES encryption on the 2.4 GHz band."
+      }
+     ]
+    },
+    {
+     "id": "5.3.7",
+     "title": "Authentication in the Enterprise",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "In networks that have stricter security requirements, an additional authentication or login is required to grant wireless clients such access. The Enterprise security mode choice requires an Authentication, Authorization, and Accounting (AAA) RADIUS server."
+      },
+      {
+       "t": "list",
+       "items": [
+        "RADIUS Server IP address - This is the reachable address of the RADIUS server.",
+        "UDP port numbers - Officially assigned UDP ports 1812 for RADIUS Authentication, and 1813 for RADIUS Accounting, but can also operate using UDP ports 1645 and 1646, as shown in the figure.",
+        "Shared key - Used to authenticate the AP with the RADIUS server."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "In the figure, the administrator is configuring the wireless router with WPA2 Enterprise authentication using AES encryption. The RADIUS server IPv4 address is configured as well with a strong password to be used between the wireless router and the RADIUS server."
+      },
+      {
+       "t": "p",
+       "md": "The shared key is not a parameter that must be configured on a wireless client. It is only required on the AP to authenticate with the RADIUS server. User authentication and authorization is handled by the 802.1X standard, which provides a centralized, server-based authentication of end users."
+      },
+      {
+       "t": "p",
+       "md": "The 802.1X login process uses EAP to communicate with the AP and RADIUS server. EAP is a framework for authenticating network access. It can provide a secure authentication mechanism and negotiate a secure private key which can then be used for a wireless encryption session using TKIP or AES encryption."
+      }
+     ]
+    },
+    {
+     "id": "5.3.8",
+     "title": "WPA3",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "At the time of this writing, devices that support WPA3 authentication were not readily available. However, WPA2 is no longer considered secure. WPA3, if available, is the recommended 802.11 authentication method. WPA3 includes four features:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "WPA3-Personal",
+        "WPA3-Enterprise",
+        "Open Networks",
+        "Internet of Things (IoT) Onboarding"
+       ]
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "WPA3-Personal",
+         "md": "In WPA2-Personal, threat actors can listen in on the “handshake” between a wireless client and the AP and use a brute force attack to try and guess the PSK. WPA3-Personal thwarts this attack by using Simultaneous Authentication of Equals (SAE), a feature specified in the IEEE 802.11-2016. The PSK is never exposed, making it impossible for the threat actor to guess."
+        },
+        {
+         "title": "WPA3-Enterprise",
+         "md": "WPA3-Enterprise still uses 802.1X/EAP authentication. However, it requires the use of a 192-bit cryptographic suite and eliminates the mixing of security protocols for previous 802.11 standards. WPA3-Enterprise adheres to the Commercial National Security Algorithm (CNSA) Suite which is commonly used in high security Wi-Fi networks."
+        },
+        {
+         "title": "Open Networks",
+         "md": "Open networks in WPA2 send user traffic in unauthenticated, clear text. In WPA3, open or public Wi-Fi networks still do not use any authentication. However, they do use Opportunistic Wireless Encryption (OWE) to encrypt all wireless traffic."
+        },
+        {
+         "title": "IoT Onboarding",
+         "md": "Although WPA2 included Wi-Fi Protected Setup (WPS) to quickly onboard devices without configuring them first, WPS is vulnerable to a variety of attacks and is not recommended. Furthermore, IoT devices are typically headless, meaning they have no built-in GUI for configuration, and needed any easy way to get connected to the wireless network. The Device Provisioning Protocol (DPP) was designed to address this need. Each headless device has a hardcoded public key. The key is typically stamped on the outside of the device or its packaging as a Quick Response (QR) code. The network administrator can scan the QR code and quickly onboard the device. Although not strictly part of the WPA3 standard, DPP will replace WPS over time."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "5.3.10",
+     "title": "Packet Tracer - Configure Basic Wireless Security",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Packet Tracer",
+       "md": "Packet Tracer - Configure Basic Wireless Security. Сам файл активности в выгрузку не попал, ниже инструкция из курса."
+      },
+      {
+       "t": "p",
+       "md": "In this activity, you will configure wireless security using WPA2 Personal."
+      },
+      {
+       "t": "p",
+       "md": "Objectives"
+      },
+      {
+       "t": "p",
+       "md": "Configure basic wireless security using WPA2 Personal."
+      },
+      {
+       "t": "p",
+       "md": "Background / Scenario"
+      },
+      {
+       "t": "p",
+       "md": "A small business owner learns that the wireless networkshould be secured from unauthorized access. He has decided to use WPA2 Personalfor his network."
+      },
+      {
+       "t": "p",
+       "md": "Instructions"
+      },
+      {
+       "t": "p",
+       "md": "Part 1: Verify connectivity."
+      },
+      {
+       "t": "p",
+       "md": "a. Access the Desktop > Web Browser on the laptop."
+      },
+      {
+       "t": "p",
+       "md": "b. Enter www.cisco.pka into the URL. The webpage should display."
+      },
+      {
+       "t": "p",
+       "md": "Part 2: Configure basic wireless security."
+      },
+      {
+       "t": "p",
+       "md": "a. Enter 192.168.1.1 in the web browser to access the wirelessrouter. Enter admin as the username and password."
+      },
+      {
+       "t": "p",
+       "md": "b. Click Wireless menu. Select Wireless Security menu."
+      },
+      {
+       "t": "p",
+       "md": "c. The security mode is disabled currently. For 2.4 GHz network, change thesecurity mode to WPA2 Personal. For the 5 GHznetworks, you can leave them as disabled."
+      },
+      {
+       "t": "p",
+       "md": "d. In the Passphrase field, enter Network123."
+      },
+      {
+       "t": "p",
+       "md": "e. Scroll down to the bottom of the page and click Save Settings. Close the web browser."
+      },
+      {
+       "t": "p",
+       "md": "Part 3: Update the wirelesssettings on Laptop."
+      },
+      {
+       "t": "p",
+       "md": "a. Click PC Wireless in the Desktop tab."
+      },
+      {
+       "t": "p",
+       "md": "b. Click Connect tab. Select the Academy and click Connect."
+      },
+      {
+       "t": "p",
+       "md": "c. Enter Network123 as the pre-sharedkey. Click Connect."
+      },
+      {
+       "t": "p",
+       "md": "d. Close the PC Wireless window."
+      },
+      {
+       "t": "p",
+       "md": "Part 4: Verify connectivity."
+      },
+      {
+       "t": "p",
+       "md": "a. Access the Web Browser."
+      },
+      {
+       "t": "p",
+       "md": "b. Enter www.cisco.pka into the URL. Verify that the web page displays after the addition of basic wirelessconfiguration."
+      },
+      {
+       "t": "p",
+       "md": "c. If you are unable to access the web page, verify your wireless settingson the wireless router and the laptop. Also verify that laptop is connected tothe wireless router."
+      }
+     ]
+    },
+    {
+     "id": "5.3.11",
+     "title": "Packet Tracer - Troubleshoot a Wireless Connection",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Packet Tracer",
+       "md": "Packet Tracer - Troubleshoot a Wireless Connection. Сам файл активности в выгрузку не попал, ниже инструкция из курса."
+      },
+      {
+       "t": "p",
+       "md": "This Packet Tracer Tutored Activity (PTTA) has features that provide hints throughout the activity, at the level that you specify. You can practice your troubleshooting skills with minimal or as much guidance as you need."
+      },
+      {
+       "t": "p",
+       "md": "In this activity, you will troubleshoot a wireless connection."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "multi",
+     "q": "What are the best ways to secure WLANs? (Choose two.)",
+     "options": [
+      "Authentication",
+      "SSID cloaking",
+      "Encryption",
+      "MAC address filtering"
+     ],
+     "answers": [
+      "Authentication",
+      "Encryption"
+     ],
+     "id": "5.3-q10",
+     "lesson": "5.3.9",
+     "why": "That’s right, well done. Neither SSID cloaking nor MAC address filtering would deter a crafty intruder. The best way to secure a wireless network is to use authentication and encryption systems."
+    },
+    {
+     "type": "mcq",
+     "q": "Which of the following authentication methods does not use a password shared between the wireless client and the AP?",
+     "options": [
+      "WEP",
+      "WPA",
+      "WPA2",
+      "WPA3",
+      "Open"
+     ],
+     "answers": [
+      "Open"
+     ],
+     "id": "5.3-q11",
+     "lesson": "5.3.9",
+     "why": "That’s right, well done. WEP, WPA, WPA2, and WPA3 all use a pre-shared password between the wireless client and the AP."
+    },
+    {
+     "type": "mcq",
+     "q": "Which encryption method is used by the original 802.11 specification?",
+     "options": [
+      "AES",
+      "TKIP",
+      "AES or TKIP",
+      "RC4"
+     ],
+     "answers": [
+      "RC4"
+     ],
+     "id": "5.3-q12",
+     "lesson": "5.3.9",
+     "why": "That’s right, well done. The original 802.11 specification was designed to secure the data using the Rivest Cipher 4 (RC4) encryption method with a static key."
+    },
+    {
+     "type": "mcq",
+     "q": "Which of the following encryption methods uses CCMP to recognize if the encrypted and non-encrypted bits have been altered?",
+     "options": [
+      "RC4",
+      "TKIP",
+      "AES"
+     ],
+     "answers": [
+      "AES"
+     ],
+     "id": "5.3-q13",
+     "lesson": "5.3.9",
+     "why": "That’s right, well done. AES uses the Counter Cipher Mode with Block Chaining Message Authentication Code Protocol (CCMP) that allows destination hosts to recognize if the encrypted and non-encrypted bits have been altered."
+    },
+    {
+     "type": "multi",
+     "q": "Which of the following authentication methods has the user enter a pre-shared password? (Choose two)",
+     "options": [
+      "Open",
+      "WPA Personal",
+      "WPA Enterprise",
+      "WPA2 Personal",
+      "WPA2 Enterprise"
+     ],
+     "answers": [
+      "WPA Personal",
+      "WPA2 Personal"
+     ],
+     "id": "5.3-q14",
+     "lesson": "5.3.9",
+     "why": "That’s right, well done. WPA Personal and WPA2 Personal both use a pre-shared password that wireless clients use to authenticate with the AP."
+    }
+   ]
+  },
+  {
+   "id": "5.4",
+   "title": "Wireless Network Communication Summary",
+   "lessons": [
+    {
+     "id": "5.4.1",
+     "title": "What did I learn in this module?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Click the headings to see a summary of the topics covered in this module."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Wireless Communications",
+         "md": "Wireless networking devices connect to an Access Point (AP) or Wireless LAN Controller (WLC) suing the 802.11 standard. The 802.11 frame format is similar to the Ethernet frame format, except that it contains additional fields. WLAN devices use carrier sense multiple access with collision avoidance (CSMA/CA) as the method to determine how and when to send data on the network. To connect to the WLAN, wireless devices complete a three-stage process to discover a wireless AP, to authenticate with the AP, and to associate with the AP. APs can be configured autonomously (individually) or by using a WLC to simplify the configuration and monitoring of numerous access points."
+        },
+        {
+         "title": "WLAN Threats",
+         "md": "Wireless networks are susceptible to threats, including: data interception, wireless intruders, DoS attacks, and rogue APs. Wireless DoS attacks can be the result of: improperly configured devices, a malicious user intentionally interfering with the wireless communication, and accidental interference. A rogue AP is an AP or wireless router that has been connected to a corporate network without explicit authorization. When connected, a threat actor can use the rogue AP to capture MAC addresses, capture data packets, gain access to network resources, or launch a MITM attack. In a MITM attack, the threat actor is positioned in between two legitimate entities to read or modify the data that passes between the two parties. A popular wireless MITM attack is called the “evil twin AP” attack, where a threat actor introduces a rogue AP and configures it with the same SSID as a legitimate AP. To prevent the installation of rogue APs, organizations must configure WLCs with rogue AP policies."
+        },
+        {
+         "title": "Secure WLANs",
+         "md": "To keep wireless intruders out and protect data, two early security features are still available on most routers and APs: SSID cloaking and MAC address filtering. There are four shared key authentication techniques available: WEP, WPA, WPA2, and WPA3 (Devices with WPA3 are not yet readily available.). Home routers typically have two choices for authentication: WPA and WPA2. WPA2 is the stronger of the two. Encryption is used to protect data. The WPA and WPA2 standards use the following encryption protocols: TKIP and AES. In networks that have stricter security requirements, an additional authentication or login is required to grant wireless clients access. The Enterprise security mode choice requires an Authentication, Authorization, and Accounting (AAA) RADIUS server."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "mcq",
+     "q": "City Center Hospital provides WLAN connectivity to its employees. The security policy requires that communication between employee mobile devices and the access points must be encrypted. What is the purpose of this requirement?",
+     "options": [
+      "to prevent a computer virus on a mobile device from infecting other devices",
+      "to prevent the contents of intercepted messages from being read",
+      "to block denial of service attacks originating on the Internet",
+      "to ensure that users who connect to an AP are employees of the hospital"
+     ],
+     "answers": [
+      "to prevent the contents of intercepted messages from being read"
+     ],
+     "id": "5.4-q15",
+     "lesson": "5.4.1",
+     "why": "Encrypting data during communication prevents the contents from intercepted communications from being read."
+    },
+    {
+     "type": "mcq",
+     "q": "What is a feature that can be used by an administrator to prevent unauthorized users from connecting to a wireless access point?",
+     "options": [
+      "MAC filtering",
+      "software firewall",
+      "proxy server",
+      "WPA encryption"
+     ],
+     "answers": [
+      "MAC filtering"
+     ],
+     "id": "5.4-q16",
+     "lesson": "5.4.1",
+     "why": "Limiting a certain set of MAC addresses to connect to an access point is a way to ensure that only those devices are allowed to use the wireless network. A software firewall is used to prevent other users from gaining access to the protected computer. Configuring WPA encryption does not guarantee that the unauthorized user will not find the way to connect to the network. A proxy server is mostly used to filter traffic based on content."
+    },
+    {
+     "type": "mcq",
+     "q": "What is an advantage of SSID cloaking?​",
+     "options": [
+      "It provides free Internet access in public locations where knowing the SSID is of no concern.",
+      "Clients will have to manually identify the SSID to connect to the network.",
+      "SSIDs are very difficult to discover because APs do not broadcast them.",
+      "It is the best way to secure a wireless network."
+     ],
+     "answers": [
+      "Clients will have to manually identify the SSID to connect to the network."
+     ],
+     "id": "5.4-q17",
+     "lesson": "5.4.1",
+     "why": "SSID cloaking is a weak security feature that is performed by APs and some wireless routers by allowing the SSID beacon frame to be disabled. Although clients have to manually identify the SSID to be connected to the network, the SSID can be easily discovered. The best way to secure a wireless network is to use authentication and encryption systems. SSID cloaking does not provide free Internet access in public locations, but an open system authentication could be used in that situation."
+    },
+    {
+     "type": "mcq",
+     "q": "For which discovery mode will an AP generate the most traffic on a WLAN?",
+     "options": [
+      "passive mode",
+      "open mode",
+      "mixed mode",
+      "active mode"
+     ],
+     "answers": [
+      "passive mode"
+     ],
+     "id": "5.4-q18",
+     "lesson": "5.4.1",
+     "why": "The two discovery modes are passive and active. When operating in passive mode, an AP will generate more traffic as it continually broadcasts beacon frames to potential clients. In active mode, the client initiates the discovery process instead of the AP. Mixed mode refers to network mode settings, and open mode refers to security parameter settings."
+    },
+    {
+     "type": "mcq",
+     "q": "At a local college, students are allowed to connect to the wireless network without using a password. Which mode is the access point using?",
+     "options": [
+      "network",
+      "open",
+      "passive",
+      "shared-key"
+     ],
+     "answers": [
+      "open"
+     ],
+     "id": "5.4-q19",
+     "lesson": "5.4.1",
+     "why": "Network mode is not an authentication mode, it refers to WLAN standards for 802.11a/b/g/n/ac/ad and the ability for access points to operate in mixed mode to support different standards, but it is not an authentication mode. Open authentication is a null authentication mode because wireless connectivity is granted to any wireless device. This authentication is used where security is not a concern. Passive mode is not an authentication mode, it refers to the open advertisement of the SSID, standards, and security settings by an access point. Shared-key authentication uses a pre-shared key between the client and the access point."
+    },
+    {
+     "type": "mcq",
+     "q": "An employee connects wirelessly to the company network using a cell phone. The employee then configures the cell phone to act as a wireless access point that will allow new employees to connect to the company network. Which type of security threat best describes this situation?",
+     "options": [
+      "cracking",
+      "denial of service",
+      "rogue access point",
+      "spoofing"
+     ],
+     "answers": [
+      "rogue access point"
+     ],
+     "id": "5.4-q20",
+     "lesson": "5.4.1",
+     "why": "Configuring the cell phone to act as a wireless access point means that the cell phone is now a rogue access point. The employee unknowingly breached the security of the company network by allowing a user to access the network without connecting through the company access point. Cracking is the process of obtaining passwords from data stored or transmitted on a network. Denial of service attacks refer to sending large amounts of data to a networked device, such as a server, to prevent legitimate access to the server. Spoofing refers to access gained to a network or data by an attacker appearing to be a legitimate network device or user."
+    },
+    {
+     "type": "mcq",
+     "q": "The company handbook states that employees cannot have microwave ovens in their offices. Instead, all employees must use the microwave ovens located in the employee cafeteria. What wireless security risk is the company trying to avoid?",
+     "options": [
+      "accidental interference",
+      "improperly configured devices",
+      "interception of data",
+      "rogue access points"
+     ],
+     "answers": [
+      "accidental interference"
+     ],
+     "id": "5.4-q21",
+     "lesson": "5.4.1",
+     "why": "Denial of service attacks can be the result of improperly configured devices which can disable the WLAN. Accidental interference from devices such as microwave ovens and cordless phones can impact both the security and performance of a WLAN. Man-in-the-middle attacks can allow an attacker to intercept data. Rogue access points can allow unauthorized users to access the wireless network."
+    },
+    {
+     "type": "multi",
+     "q": "Which two roles are typically performed by a wireless router that is used in a home or small business? (Choose two.)",
+     "options": [
+      "repeater",
+      "access point",
+      "WLAN controller",
+      "Ethernet switch",
+      "RADIUS authentication server"
+     ],
+     "answers": [
+      "access point",
+      "Ethernet switch"
+     ],
+     "id": "5.4-q22",
+     "lesson": "5.4.1",
+     "why": "In addition to its roles as router, a typical SOHO wireless router acts as both a wireless access point and an Ethernet switch. RADIUS authentication is provided by an external server. A WLAN controller is used in enterprise deployments to manage groups of lightweight access points. A repeater is a device that enhances an incoming signal and retransmits it."
+    },
+    {
+     "type": "mcq",
+     "q": "What method of wireless authentication is dependent on a RADIUS authentication server?",
+     "options": [
+      "WEP",
+      "WPA Personal",
+      "WPA2 Personal",
+      "WPA2 Enterprise"
+     ],
+     "answers": [
+      "WPA2 Enterprise"
+     ],
+     "id": "5.4-q23",
+     "lesson": "5.4.1",
+     "why": "WPA2 Enterprise relies on an external RADIUS server to authenticate clients when they attempt to connect. WEP and WPA/WPA2 Personal both use a pre-shared key that the clients must know in order to authenticate."
+    },
+    {
+     "type": "mcq",
+     "q": "Which wireless encryption method is the most secure?",
+     "options": [
+      "WPA",
+      "WEP",
+      "WPA2 with TKIP",
+      "WPA2 with AES"
+     ],
+     "answers": [
+      "WPA2 with AES"
+     ],
+     "id": "5.4-q24",
+     "lesson": "5.4.1",
+     "why": "IEEE 802.11i and WPA2 both use the Advanced Encryption Standard (AES) for encryption. AES is currently considered the strongest encryption protocol. WPA2 does not use TKIP (Temporal Key Integrity Protocol). It is WPA that uses TKIP. Although WPA provides stronger encryption than WEP, it is is not as strong as WPA2 (AES)."
+    },
+    {
+     "type": "mcq",
+     "q": "Which parameter is commonly used to identify a wireless network name when a home wireless AP is being configured?",
+     "options": [
+      "ad hoc",
+      "BESS",
+      "ESS",
+      "SSID"
+     ],
+     "answers": [
+      "SSID"
+     ],
+     "id": "5.4-q25",
+     "lesson": "5.4.1",
+     "why": "The SSID is used to name a wireless network. This parameter is required in order for a wireless client to attach to a wireless AP."
+    },
+    {
+     "type": "mcq",
+     "q": "Which wireless parameter refers to the frequency bands used to transmit data to a wireless access point?",
+     "options": [
+      "SSID",
+      "channel settings",
+      "security mode",
+      "scanning mode"
+     ],
+     "answers": [
+      "channel settings"
+     ],
+     "id": "5.4-q26",
+     "lesson": "5.4.1",
+     "why": "An access point can be manually set to a specific frequency band or channel in order to avoid interference with other wireless devices in the area."
+    },
+    {
+     "type": "mcq",
+     "q": "Which device can control and manage a large number of corporate APs?",
+     "options": [
+      "LWAP",
+      "router",
+      "switch",
+      "WLC"
+     ],
+     "answers": [
+      "WLC"
+     ],
+     "id": "5.4-q27",
+     "lesson": "5.4.1",
+     "why": "A wireless LAN controller (WLC) can be configured to manage multiple lightweight access points (LWAPs). On the WLC, a network administrator can configure SSIDs, security, IP addressing, and other wireless network parameters in a centralized management environment."
+    },
+    {
+     "type": "mcq",
+     "q": "A wireless engineer is comparing the deployment of a network using WPA2 versus WPA3 authentication. How is WPA3 authentication more secure when deployed in an open WLAN network in a newly built company-owned cafe shop?",
+     "options": [
+      "WPA3 uses OWE to encrypt wireless traffic",
+      "WPA3 requires the use of a 192-bit cryptographic suite",
+      "WPA3 prevents brute force attacks by using SAE",
+      "WPA3 uses DPP to securely onboard available IoT devices"
+     ],
+     "answers": [
+      "WPA3 uses OWE to encrypt wireless traffic"
+     ],
+     "id": "5.4-q28",
+     "lesson": "5.4.1",
+     "why": "WPA3 uses Opportunistic Wireless Encryption (OWE) to encrypt all wireless traffic for open networks."
+    }
+   ]
+  }
+ ]
+}

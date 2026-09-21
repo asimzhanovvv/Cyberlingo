@@ -1,1 +1,1442 @@
-{"module":6,"title":"Network Security Infrastructure","islands":[{"id":"6.0","title":"Introduction","lessons":[{"id":"6.0.1","title":"Why Should I Take this Module?","blocks":[{"t":"p","md":"With the many threats to network security, how can networks be designed to protect data resources and ensure that network services are provided as required? The network security infrastructure defines the way in which devices are connected together to achieve end-to-end secure communications. Just as there are many sizes of networks, there are also many ways to build a secure network infrastructure. However, there are some standard designs that the network industry recommends so that you can create networks that are available and secure. This module covers the basic operation of network infrastructures, the various network security devices, and the security services that are used to monitor and maintain the safe and efficient transmission of data."}]},{"id":"6.0.2","title":"What Will I Learn in this Module?","blocks":[{"t":"p","md":"This module contains the following:"},{"t":"list","items":["2 Videos","1 Packet Tracer activity","3 Check Your Understanding activities","1 Module Quiz"]},{"t":"p","md":"Module Title: Network Security Infrastructure"},{"t":"p","md":"Module Objective: Explain how devices and services are used to enhance network security."}]}],"quiz":[]},{"id":"6.1","title":"Security Devices","lessons":[{"id":"6.1.1","title":"Video - Security Devices","blocks":[{"t":"note","variant":"info","title":"Видео курса","md":"6.1.1 Video - Security Devices. Само видео в выгрузку не попало."},{"t":"p","md":"Play the video to learn more about security services."},{"t":"h","text":"Firewall Operation"},{"t":"p","md":"A firewall is a system, or group of systems, that enforces an access control policy between networks."},{"t":"p","md":"Play the animation in the figure to view a firewall in operation."},{"t":"p","md":"Click each button to learn more about firewalls."},{"t":"accordion","items":[{"title":"Common Firewall Properties","md":"All firewalls share some common properties: • Firewalls are resistant to network attacks. • Firewalls are the only transit point between internal corporate networks and external networks because all traffic flows through the firewall. • Firewalls enforce the access control policy."},{"title":"Firewall Benefits","md":"There are several benefits of using a firewall in a network: • They prevent the exposure of sensitive hosts, resources, and applications to untrusted users. • They sanitize protocol flow, which prevents the exploitation of protocol flaws. • They block malicious data from servers and clients. • They reduce security management complexity by off-loading most of the network access control to a few firewalls in the network."},{"title":"Firewall Limitations","md":"Firewalls also have some limitations: • A misconfigured firewall can have serious consequences for the network, such as becoming a single point of failure. • The data from many applications cannot be passed over firewalls securely. • Users might proactively search for ways around the firewall to receive blocked material, which exposes the network to potential attack. • Network performance can slow down. • Unauthorized traffic can be tunneled or hidden as legitimate traffic through the firewall."}]}]},{"id":"6.1.3","title":"Common Security Architectures","blocks":[{"t":"p","md":"Firewall design is primarily about device interfaces permitting or denying traffic based on the source, the destination, and the type of traffic. Some designs are as simple as designating an outside network and inside network, which are determined by two interfaces on a firewall."},{"t":"p","md":"Here are three common firewall designs."},{"t":"accordion","items":[{"title":"Private and Public","md":"As shown in the figure, the public network (or outside network) is untrusted, and the private network (or inside network) is trusted. Typically, a firewall with two interfaces is configured as follows: • Traffic originating from the private network is permitted and inspected as it travels toward the public network. Inspected traffic returning from the public network and associated with traffic that originated from the private network is permitted. • Traffic originating from the public network and traveling to the private network is generally blocked."},{"title":"Demilitarized Zone","md":"A demilitarized zone (DMZ) is a firewall design where there is typically one inside interface connected to the private network, one outside interface connected to the public network, and one DMZ interface, as shown in the figure. • Traffic originating from the private network is inspected as it travels toward the public or DMZ network. This traffic is permitted with little or no restriction. Inspected traffic returning from the DMZ or public network to the private network is permitted. • Traffic originating from the DMZ network and traveling to the private network is usually blocked. • Traffic originating from the DMZ network and traveling to the public network is selectively permitted based on service requirements. • Traffic originating from the public network and traveling toward the DMZ is selectively permitted and inspected. This type of traffic is typically email, DNS, HTTP, or HTTPS traffic. Return traffic from the DMZ to the public network is dynamically permitted. • Traffic originating from the public network and traveling to the private network is blocked."},{"title":"Zone-Based Policy Firewalls","md":"Zone-based policy firewalls (ZPFs) use the concept of zones to provide additional flexibility. A zone is a group of one or more interfaces that have similar functions or features. Zones help you specify where a Cisco IOS firewall rule or policy should be applied. In the figure, security policies for LAN 1 and LAN 2 are similar and can be grouped into a zone for firewall configurations. By default, the traffic between interfaces in the same zone is not subject to any policy and passes freely. However, all zone-to-zone traffic is blocked. In order to permit traffic between zones, a policy allowing or inspecting traffic must be configured. The only exception to this default deny any policy is the router self zone. The self zone is the router itself and includes all the router interface IP addresses. Policy configurations that include the self zone would apply to traffic destined to and sourced from the router. By default, there is no policy for this type of traffic. Traffic that should be considered when designing a policy for the self zone includes management plane and control plane traffic, such as SSH, SNMP, and routing protocols."}]}]},{"id":"6.1.4","title":"Firewall Type Descriptions","blocks":[{"t":"p","md":"It is important to understand the different types of firewalls and their specific capabilities so that the right firewall is used for each situation."},{"t":"accordion","items":[{"title":"Packet Filtering (Stateless) Firewall","md":"Packet filtering firewalls are usually part of a router firewall, which permits or denies traffic based on Layer 3 and Layer 4 information. They are stateless firewalls that use a simple policy table look-up that filters traffic based on specific criteria. For example, SMTP servers listen to port 25 by default. An administrator can configure the packet filtering firewall to block port 25 from a specific workstation to prevent it from broadcasting an email virus"},{"title":"Stateful Firewall","md":"Stateful firewalls are the most versatile and the most common firewall technologies in use. Stateful firewalls provide stateful packet filtering by using connection information maintained in a state table. Stateful filtering is a firewall architecture that is classified at the network layer. It also analyzes traffic at OSI Layer 4 and Layer 5."},{"title":"Application Gateway Firewall","md":"An application gateway firewall (proxy firewall), as shown in the figure, filters information at Layers 3, 4, 5, and 7 of the OSI reference model. Most of the firewall control and filtering is done in software. When a client needs to access a remote server, it connects to a proxy server. The proxy server connects to the remote server on behalf of the client. Therefore, the server only sees a connection from the proxy server."},{"title":"Next Generation Firewall","md":"Next-generation firewalls (NGFW) go beyond stateful firewalls by providing: • Integrated intrusion prevention • Application awareness and control to see and block risky apps • Upgrade paths to include future information feeds • Techniques to address evolving security threats"}]},{"t":"p","md":"Other methods of implementing firewalls include:"},{"t":"list","items":["Host-based (server and personal) firewall - A PC or server with firewall software running on it.","Transparent firewall - Filters IP traffic between a pair of bridged interfaces.","Hybrid firewall - A combination of the various firewall types. For example, an application inspection firewall combines a stateful firewall with an application gateway firewall."]},{"t":"h","text":"IDS and IPS Characteristics"},{"t":"p","md":"A networking architecture paradigm shift is required to defend against fast-moving and evolving attacks. This must include cost-effective detection and prevention systems, such as intrusion detection systems (IDS) or the more scalable intrusion prevention systems (IPS). The network architecture integrates these solutions into the entry and exit points of the network."},{"t":"p","md":"When implementing IDS or IPS, it is important to be familiar with the types of systems available, host-based and network-based approaches, the placement of these systems, the role of signature categories, and possible actions that a Cisco IOS router can take when an attack is detected."},{"t":"p","md":"The figure shows how an IPS device handles malicious traffic."},{"t":"p","md":"IDS and IPS technologies are both deployed as sensors. An IDS or IPS sensor can be in the form of several different devices:"},{"t":"list","items":["A router configured with Cisco IOS IPS software","A device specifically designed to provide dedicated IDS or IPS services","A network module installed in an adaptive security appliance (ASA), switch, or router IDS and IPS technologies use signatures to detect patterns in network traffic. A signature is a set of rules that an IDS or IPS uses to detect malicious activity. Signatures can be used to detect severe breaches of security, to detect common network attacks, and to gather information. IDS and IPS technologies can detect atomic signature patterns (single-packet) or composite signature patterns (multi-packet)."]}]},{"id":"6.1.7","title":"Advantages and Disadvantages of IDS and IPS","blocks":[{"t":"p","md":"IDS Advantages and Disadvantages"},{"t":"p","md":"The table lists the advantages and disadvantages of IDS and IPS."},{"t":"p","md":"Click on each button to learn more about IDS and IPS sensors"},{"t":"accordion","items":[{"title":"IDS Advantages and Disadvantages","md":"IDS Advantages An IDS is deployed in offline mode and therefore: • The IDS does not impact network performance. Specifically, it does not introduce latency, jitter, or other traffic flow issues. • The IDS does not affect network functionality if the sensor fails. It only affects the ability of the IDS to analyze the data. IDS Disadvantages Disadvantages of an IDS include: • An IDS sensor cannot stop the packets that have triggered an alert and are less helpful in detecting email viruses and automated attacks, such as worms. • Tuning IDS sensors to achieve expected levels of intrusion detection can be very time-consuming. Users deploying IDS sensor response actions must have a well-designed security policy and a good operational understanding of their IDS deployments. • An IDS implementation is more vulnerable to network security evasion techniques because it is not inline."},{"title":"IPS Advantages and Disadvantages","md":"IPS Advantages Advantages of an IPS include: • An IPS sensor can be configured to drop the trigger packets, the packets associated with a connection, or packets from a source IP address. • Because IPS sensors are inline, they can use stream normalization. Stream normalization is a technique used to reconstruct the data stream when the attack occurs over multiple data segments. IPS Disadvantages Disadvantages of an IPS include: • Because it is deployed inline, errors, failure, and overwhelming the IPS sensor with too much traffic can have a negative effect on network performance. • An IPS sensor can affect network performance by introducing latency and jitter. • An IPS sensor must be appropriately sized and implemented so that time-sensitive applications, such as VoIP, are not adversely affected."},{"title":"Deployment Considerations","md":"You can deploy both an IPS and an IDS. Using one of these technologies does not negate the use of the other. In fact, IDS and IPS technologies can complement each other. For example, an IDS can be implemented to validate IPS operation because the IDS can be configured for deeper packet inspection offline. This allows the IPS to focus on fewer but more critical traffic patterns inline. Deciding which implementation to use is based on the security goals of the organization as stated in their network security policy."}]}]},{"id":"6.1.8","title":"Types of IPS","blocks":[{"t":"p","md":"There are two primary kinds of IPS available: host-based IPS and network-based IPS."},{"t":"p","md":"Host-based IPS"},{"t":"p","md":"Host-based IPS (HIPS) is software installed on a host to monitor and analyze suspicious activity. A significant advantage of HIPS is that it can monitor and protect operating system and critical system processes that are specific to that host. With detailed knowledge of the operating system, HIPS can monitor abnormal activity and prevent the host from executing commands that do not match typical behavior. This suspicious or malicious behavior might include unauthorized registry updates, changes to the system directory, executing installation programs, and activities that cause buffer overflows. Network traffic can also be monitored to prevent the host from participating in a denial-of-service (DoS) attack or being part of an illicit FTP session."},{"t":"p","md":"HIPS can be thought of as a combination of antivirus software, antimalware software, and a firewall. Combined with a network-based IPS, HIPS is an effective tool in providing additional protection for the host."},{"t":"p","md":"A disadvantage of HIPS is that it operates only at a local level. It does not have a complete view of the network, or coordinated events that might be happening across the network. To be effective in a network, HIPS must be installed on every host and have support for every operating system."},{"t":"p","md":"Select the headings to find out more about the advantages and disadvantages of HIPS."},{"t":"accordion","items":[{"title":"Advantages","md":"• Provides protection specific to a host operating system • Provides operating system and application level protection • Protects the host after the message is decrypted"},{"title":"Disadvantages","md":"• Operating system dependent • Must be installed on all hosts"}]},{"t":"h","text":"Sample IPS Sensor Deployment"},{"t":"p","md":"Network-based IPSA network-based IPS can be implemented using a dedicated or non-dedicated IPS device. Network-based IPS implementations are a critical component of intrusion prevention. There are host-based IDS/IPS solutions, but these must be integrated with a network-based IPS implementation to ensure a robust security architecture."},{"t":"p","md":"Sensors detect malicious and unauthorized activity in real time and can take action when required. As shown in the figure, sensors are deployed at designated network points. This enables security managers to monitor network activity while it is occurring, regardless of the location of the attack target."}]},{"id":"6.1.9","title":"Specialized Security Appliances","blocks":[{"t":"p","md":"There are a variety of specialized security appliances available. Here are a few examples."},{"t":"accordion","items":[{"title":"AMP","md":"Cisco Advanced Malware Protection (AMP) is an enterprise-class advanced malware analysis and protection solution. It provides comprehensive malware protection for organizations before, during, and after an attack: • Before an attack, AMP strengthens defenses and protects against known and emerging threats. • During an attack, AMP identifies and blocks policy-violating file types, exploit attempts, and malicious files from infiltrating the network. • After an attack, or after a file is initially inspected, AMP goes beyond point-in-time detection capabilities and continuously monitors and analyzes all file activity and traffic, regardless of disposition, searching for any indications of malicious behavior. If a file with an unknown or previously deemed “good” disposition starts behaving badly, AMP will detect it and instantly alert security teams with an indication of compromise. It then provides visibility into where the malware originated, what systems were affected, and what the malware is doing. AMP accesses the collective security intelligence of the Cisco Talos Security Intelligence and Research Group. Talos detects and correlates threats in real time using the largest threat-detection network in the world."},{"title":"WSA","md":"A Cisco Web Security Appliance (WSA) is a secure web gateway that combines leading protections to help organizations address the growing challenges of securing and controlling web traffic. WSA protects the network by automatically blocking risky sites and testing unknown sites before allowing users to access them. WSA provides malware protection, application visibility and control, acceptable use policy controls, insightful reporting and secure mobility. While WSA protects the network from malware intrusion, it does not provide protection for users who want to connect to the internet directly outside of the protected network, such as at a public Wi-Fi service. In this instance, the user’s PC can be infected with malware which can then spread to other networks and devices. To help protect user PCs from these types of malware infections there is Cisco Cloud Web Security (CWS). CWS together with WSA provides comprehensive protection against malware and the associated impacts. The Cisco CWS solution enforces secure communication to and from the internet and provides remote workers the same level of security as onsite employees when using a laptop issued by the employer. Cisco CWS incorporates two main functions, web filtering and web security, and both are accompanied by extensive, centralized reporting."},{"title":"ESA","md":"A Cisco Email Security Appliance (ESA)/ Cisco Cloud Email Security helps to mitigate email-based threats. The Cisco ESA defends mission-critical email systems. The Cisco ESA is constantly updated by real-time feeds from the Cisco Talos, which detects and correlates threats using a worldwide database monitoring system. These are some of the main features of ESA: • Global threat intelligence - Cisco Talos provides a 24-hour view into global traffic activity. It analyzes anomalies, uncovers new threats, and monitors traffic trends. • Spam blocking - A multilayered defense combines an outer layer of filtering based on the reputation of the sender and an inner layer of filtering that performs a deep analysis of the message. • Advanced malware protection – Includes AMP that takes advantage of the vast cloud security intelligence network of Sourcefire. It delivers protection across the attack continuum before, during, and after an attack. • Outbound message control - Controls outbound messages to help ensure that important messages comply with industry standards and are protected in transit."}]}]}],"quiz":[{"type":"mcq","q":"Which type of firewall filters information at Layers 3, 4, 5, and 7 of the OSI reference model?","options":["Host-based","Hybrid","Application Gateway","Packet filtering","Stateful"],"answers":["Application Gateway"],"id":"6.1-q1","lesson":"6.1.4","why":"That's right, well done. An application gateway firewall filters information at Layers 3, 4, 5, and 7 of the OSI reference model."},{"type":"mcq","q":"Which type of firewall is a combination of various firewall types?","options":["Host-based","Hybrid","Next generation","Packet filtering","Proxy","Stateful","Transparent"],"answers":["Hybrid"],"id":"6.1-q2","lesson":"6.1.4","why":"That's right, well done. A hybrid firewall is a combination of the various firewall types."},{"type":"mcq","q":"Which type of firewall is part of a router firewall, permitting or denying traffic based on Layer 3 and Layer 4 information?","options":["Host-based","Hybrid","Next generation","Packet filtering","Proxy","Stateful","Transparent"],"answers":["Packet filtering"],"id":"6.1-q3","lesson":"6.1.4","why":"That's right, well done. A packet filtering firewall is part of a router firewall that permits or denies traffic based on Layer 3 and Layer 4 information."},{"type":"mcq","q":"Which type of firewall is a PC or server with firewall software running on it?","options":["Host-based","Hybrid","Next generation","Packet filtering","Proxy","Stateful","Transparent"],"answers":["Host-based"],"id":"6.1-q4","lesson":"6.1.4","why":"That's right, well done. Host-based firewalls is a PC or server with firewall software running on it."},{"type":"mcq","q":"Which type of firewall filters IP traffic between a pair of bridged interfaces?","options":["Host-based","Hybrid","Next generation","Packet filtering","Proxy","Stateful","Transparent"],"answers":["Transparent"],"id":"6.1-q5","lesson":"6.1.4","why":"That's right, well done. A transparent firewall filters IP traffic between a pair of bridged interfaces."},{"type":"select","q":"Select the corresponding delivery method for each characteristic.","pairs":[{"item":"More vulnerable to network security evasion techniques enabled by various network attack methods","match":"IDS"},{"item":"Can affect network performance by introducing latency and jitter","match":"IPS"},{"item":"Must be implemented so that time-sensitive applications are not adversely affected","match":"IPS"},{"item":"Cannot stop the trigger packet and is not guaranteed to stop a connection","match":"IDS"},{"item":"Deployed in offline mode","match":"IDS"},{"item":"Can use stream normalization techniques to reduce or eliminate many of the network security evasion capabilities that exist","match":"IPS"},{"item":"Can be configured to perform a packet drop to stop the trigger packet","match":"IPS"},{"item":"Primarily focused on identifying possible incidents, logging information about the incidents, and reporting the incidents","match":"IDS"},{"item":"Must be deployed inline, and traffic must be able to pass through it","match":"IPS"},{"item":"Less helpful in stopping email viruses and automated attacks, such as worms","match":"IDS"}],"pool":["IDS","IPS"],"id":"6.1-q6","lesson":"6.1.10","why":"That's right, well done. You have successfully identified the characteristics of IDS and IPS."}]},{"id":"6.2","title":"Security Services","lessons":[{"id":"6.2.1","title":"Video - Security Services","blocks":[{"t":"note","variant":"info","title":"Видео курса","md":"6.2.1 Video - Security Services. Само видео в выгрузку не попало."},{"t":"p","md":"Watch the video to learn more about security services."},{"t":"h","text":"What Is an ACL?"},{"t":"p","md":"An Access Control List (ACL) is a series of commands that control whether a device forwards or drops packets based on information found in the packet header. When configured, ACLs perform the following tasks:"},{"t":"list","items":["They limit network traffic to increase network performance. For example, if corporate policy does not allow video traffic on the network, ACLs that block video traffic could be configured and applied. This would greatly reduce the network load and increase network performance.","They provide traffic flow control. ACLs can restrict the delivery of routing updates to ensure that the updates are from a known source.","They provide a basic level of security for network access. ACLs can allow one host to access a part of the network and prevent another host from accessing the same area. For example, access to the Human Resources network can be restricted to authorized users.","They filter traffic based on traffic type. For example, an ACL can permit email traffic, but block all Telnet traffic.","They screen hosts to permit or deny access to network services. ACLs can permit or deny a user to access file types, such as FTP or HTTP. In addition to either permitting or denying traffic, ACLs can be used for selecting types of traffic to be analyzed, forwarded, or processed in other ways. For example, ACLs can be used to classify traffic to enable priority processing. This capability is similar to having a VIP pass at a concert or sporting event. The VIP pass gives selected guests privileges not offered to general admission ticket holders, such as priority entry or being able to enter a restricted area."]},{"t":"p","md":"The figure shows a sample topology with ACLs applied to routers R1, R2, and R3."},{"t":"p","md":"What is an ACL?"}]},{"id":"6.2.3","title":"ACLs: Important Features","blocks":[{"t":"p","md":"Two types of Cisco IPv4 ACLs are standard and extended. Standard ACLs can be used to permit or deny traffic only from source IPv4 addresses. The destination of the packet and the ports involved are not evaluated."},{"t":"p","md":"Extended ACLs filter IPv4 packets based on several attributes that include:"},{"t":"list","items":["Protocol type","Source IPv4 address","Destination IPv4 address","Source TCP or UDP ports","Destination TCP or UDP ports","Optional protocol type information for finer control Standard and extended ACLs can be created using either a number or a name to identify the ACL and its list of statements."]},{"t":"p","md":"Using numbered ACLs is an effective method for determining the ACL type on smaller networks with more homogeneously defined traffic. However, a number does not provide information about the purpose of the ACL. For this reason, a name can be used to identify a Cisco ACL."},{"t":"p","md":"By configuring ACL logging, an ACL message can be generated and logged when traffic meets the permit or deny criteria defined in the ACL."},{"t":"p","md":"Cisco ACLs can also be configured to only allow TCP traffic that has an ACK or RST bit set, so that only traffic from an established TCP session is permitted. This can be used to deny any TCP traffic from outside the network that is trying to establish a new TCP session."}]},{"id":"6.2.4","title":"Packet Tracer - ACL Demonstration","blocks":[{"t":"note","variant":"info","title":"Packet Tracer","md":"6.2.4 Packet Tracer - ACL Demonstration. Файл активности в выгрузку не попал."},{"t":"p","md":"In this Packet Tracer activity, you will complete the following objectives:"},{"t":"list","items":["Part 1: Verify Local Connectivity and Test Access Control List","Part 2: Remove Access Control List and Repeat Test"]}]},{"id":"6.2.5","title":"SNMP","blocks":[{"t":"p","md":"Simple Network Management Protocol (SNMP) allows administrators to manage end devices such as servers, workstations, routers, switches, and security appliances, on an IP network. It enables network administrators to monitor and manage network performance, find and solve network problems, and plan for network growth."},{"t":"p","md":"SNMP is an application layer protocol that provides a message format for communication between managers and agents."},{"t":"p","md":"As shown in the figure, the SNMP system consists of two elements."},{"t":"list","items":["SNMP manager that runs SNMP management software.","SNMP agents which are the nodes being monitored and managed. The Management Information Base (MIB) is a database on the agents that stores data and operational statistics about the device."]},{"t":"p","md":"To configure SNMP on a networking device, it is first necessary to define the relationship between the manager and the agent."},{"t":"p","md":"The SNMP manager is part of a network management system (NMS). The SNMP manager runs SNMP management software. As shown in the figure, the SNMP manager can collect information from an SNMP agent by using the “get” action and can change configurations on an agent by using the “set” action. In addition, SNMP agents can forward information directly to a network manager by using “traps”."}]},{"id":"6.2.6","title":"NetFlow","blocks":[{"t":"p","md":"NetFlow is a Cisco IOS technology that provides statistics on packets flowing through a Cisco router or multilayer switch. While SNMP attempts to provide a very wide range of network management features and options, NetFlow is focused on providing statistics on IP packets flowing through network devices."},{"t":"p","md":"NetFlow provides data to enable network and security monitoring, network planning, traffic analysis to include identification of network bottlenecks, and IP accounting for billing purposes. For example, in the figure, PC 1 connects to PC 2 using an application such as HTTPS."},{"t":"p","md":"NetFlow in the Network"},{"t":"p","md":"NetFlow can monitor that application connection, tracking byte and packet counts for that individual application flow. It then pushes the statistics over to an external server called a NetFlow collector."},{"t":"p","md":"NetFlow technology has seen several generations that provide more sophistication in defining traffic flows, but “original NetFlow” distinguished flows using a combination of seven fields. Should one of these fields vary in value from another packet, the packets could be safely determined to be from different flows:"},{"t":"list","items":["Source IP address","Destination IP address","Source port number","Destination port number","Layer 3 protocol type","Type of Service (ToS) marking","Input logical interface The first four of the fields NetFlow uses to identify a flow should be familiar. The source and destination IP addresses, plus the source and destination ports, identify the connection between source and destination application. The Layer 3 protocol type identifies the type of header that follows the IP header (usually TCP or UDP, but other options include ICMP). The ToS byte in the IPv4 header holds information about how devices should apply quality of service (QoS) rules to the packets in that flow."]},{"t":"h","text":"Traffic Sniffing Using a Switch"},{"t":"p","md":"A packet analyzer (also known as a packet sniffer or traffic sniffer) is typically software that captures packets entering and exiting the network interface card (NIC). It is not always possible or desirable to have the packet analyzer on the device that is being monitored. Sometimes it is better on a separate station designated to capture the packets."},{"t":"p","md":"Because network switches can isolate traffic, traffic sniffers or other network monitors, such as IDS, cannot access all the traffic on a network segment. Port mirroring is a feature that allows a switch to make duplicate copies of traffic passing through a switch, and then send it out a port with a network monitor attached. The original traffic is forwarded in the usual manner. An example of port mirroring is illustrated in the figure."},{"t":"h","text":"Syslog"},{"t":"p","md":"When certain events occur on a network, networking devices have trusted mechanisms to notify the administrator with detailed system messages. These messages can be either non-critical or significant. Network administrators have a variety of options for storing, interpreting, and displaying these messages, and for being alerted to those messages that could have the greatest impact on the network infrastructure."},{"t":"p","md":"The most common method of accessing system messages is to use a protocol called syslog."},{"t":"p","md":"Many networking devices support syslog, including routers, switches, application servers, firewalls, and other network appliances. The syslog protocol allows networking devices to send their system messages across the network to syslog servers as shown in the figure."}]},{"id":"6.2.8","title":"Syslog Servers","blocks":[{"t":"p","md":"The syslog logging service provides three primary functions:"},{"t":"list","items":["The ability to gather logging information for monitoring and troubleshooting","The ability to select the type of logging information that is captured","The ability to specify the destination of captured syslog messages"]},{"t":"h","text":"NTP Stratum Levels"},{"t":"p","md":"It is important to synchronize the time across all devices on the network because all aspects of managing, securing, troubleshooting, and planning networks require accurate and consistent timestamping. When the time is not synchronized between devices, it will be impossible to determine the order of the events that have occurred in different parts of the network."},{"t":"p","md":"Typically, the date and time settings on a network device can be set using one of two methods:"},{"t":"list","items":["Manual configuration of the date and time","Configuring the Network Time Protocol (NTP) As a network grows, it becomes difficult to ensure that all infrastructure devices are operating with synchronized time. Even in a smaller network environment, the manual method is not ideal. If a device reboots, how will it get an accurate date and timestamp?"]},{"t":"p","md":"A better solution is to configure the NTP on the network. This protocol allows routers on the network to synchronize their time settings with an NTP server. A group of NTP clients that obtain time and date information from a single source have more consistent time settings. When NTP is implemented in the network, it can be set up to synchronize to a private primary clock or it can synchronize to a publicly available NTP server on the Internet."},{"t":"p","md":"NTP networks use a hierarchical system of time sources. Each level in this hierarchical system is called a stratum. The stratum level is defined as the number of hop counts from the authoritative source. The synchronized time is distributed across the network using NTP. The figure displays a sample NTP network."}]},{"id":"6.2.9","title":"NTP","blocks":[{"t":"p","md":"NTP servers are arranged in three levels known as strata:"},{"t":"list","items":["Stratum 0 - An NTP network gets the time from authoritative time sources. These authoritative time sources, also referred to as stratum 0 devices, are high-precision timekeeping devices assumed to be accurate and with little or no delay associated with them.","Stratum 1 -The stratum 1 devices are directly connected to the authoritative time sources. They act as the primary network time standard.","Stratum 2 and lower strata - The stratum 2 servers are connected to stratum 1 devices through network connections. Stratum 2 devices, such as NTP clients, synchronize their time using the NTP packets from stratum 1 servers. They could also act as servers for stratum 3 devices. Smaller stratum numbers indicate that the server is closer to the authorized time source than larger stratum numbers. The larger the stratum number, the lower the stratum level. The max hop count is 15. Stratum 16, the lowest stratum level, indicates that a device is unsynchronized. Time servers on the same stratum level can be configured to act as a peer with other time servers on the same stratum level for backup or verification of time."]}]},{"id":"6.2.10","title":"AAA Servers","blocks":[{"t":"p","md":"Select the headings to find out the three independent security functions provided by the AAA architectural framework."},{"t":"accordion","items":[{"title":"Authentication","md":"• Users and administrators must prove that they are who they say they are. • Authentication can be established using username and password combinations, challenge and response questions, token cards, and other methods. • AAA authentication provides a centralized way to control access to the network."},{"title":"Authorization","md":"• After the user is authenticated, authorization services determine which resources the user can access and which operations the user is allowed to perform. • An example is “User ‘student’ can access host serverXYZ using SSH only.”"},{"title":"Accounting","md":"• Accounting records what the user does, including what is accessed, the amount of time the resource is accessed, and any changes that were made. • Accounting keeps track of how network resources are used. • An example is “User ‘student’ accessed host serverXYZ using SSH for 15 minutes.”"}]},{"t":"p","md":"Terminal Access Controller Access-Control System Plus (TACACS+) and Remote Authentication Dial-In User Service (RADIUS) are both authentication protocols that are used to communicate with AAA servers. Whether TACACS+ or RADIUS is selected depends on the needs of the organization."},{"t":"p","md":"While both protocols can be used to communicate between a router and AAA servers, TACACS+ is considered the more secure protocol. This is because all TACACS+ protocol exchanges are encrypted, while RADIUS only encrypts the user’s password. RADIUS does not encrypt usernames, accounting information, or any other information carried in the RADIUS message."},{"t":"p","md":"The table lists the differences between the two protocols."},{"t":"h","text":"Virtual Private Network"},{"t":"p","md":"A VPN is a private network that is created over a public network, usually the internet, as shown in the figure.Virtual Private Network"}]},{"id":"6.2.11","title":"VPN","blocks":[{"t":"p","md":"Instead of using a dedicated physical connection, a VPN uses virtual connections that are routed through the internet from the organization to the remote site. The first VPNs were strictly IP tunnels that did not include authentication or encryption of the data. For example, Generic Routing Encapsulation (GRE) is a tunneling protocol developed by Cisco that can encapsulate a wide variety of network layer protocol packet types inside IP tunnels. This creates a virtual point-to-point link to Cisco routers at remote points over an IP internetwork."},{"t":"p","md":"A VPN is virtual in that it carries information within a private network, but that information is actually transported over a public network. A VPN is private in that the traffic is encrypted to keep the data confidential while it is transported across the public network."},{"t":"p","md":"A VPN is a communications environment in which access is strictly controlled to permit peer connections within a defined community of interest. Confidentiality is achieved by encrypting the traffic within the VPN. Today, a secure implementation of VPN with encryption is what is generally equated with the concept of virtual private networking."},{"t":"p","md":"In the simplest sense, a VPN connects two endpoints, such as a remote office to a central office, over a public network, to form a logical connection. The logical connections can be made at either Layer 2 or Layer 3. Common examples of Layer 3 VPNs are GRE, Multiprotocol Label Switching (MPLS), and IPsec. Layer 3 VPNs can be point-to-point site connections, such as GRE and IPsec, or they can establish any-to-any connectivity to many sites using MPLS."},{"t":"p","md":"IPsec is a suite of protocols developed with the backing of the IETF to achieve secure services over IP packet-switched networks."},{"t":"p","md":"IPsec services allow for authentication, integrity, access control, and confidentiality. With IPsec, the information exchanged between remote sites can be encrypted and verified. VPNs are commonly deployed in a site-to-site topology to securely connect central sites with remote locations. They are also deployed in a remote-access topology to provide secure remote access to external users travelling or working from home. Both remote-access and site-to-site VPNs can be deployed using IPsec."},{"t":"p","md":"6.3 Network Security Infrastructure Summary"}]}],"quiz":[{"type":"mcq","q":"What allows a switch to make duplicate copies of traffic passing through it, and then send it out a port with a network monitor attached?","options":["AAA Server","ACL","Port Mirroring","VPN"],"answers":["Port Mirroring"],"id":"6.2-q7","lesson":"6.2.11","why":"That's right, well done. Port mirroring is a feature that allows a switch to make duplicate copies of traffic passing through it, and then send it out a port with a network monitor attached."},{"type":"mcq","q":"What is a series of commands that control whether a device forwards or drops packets based on information found in the packet header?","options":["AAA Server","ACL","Port Mirroring","VPN"],"answers":["ACL"],"id":"6.2-q8","lesson":"6.2.11","why":"That's right, well done. ACLs are a series of commands that control whether a device forwards or drops packets based on information found in the packet header."},{"type":"mcq","q":"What provides statistics on packet flows passing through a networking device?","options":["NetFlow","NTP","SNMP","Syslog Servers"],"answers":["NetFlow"],"id":"6.2-q9","lesson":"6.2.11","why":"That's right, well done. NetFlow provides statistics on packet flows that are passing through a networking device."},{"type":"mcq","q":"What is a private network that is created over a public network?","options":["AAA Server","ACL","Port Mirroring","VPN"],"answers":["VPN"],"id":"6.2-q10","lesson":"6.2.11","why":"That's right, well done. A VPN is a private network that is created over a public network."},{"type":"mcq","q":"What sets the date and time on network devices?","options":["NetFlow","NTP","SNMP","Syslog Servers"],"answers":["NTP"],"id":"6.2-q11","lesson":"6.2.11","why":"That's right, well done. NTP sets the date and time on network devices."},{"type":"mcq","q":"What gathers a variety of statistics for devices that are configured to send and log status messages?","options":["NetFlow","NTP","SNMP","Syslog"],"answers":["Syslog"],"id":"6.2-q12","lesson":"6.2.11","why":"That's right, well done. Syslog servers gather a variety of statistics for devices configured to log and send messages."},{"type":"mcq","q":"Which option allows administrators to monitor and manage network devices?","options":["NetFlow","NTP","SNMP","Syslog"],"answers":["SNMP"],"id":"6.2-q13","lesson":"6.2.11","why":"That's right, well done. SNMP allows administrators to monitor and manage network devices."},{"type":"mcq","q":"What authenticates users to allow access to specific network resources and records what the user does while connected to the resource?","options":["AAA Server","ACL","Port Mirroring","VPN"],"answers":["AAA Server"],"id":"6.2-q14","lesson":"6.2.11","why":"That's right, well done. A AAA server authenticates users to access specific network resources and records what the user does while connected to the resource."}]},{"id":"6.3","title":"Network Security Infrastructure Summary","lessons":[{"id":"6.3.1","title":"What Did I Learn in this Module?","blocks":[{"t":"p","md":"Click the headings to see a summary of the topics covered in this module."},{"t":"accordion","items":[{"title":"Security Devices","md":"There are several different types of firewalls. Packet filtering (stateless) firewalls provide Layer 3 and sometimes Layer 4 filtering. Firewall design is primarily about device interfaces permitting or denying traffic based on the source, the destination, and the type of traffic. A stateful inspection firewall allows or blocks traffic based on state, port, and protocol. Application gateway firewalls (proxy firewall) filter information at Layers 3, 4, 5, and 7. Next-generation firewalls provide additional services beyond application gateways such as Integrated intrusion prevention, application awareness and control to see and block risky apps, access to future information feeds, and techniques to address evolving security threats. Intrusion prevention systems (IPS) and intrusion detection systems (IDS) are used to detect potential security risks and alert/stop unsafe traffic. IDS/IPS can be implemented as host-based or network based with specific advantages and disadvantages to each implementation. Specialized security appliances are available including Cisco Advanced Malware Protection (AMP), Cisco Web Security Appliance (WSA), and Cisco Email Security Appliance (WSA). These security appliances utilize the services of the Cisco Talos Security Intelligence and Research Group. Talos detects and correlates threats in real time using the largest threat-detection network in the world."},{"title":"Security Services","md":"Network security services include the following technologies. ACLs are a series of statements that control whether a device forwards or drops packets based on information found in the packet header. NTP synchronizes the system time across all devices on the network to ensure accurate and consistent timestamping of system messages. Syslog servers compile and provide access to the system messages generated by networking devices. SNMP enables network administrators to monitor and manage network performance, find and solve network problems, and plan for network growth. NetFlow provides statistics on packets that are flowing through a Cisco router or multilayer switch. Port mirroring is a feature that allows a switch to make duplicate copies of traffic that is passing through the switch, and then send it out a port that has a network monitor attached. AAA is a framework for configuring user authentication, authorization, and accounting services. AAA typically uses a TACACS+ or RADIUS server for this purpose. VPNs are private networks that are created between two endpoints across a public network."}]},{"t":"p","md":"Objectives"},{"t":"p","md":"Part 1: Verify Local Connectivity and Test Access Control List"},{"t":"p","md":"Part 2: Remove Access Control List and Repeat Test"},{"t":"p","md":"Background"},{"t":"p","md":"In this activity, you will observe how an access control list (ACL) can be used to prevent a ping from reaching hosts on remote networks. After removing the ACL from the configuration, the pings will be successful."},{"t":"p","md":"Instructions"},{"t":"p","md":"Part 1: Verify Local Connectivity and Test Access Control List"},{"t":"p","md":"Step 1: Ping devices on the local network to verify connectivity."},{"t":"list","items":["From the command prompt of PC1, ping PC2.","From the command prompt of PC1, ping PC3."]},{"t":"p","md":"Step 2: Ping devices on remote networks to test ACL functionality."},{"t":"list","items":["From the command prompt of PC1, ping PC4.","From the command prompt of PC1, ping DNS Server.."]},{"t":"p","md":"Part 2: Remove ACL and Repeat Test"},{"t":"p","md":"Step 1: Use show commands to investigate the ACL configuration."},{"t":"list","items":["Use the show run and show access-lists commands to view the currently configured ACLs. To quickly view the current ACLs, use show access-lists. Enter the show access-lists command, followed by a space and a question mark (?) to view the available options: R1# show access-lists ? <1-199> ACL number WORD ACL name <cr> If you know the ACL number or name, you can filter the show output further. However, R1 only has one ACL; therefore, the show access-lists command will suffice."]},{"t":"p","md":"R1# show access-lists Standard IP access list 11 10 deny 192.168.10.0 0.0.0.255 20 permit any The first line of the ACL prevents any packets originating in the 192.168.10.0/24 network, which includes Internet Control Message Protocol (ICMP) echoes (ping requests). The second line of the ACL allows all other ip traffic from any source to transverse the router."},{"t":"list","items":["For an ACL to impact router operation, it must be applied to an interface in a specific direction. In this scenario, the ACL is used to filter traffic exiting an interface. Therefore, all traffic leaving the specified interface of R1 will be inspected against ACL 11. Although you can view IP information with the show ip interface command, it may be more efficient in some situations to simply use the show run command."]},{"t":"p","md":"Step 2: Remove access list 11 from the configuration."},{"t":"p","md":"You can remove ACLs from the configuration by issuing the no access list [number of the ACL] command. The no access-list command deletes all ACLs configured on the router. The no access-list [number of the ACL] command removes only a specific ACL."},{"t":"p","md":"a. Under the Serial0/0/0 interface, remove access-list 11, previously applied to the interface as an outgoing filter:"},{"t":"p","md":"R1(config)# int se0/0/0"},{"t":"p","md":"R1(config-if)#no ip access-group 11 out"},{"t":"p","md":"b. In global configuration mode, remove the ACL by entering the following command:"},{"t":"p","md":"R1(config)# no access-list 11"},{"t":"p","md":"c. Verify that PC1 can now ping the DNS Server and PC4."}]}],"quiz":[{"type":"mcq","q":"What is the purpose of a personal firewall on a computer?","options":["to protect the hardware against fire hazard","to filter the traffic that is moving in and out of the PC","to protect the computer from viruses and malware","to increase the speed of the Internet connection"],"answers":["to filter the traffic that is moving in and out of the PC"],"id":"6.3-q15","lesson":"6.3.1","why":"The purpose of a firewall is to filter the traffic that is moving in and out of the PC. A computer firewall cannot deny all illegal traffic from a computer or increase the speed of any connection. It is also not able to protect hardware against fire hazards."},{"type":"mcq","q":"What is the main difference between the implementation of IDS and IPS devices?","options":["An IDS can negatively impact the packet flow, whereas an IPS can not.","An IDS needs to be deployed together with a firewall device, whereas an IPS can replace a firewall.","An IDS would allow malicious traffic to pass before it is addressed, whereas an IPS stops it immediately.","An IDS uses signature-based technology to detect malicious packets, whereas an IPS uses profile-based technology."],"answers":["An IDS would allow malicious traffic to pass before it is addressed, whereas an IPS stops it immediately."],"id":"6.3-q16","lesson":"6.3.1","why":"An IPS is deployed in inline mode and will not allow malicious traffic to enter the internal network without first analyzing it. An advantage of this is that it can stop an attack immediately. An IDS is deployed in promiscuous mode. It copies the traffic patterns and analyzes them offline, thus it cannot stop the attack immediately and it relies on another device to take further actions once it detects an attack. Being deployed in inline mode, an IPS can negatively impact the traffic flow. Both IDS and IPS can use signature-based technology to detect malicious packets. An IPS cannot replace other security devices, such as firewalls, because they perform different tasks."},{"type":"mcq","q":"Which protocol provides authentication, integrity, and confidentiality services and is a type of VPN?","options":["AES","ESP","IPsec","MD5"],"answers":["IPsec"],"id":"6.3-q17","lesson":"6.3.1","why":"IPsec services allow for authentication, integrity, access control, and confidentiality. With IPsec, the information exchanged between remote sites can be encrypted and verified. Both remote-access and site-to-site VPNs can be deployed using IPsec."},{"type":"mcq","q":"What is a feature of the TACACS+ protocol?","options":["It combines authentication and authorization as one process.","It encrypts the entire body of the packet for more secure communications.","It utilizes UDP to provide more efficient packet transfer.","It hides passwords during transmission using PAP and sends the rest of the packet in plaintext."],"answers":["It encrypts the entire body of the packet for more secure communications."],"id":"6.3-q18","lesson":"6.3.1","why":"TACACS+ has the following features: • separates authentication and authorization • encrypts all communication • uses TCP port 49"},{"type":"mcq","q":"Which firewall feature is used to ensure that packets coming into a network are legitimate responses to requests initiated from internal hosts?","options":["stateful packet inspection","URL filtering","application filtering","packet filtering"],"answers":["stateful packet inspection"],"id":"6.3-q19","lesson":"6.3.1","why":"Stateful packet inspection on a firewall checks that incoming packets are actually legitimate responses to requests originating from hosts inside the network. Packet filtering can be used to permit or deny access to resources based on IP or MAC address. Application filtering can permit or deny access based on port number. URL filtering is used to permit or deny access based on URL or on keywords."},{"type":"mcq","q":"Refer to the exhibit. The network \"A\" contains multiple corporate servers that are accessed by hosts from the Internet for information about the corporation. What term is used to describe the network marked as \"A\"?","options":["DMZ","internal network","perimeter security boundary","untrusted network"],"answers":["DMZ"],"id":"6.3-q20","lesson":"6.3.1","why":"A demilitarized zone or DMZ is a network area protected by one or more firewalls. The DMZ typically contains servers that are commonly accessed by external users. A web server is commonly contained in a DMZ."},{"type":"mcq","q":"Which statement describes the Cisco Cloud Web Security?","options":["It is a secure web server specifically designed for cloud computing.","It is an advanced firewall solution to guard web servers against security threats.","It is a cloud-based security service to scan traffic for malware and policy enforcement.","It is a security appliance that provides an all-in-one solution for securing and controlling web traffic."],"answers":["It is a cloud-based security service to scan traffic for malware and policy enforcement."],"id":"6.3-q21","lesson":"6.3.1","why":"The Cisco Cloud Web Security (CWS) is a cloud-based security service that uses web proxies in the Cisco cloud environment to scan traffic for malware and policy enforcement. It is not a firewall or web server solution. The Cisco Web Security Appliance (WSA) combines multiple security solutions to provide an all-in-one solution on a single platform to address the challenges of securing and controlling web traffic."},{"type":"multi","q":"Which two statements are true about NTP servers in an enterprise network? (Choose two.)","options":["There can only be one NTP server on an enterprise network.","All NTP servers synchronize directly to a stratum 1 time source.","NTP servers at stratum 1 are directly connected to an authoritative time source.","NTP servers ensure an accurate time stamp on logging and debugging information.","NTP servers control the mean time between failures (MTBF) for key network devices."],"answers":["NTP servers at stratum 1 are directly connected to an authoritative time source.","NTP servers ensure an accurate time stamp on logging and debugging information."],"id":"6.3-q22","lesson":"6.3.1","why":"Network Time Protocol (NTP) is used to synchronize the time across all devices on the network to make sure accurate timestamping on devices for managing, securing and troubleshooting. NTP networks use a hierarchical system of time sources. Each level in this hierarchical system is called a stratum. The stratum 1 devices are directly connected to the authoritative time sources."},{"type":"mcq","q":"How is a source IP address used in a standard ACL?","options":["It is the criterion that is used to filter traffic.","It is used to determine the default gateway of the router that has the ACL applied.","It is the address to be used by a router to determine the best path to forward packets.","It is the address that is unknown, so the ACL must be placed on the interface closest to the source address."],"answers":["It is the criterion that is used to filter traffic."],"id":"6.3-q23","lesson":"6.3.1","why":"The only filter that can be applied with a standard ACL is the source IP address. An extended ACL is used to filter on such traffic as the source IP address, destination IP address, type of traffic, and type of message."},{"type":"mcq","q":"Which network service allows administrators to monitor and manage network devices?","options":["NTP","SNMP","syslog","NetFlow"],"answers":["SNMP"],"id":"6.3-q24","lesson":"6.3.1","why":"SNMP is an application layer protocol that allows administrators to manage and monitor devices on the network such as routers, switches, and servers."},{"type":"mcq","q":"What is a function of a proxy firewall?","options":["connects to remote servers on behalf of clients","filters IP traffic between bridged interfaces","uses signatures to detect patterns in network traffic","drops or forwards traffic based on packet header information"],"answers":["connects to remote servers on behalf of clients"],"id":"6.3-q25","lesson":"6.3.1","why":"Proxy firewalls filter traffic through the application layer of the TPC/IP model and shield client information by connecting to remote servers on behalf of clients."},{"type":"mcq","q":"What network monitoring technology enables a switch to copy and forward traffic sent and received on multiple interfaces out another interface toward a network analysis device?","options":["NetFlow","network tap","port mirroring","SNMP"],"answers":["port mirroring"],"id":"6.3-q26","lesson":"6.3.1","why":"When enabled on a switch, port mirroring copies frames sent and recieved by the switch and forwards them to another port, which has a analysis device attached."}]}]}
+{
+ "module": 6,
+ "title": "Network Security Infrastructure",
+ "islands": [
+  {
+   "id": "6.0",
+   "title": "Introduction",
+   "lessons": [
+    {
+     "id": "6.0.1",
+     "title": "Why Should I Take this Module?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "With the many threats to network security, how can networks be designed to protect data resources and ensure that network services are provided as required? The network security infrastructure defines the way in which devices are connected together to achieve end-to-end secure communications. Just as there are many sizes of networks, there are also many ways to build a secure network infrastructure. However, there are some standard designs that the network industry recommends so that you can create networks that are available and secure. This module covers the basic operation of network infrastructures, the various network security devices, and the security services that are used to monitor and maintain the safe and efficient transmission of data."
+      }
+     ]
+    },
+    {
+     "id": "6.0.2",
+     "title": "What Will I Learn in this Module?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "This module contains the following:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "2 Videos",
+        "1 Packet Tracer activity",
+        "3 Check Your Understanding activities",
+        "1 Module Quiz"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Module Title: Network Security Infrastructure"
+      },
+      {
+       "t": "p",
+       "md": "Module Objective: Explain how devices and services are used to enhance network security."
+      },
+      {
+       "t": "table",
+       "headers": [
+        "Topic Title",
+        "Topic Objective"
+       ],
+       "rows": [
+        [
+         "Security Devices",
+         "Explain how specialized devices are used to enhance network security."
+        ],
+        [
+         "Security Services",
+         "Explain how network services enhance network security."
+        ]
+       ],
+       "caption": "What Will I Learn in this Module?"
+      }
+     ]
+    }
+   ],
+   "quiz": []
+  },
+  {
+   "id": "6.1",
+   "title": "Security Devices",
+   "lessons": [
+    {
+     "id": "6.1.1",
+     "title": "Video - Security Devices",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Видео курса",
+       "md": "Video - Security Devices. Само видео в выгрузку не попало."
+      },
+      {
+       "t": "p",
+       "md": "Play the video to learn more about security services."
+      }
+     ]
+    },
+    {
+     "id": "6.1.2",
+     "title": "Firewall Operation",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A firewall is a system, or group of systems, that enforces an access control policy between networks."
+      },
+      {
+       "t": "p",
+       "md": "Play the animation in the figure to view a firewall in operation."
+      },
+      {
+       "t": "p",
+       "md": "Click each button to learn more about firewalls."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Common Firewall Properties",
+         "md": "All firewalls share some common properties: • Firewalls are resistant to network attacks. • Firewalls are the only transit point between internal corporate networks and external networks because all traffic flows through the firewall. • Firewalls enforce the access control policy."
+        },
+        {
+         "title": "Firewall Benefits",
+         "md": "There are several benefits of using a firewall in a network: • They prevent the exposure of sensitive hosts, resources, and applications to untrusted users. • They sanitize protocol flow, which prevents the exploitation of protocol flaws. • They block malicious data from servers and clients. • They reduce security management complexity by off-loading most of the network access control to a few firewalls in the network."
+        },
+        {
+         "title": "Firewall Limitations",
+         "md": "Firewalls also have some limitations: • A misconfigured firewall can have serious consequences for the network, such as becoming a single point of failure. • The data from many applications cannot be passed over firewalls securely. • Users might proactively search for ways around the firewall to receive blocked material, which exposes the network to potential attack. • Network performance can slow down. • Unauthorized traffic can be tunneled or hidden as legitimate traffic through the firewall."
+        }
+       ]
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      }
+     ]
+    },
+    {
+     "id": "6.1.3",
+     "title": "Common Security Architectures",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Firewall design is primarily about device interfaces permitting or denying traffic based on the source, the destination, and the type of traffic. Some designs are as simple as designating an outside network and inside network, which are determined by two interfaces on a firewall."
+      },
+      {
+       "t": "p",
+       "md": "Here are three common firewall designs."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Private and Public",
+         "md": "As shown in the figure, the public network (or outside network) is untrusted, and the private network (or inside network) is trusted. Typically, a firewall with two interfaces is configured as follows: • Traffic originating from the private network is permitted and inspected as it travels toward the public network. Inspected traffic returning from the public network and associated with traffic that originated from the private network is permitted. • Traffic originating from the public network and traveling to the private network is generally blocked."
+        },
+        {
+         "title": "Demilitarized Zone",
+         "md": "A demilitarized zone (DMZ) is a firewall design where there is typically one inside interface connected to the private network, one outside interface connected to the public network, and one DMZ interface, as shown in the figure. • Traffic originating from the private network is inspected as it travels toward the public or DMZ network. This traffic is permitted with little or no restriction. Inspected traffic returning from the DMZ or public network to the private network is permitted. • Traffic originating from the DMZ network and traveling to the private network is usually blocked. • Traffic originating from the DMZ network and traveling to the public network is selectively permitted based on service requirements. • Traffic originating from the public network and traveling toward the DMZ is selectively permitted and inspected. This type of traffic is typically email, DNS, HTTP, or HTTPS traffic. Return traffic from the DMZ to the public network is dynamically permitted. • Traffic originating from the public network and traveling to the private network is blocked."
+        },
+        {
+         "title": "Zone-Based Policy Firewalls",
+         "md": "Zone-based policy firewalls (ZPFs) use the concept of zones to provide additional flexibility. A zone is a group of one or more interfaces that have similar functions or features. Zones help you specify where a Cisco IOS firewall rule or policy should be applied. In the figure, security policies for LAN 1 and LAN 2 are similar and can be grouped into a zone for firewall configurations. By default, the traffic between interfaces in the same zone is not subject to any policy and passes freely. However, all zone-to-zone traffic is blocked. In order to permit traffic between zones, a policy allowing or inspecting traffic must be configured. The only exception to this default deny any policy is the router self zone. The self zone is the router itself and includes all the router interface IP addresses. Policy configurations that include the self zone would apply to traffic destined to and sourced from the router. By default, there is no policy for this type of traffic. Traffic that should be considered when designing a policy for the self zone includes management plane and control plane traffic, such as SSH, SNMP, and routing protocols."
+        }
+       ]
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      },
+      {
+       "t": "figure",
+       "caption": "схема из курса"
+      }
+     ]
+    },
+    {
+     "id": "6.1.4",
+     "title": "Firewall Type Descriptions",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "It is important to understand the different types of firewalls and their specific capabilities so that the right firewall is used for each situation."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Packet Filtering (Stateless) Firewall",
+         "md": "Packet filtering firewalls are usually part of a router firewall, which permits or denies traffic based on Layer 3 and Layer 4 information. They are stateless firewalls that use a simple policy table look-up that filters traffic based on specific criteria. For example, SMTP servers listen to port 25 by default. An administrator can configure the packet filtering firewall to block port 25 from a specific workstation to prevent it from broadcasting an email virus"
+        },
+        {
+         "title": "Stateful Firewall",
+         "md": "Stateful firewalls are the most versatile and the most common firewall technologies in use. Stateful firewalls provide stateful packet filtering by using connection information maintained in a state table. Stateful filtering is a firewall architecture that is classified at the network layer. It also analyzes traffic at OSI Layer 4 and Layer 5."
+        },
+        {
+         "title": "Application Gateway Firewall",
+         "md": "An application gateway firewall (proxy firewall), as shown in the figure, filters information at Layers 3, 4, 5, and 7 of the OSI reference model. Most of the firewall control and filtering is done in software. When a client needs to access a remote server, it connects to a proxy server. The proxy server connects to the remote server on behalf of the client. Therefore, the server only sees a connection from the proxy server."
+        },
+        {
+         "title": "Next Generation Firewall",
+         "md": "Next-generation firewalls (NGFW) go beyond stateful firewalls by providing: • Integrated intrusion prevention • Application awareness and control to see and block risky apps • Upgrade paths to include future information feeds • Techniques to address evolving security threats"
+        }
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Other methods of implementing firewalls include:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Host-based (server and personal) firewall - A PC or server with firewall software running on it.",
+        "Transparent firewall - Filters IP traffic between a pair of bridged interfaces.",
+        "Hybrid firewall - A combination of the various firewall types. For example, an application inspection firewall combines a stateful firewall with an application gateway firewall."
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6.1.6",
+     "title": "IDS and IPS Characteristics",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A networking architecture paradigm shift is required to defend against fast-moving and evolving attacks. This must include cost-effective detection and prevention systems, such as intrusion detection systems (IDS) or the more scalable intrusion prevention systems (IPS). The network architecture integrates these solutions into the entry and exit points of the network."
+      },
+      {
+       "t": "p",
+       "md": "When implementing IDS or IPS, it is important to be familiar with the types of systems available, host-based and network-based approaches, the placement of these systems, the role of signature categories, and possible actions that a Cisco IOS router can take when an attack is detected."
+      },
+      {
+       "t": "p",
+       "md": "The figure shows how an IPS device handles malicious traffic."
+      },
+      {
+       "t": "p",
+       "md": "IDS and IPS technologies are both deployed as sensors. An IDS or IPS sensor can be in the form of several different devices:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "A router configured with Cisco IOS IPS software",
+        "A device specifically designed to provide dedicated IDS or IPS services",
+        "A network module installed in an adaptive security appliance (ASA), switch, or router"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "IDS and IPS technologies use signatures to detect patterns in network traffic. A signature is a set of rules that an IDS or IPS uses to detect malicious activity. Signatures can be used to detect severe breaches of security, to detect common network attacks, and to gather information. IDS and IPS technologies can detect atomic signature patterns (single-packet) or composite signature patterns (multi-packet)."
+      }
+     ]
+    },
+    {
+     "id": "6.1.7",
+     "title": "Advantages and Disadvantages of IDS and IPS",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "IDS Advantages and Disadvantages"
+      },
+      {
+       "t": "p",
+       "md": "The table lists the advantages and disadvantages of IDS and IPS."
+      },
+      {
+       "t": "table",
+       "headers": [
+        "Solution",
+        "Advantages",
+        "Disadvantages"
+       ],
+       "rows": [
+        [
+         "IDS",
+         "• No Impact on network (latency, jitter)\n \n• No Network impact if there is a sensor failure\n \n• No network impact if there is sensor overload",
+         "• Response action cannot stop trigger packets\n \n• Correct tuning required for response actions\n \n• More vulnerable to network security evasion techniques"
+        ],
+        [
+         "IPS",
+         "• Stops trigger packets\n\n• Can use stream normalization techniques",
+         "• Sensor issues might affect network traffic\n \n• Sensor overloading impacts the network\n \n• Some impact on network (latency, jitter)"
+        ]
+       ],
+       "caption": "Advantages and Disadvantages of IDS and IPS"
+      },
+      {
+       "t": "p",
+       "md": "Click on each button to learn more about IDS and IPS sensors"
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "IDS Advantages and Disadvantages",
+         "md": "IDS Advantages An IDS is deployed in offline mode and therefore: • The IDS does not impact network performance. Specifically, it does not introduce latency, jitter, or other traffic flow issues. • The IDS does not affect network functionality if the sensor fails. It only affects the ability of the IDS to analyze the data. IDS Disadvantages Disadvantages of an IDS include: • An IDS sensor cannot stop the packets that have triggered an alert and are less helpful in detecting email viruses and automated attacks, such as worms. • Tuning IDS sensors to achieve expected levels of intrusion detection can be very time-consuming. Users deploying IDS sensor response actions must have a well-designed security policy and a good operational understanding of their IDS deployments. • An IDS implementation is more vulnerable to network security evasion techniques because it is not inline."
+        },
+        {
+         "title": "IPS Advantages and Disadvantages",
+         "md": "IPS Advantages Advantages of an IPS include: • An IPS sensor can be configured to drop the trigger packets, the packets associated with a connection, or packets from a source IP address. • Because IPS sensors are inline, they can use stream normalization. Stream normalization is a technique used to reconstruct the data stream when the attack occurs over multiple data segments. IPS Disadvantages Disadvantages of an IPS include: • Because it is deployed inline, errors, failure, and overwhelming the IPS sensor with too much traffic can have a negative effect on network performance. • An IPS sensor can affect network performance by introducing latency and jitter. • An IPS sensor must be appropriately sized and implemented so that time-sensitive applications, such as VoIP, are not adversely affected."
+        },
+        {
+         "title": "Deployment Considerations",
+         "md": "You can deploy both an IPS and an IDS. Using one of these technologies does not negate the use of the other. In fact, IDS and IPS technologies can complement each other. For example, an IDS can be implemented to validate IPS operation because the IDS can be configured for deeper packet inspection offline. This allows the IPS to focus on fewer but more critical traffic patterns inline. Deciding which implementation to use is based on the security goals of the organization as stated in their network security policy."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6.1.8",
+     "title": "Types of IPS",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "There are two primary kinds of IPS available: host-based IPS and network-based IPS."
+      },
+      {
+       "t": "p",
+       "md": "Host-based IPS"
+      },
+      {
+       "t": "p",
+       "md": "Host-based IPS (HIPS) is software installed on a host to monitor and analyze suspicious activity. A significant advantage of HIPS is that it can monitor and protect operating system and critical system processes that are specific to that host. With detailed knowledge of the operating system, HIPS can monitor abnormal activity and prevent the host from executing commands that do not match typical behavior. This suspicious or malicious behavior might include unauthorized registry updates, changes to the system directory, executing installation programs, and activities that cause buffer overflows. Network traffic can also be monitored to prevent the host from participating in a denial-of-service (DoS) attack or being part of an illicit FTP session."
+      },
+      {
+       "t": "p",
+       "md": "HIPS can be thought of as a combination of antivirus software, antimalware software, and a firewall. Combined with a network-based IPS, HIPS is an effective tool in providing additional protection for the host."
+      },
+      {
+       "t": "p",
+       "md": "A disadvantage of HIPS is that it operates only at a local level. It does not have a complete view of the network, or coordinated events that might be happening across the network. To be effective in a network, HIPS must be installed on every host and have support for every operating system."
+      },
+      {
+       "t": "p",
+       "md": "Select the headings to find out more about the advantages and disadvantages of HIPS."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Advantages",
+         "md": "• Provides protection specific to a host operating system • Provides operating system and application level protection • Protects the host after the message is decrypted"
+        },
+        {
+         "title": "Disadvantages",
+         "md": "• Operating system dependent • Must be installed on all hosts"
+        }
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Network-based IPS"
+      },
+      {
+       "t": "p",
+       "md": "A network-based IPS can be implemented using a dedicated or non-dedicated IPS device. Network-based IPS implementations are a critical component of intrusion prevention. There are host-based IDS/IPS solutions, but these must be integrated with a network-based IPS implementation to ensure a robust security architecture."
+      },
+      {
+       "t": "p",
+       "md": "Sensors detect malicious and unauthorized activity in real time and can take action when required. As shown in the figure, sensors are deployed at designated network points. This enables security managers to monitor network activity while it is occurring, regardless of the location of the attack target."
+      }
+     ]
+    },
+    {
+     "id": "6.1.9",
+     "title": "Specialized Security Appliances",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "There are a variety of specialized security appliances available. Here are a few examples."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "AMP",
+         "md": "Cisco Advanced Malware Protection (AMP) is an enterprise-class advanced malware analysis and protection solution. It provides comprehensive malware protection for organizations before, during, and after an attack: • Before an attack, AMP strengthens defenses and protects against known and emerging threats. • During an attack, AMP identifies and blocks policy-violating file types, exploit attempts, and malicious files from infiltrating the network. • After an attack, or after a file is initially inspected, AMP goes beyond point-in-time detection capabilities and continuously monitors and analyzes all file activity and traffic, regardless of disposition, searching for any indications of malicious behavior. If a file with an unknown or previously deemed “good” disposition starts behaving badly, AMP will detect it and instantly alert security teams with an indication of compromise. It then provides visibility into where the malware originated, what systems were affected, and what the malware is doing. AMP accesses the collective security intelligence of the Cisco Talos Security Intelligence and Research Group. Talos detects and correlates threats in real time using the largest threat-detection network in the world."
+        },
+        {
+         "title": "WSA",
+         "md": "A Cisco Web Security Appliance (WSA) is a secure web gateway that combines leading protections to help organizations address the growing challenges of securing and controlling web traffic. WSA protects the network by automatically blocking risky sites and testing unknown sites before allowing users to access them. WSA provides malware protection, application visibility and control, acceptable use policy controls, insightful reporting and secure mobility. While WSA protects the network from malware intrusion, it does not provide protection for users who want to connect to the internet directly outside of the protected network, such as at a public Wi-Fi service. In this instance, the user’s PC can be infected with malware which can then spread to other networks and devices. To help protect user PCs from these types of malware infections there is Cisco Cloud Web Security (CWS). CWS together with WSA provides comprehensive protection against malware and the associated impacts. The Cisco CWS solution enforces secure communication to and from the internet and provides remote workers the same level of security as onsite employees when using a laptop issued by the employer. Cisco CWS incorporates two main functions, web filtering and web security, and both are accompanied by extensive, centralized reporting."
+        },
+        {
+         "title": "ESA",
+         "md": "A Cisco Email Security Appliance (ESA)/ Cisco Cloud Email Security helps to mitigate email-based threats. The Cisco ESA defends mission-critical email systems. The Cisco ESA is constantly updated by real-time feeds from the Cisco Talos, which detects and correlates threats using a worldwide database monitoring system. These are some of the main features of ESA: • Global threat intelligence - Cisco Talos provides a 24-hour view into global traffic activity. It analyzes anomalies, uncovers new threats, and monitors traffic trends. • Spam blocking - A multilayered defense combines an outer layer of filtering based on the reputation of the sender and an inner layer of filtering that performs a deep analysis of the message. • Advanced malware protection – Includes AMP that takes advantage of the vast cloud security intelligence network of Sourcefire. It delivers protection across the attack continuum before, during, and after an attack. • Outbound message control - Controls outbound messages to help ensure that important messages comply with industry standards and are protected in transit."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "mcq",
+     "q": "Which type of firewall filters information at Layers 3, 4, 5, and 7 of the OSI reference model?",
+     "options": [
+      "Host-based",
+      "Hybrid",
+      "Application Gateway",
+      "Packet filtering",
+      "Stateful"
+     ],
+     "answers": [
+      "Application Gateway"
+     ],
+     "id": "6.1-q1",
+     "lesson": "6.1.5",
+     "why": "That’s right, well done. An application gateway firewall filters information at Layers 3, 4, 5, and 7 of the OSI reference model."
+    },
+    {
+     "type": "mcq",
+     "q": "Which type of firewall is a combination of various firewall types?",
+     "options": [
+      "Host-based",
+      "Hybrid",
+      "Next generation",
+      "Packet filtering",
+      "Proxy",
+      "Stateful",
+      "Transparent"
+     ],
+     "answers": [
+      "Hybrid"
+     ],
+     "id": "6.1-q2",
+     "lesson": "6.1.5",
+     "why": "That’s right, well done. A hybrid firewall is a combination of the various firewall types."
+    },
+    {
+     "type": "mcq",
+     "q": "Which type of firewall is part of a router firewall, permitting or denying traffic based on Layer 3 and Layer 4 information?",
+     "options": [
+      "Host-based",
+      "Hybrid",
+      "Next generation",
+      "Packet filtering",
+      "Proxy",
+      "Stateful",
+      "Transparent"
+     ],
+     "answers": [
+      "Packet filtering"
+     ],
+     "id": "6.1-q3",
+     "lesson": "6.1.5",
+     "why": "That’s right, well done. A packet filtering firewall is part of a router firewall that permits or denies traffic based on Layer 3 and Layer 4 information."
+    },
+    {
+     "type": "mcq",
+     "q": "Which type of firewall is a PC or server with firewall software running on it?",
+     "options": [
+      "Host-based",
+      "Hybrid",
+      "Next generation",
+      "Packet filtering",
+      "Proxy",
+      "Stateful",
+      "Transparent"
+     ],
+     "answers": [
+      "Host-based"
+     ],
+     "id": "6.1-q4",
+     "lesson": "6.1.5",
+     "why": "That’s right, well done. Host-based firewalls is a PC or server with firewall software running on it."
+    },
+    {
+     "type": "mcq",
+     "q": "Which type of firewall filters IP traffic between a pair of bridged interfaces?",
+     "options": [
+      "Host-based",
+      "Hybrid",
+      "Next generation",
+      "Packet filtering",
+      "Proxy",
+      "Stateful",
+      "Transparent"
+     ],
+     "answers": [
+      "Transparent"
+     ],
+     "id": "6.1-q5",
+     "lesson": "6.1.5",
+     "why": "That’s right, well done. A transparent firewall filters IP traffic between a pair of bridged interfaces."
+    },
+    {
+     "type": "select",
+     "q": "Select the corresponding delivery method for each characteristic.",
+     "pairs": [
+      {
+       "item": "More vulnerable to network security evasion techniques enabled by various network attack methods",
+       "match": "IDS"
+      },
+      {
+       "item": "Can affect network performance by introducing latency and jitter",
+       "match": "IPS"
+      },
+      {
+       "item": "Must be implemented so that time-sensitive applications are not adversely affected",
+       "match": "IPS"
+      },
+      {
+       "item": "Cannot stop the trigger packet and is not guaranteed to stop a connection",
+       "match": "IDS"
+      },
+      {
+       "item": "Deployed in offline mode",
+       "match": "IDS"
+      },
+      {
+       "item": "Can use stream normalization techniques to reduce or eliminate many of the network security evasion capabilities that exist",
+       "match": "IPS"
+      },
+      {
+       "item": "Can be configured to perform a packet drop to stop the trigger packet",
+       "match": "IPS"
+      },
+      {
+       "item": "Primarily focused on identifying possible incidents, logging information about the incidents, and reporting the incidents",
+       "match": "IDS"
+      },
+      {
+       "item": "Must be deployed inline, and traffic must be able to pass through it",
+       "match": "IPS"
+      },
+      {
+       "item": "Less helpful in stopping email viruses and automated attacks, such as worms",
+       "match": "IDS"
+      }
+     ],
+     "pool": [
+      "IDS",
+      "IPS"
+     ],
+     "id": "6.1-q6",
+     "lesson": "6.1.10",
+     "why": "That’s right, well done. You have successfully identified the characteristics of IDS and IPS."
+    }
+   ]
+  },
+  {
+   "id": "6.2",
+   "title": "Security Services",
+   "lessons": [
+    {
+     "id": "6.2.1",
+     "title": "Video - Security Services",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Видео курса",
+       "md": "Video - Security Services. Само видео в выгрузку не попало."
+      },
+      {
+       "t": "p",
+       "md": "Watch the video to learn more about security services."
+      }
+     ]
+    },
+    {
+     "id": "6.2.2",
+     "title": "What Is an ACL?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "An Access Control List (ACL) is a series of commands that control whether a device forwards or drops packets based on information found in the packet header. When configured, ACLs perform the following tasks:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "They limit network traffic to increase network performance. For example, if corporate policy does not allow video traffic on the network, ACLs that block video traffic could be configured and applied. This would greatly reduce the network load and increase network performance.",
+        "They provide traffic flow control. ACLs can restrict the delivery of routing updates to ensure that the updates are from a known source.",
+        "They provide a basic level of security for network access. ACLs can allow one host to access a part of the network and prevent another host from accessing the same area. For example, access to the Human Resources network can be restricted to authorized users.",
+        "They filter traffic based on traffic type. For example, an ACL can permit email traffic, but block all Telnet traffic.",
+        "They screen hosts to permit or deny access to network services. ACLs can permit or deny a user to access file types, such as FTP or HTTP."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "In addition to either permitting or denying traffic, ACLs can be used for selecting types of traffic to be analyzed, forwarded, or processed in other ways. For example, ACLs can be used to classify traffic to enable priority processing. This capability is similar to having a VIP pass at a concert or sporting event. The VIP pass gives selected guests privileges not offered to general admission ticket holders, such as priority entry or being able to enter a restricted area."
+      },
+      {
+       "t": "p",
+       "md": "The figure shows a sample topology with ACLs applied to routers R1, R2, and R3."
+      },
+      {
+       "t": "p",
+       "md": "What is an ACL?"
+      }
+     ]
+    },
+    {
+     "id": "6.2.3",
+     "title": "ACLs: Important Features",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Two types of Cisco IPv4 ACLs are standard and extended. Standard ACLs can be used to permit or deny traffic only from source IPv4 addresses. The destination of the packet and the ports involved are not evaluated."
+      },
+      {
+       "t": "p",
+       "md": "Extended ACLs filter IPv4 packets based on several attributes that include:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Protocol type",
+        "Source IPv4 address",
+        "Destination IPv4 address",
+        "Source TCP or UDP ports",
+        "Destination TCP or UDP ports",
+        "Optional protocol type information for finer control"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Standard and extended ACLs can be created using either a number or a name to identify the ACL and its list of statements."
+      },
+      {
+       "t": "p",
+       "md": "Using numbered ACLs is an effective method for determining the ACL type on smaller networks with more homogeneously defined traffic. However, a number does not provide information about the purpose of the ACL. For this reason, a name can be used to identify a Cisco ACL."
+      },
+      {
+       "t": "p",
+       "md": "By configuring ACL logging, an ACL message can be generated and logged when traffic meets the permit or deny criteria defined in the ACL."
+      },
+      {
+       "t": "p",
+       "md": "Cisco ACLs can also be configured to only allow TCP traffic that has an ACK or RST bit set, so that only traffic from an established TCP session is permitted. This can be used to deny any TCP traffic from outside the network that is trying to establish a new TCP session."
+      }
+     ]
+    },
+    {
+     "id": "6.2.4",
+     "title": "Packet Tracer - ACL Demonstration",
+     "blocks": [
+      {
+       "t": "note",
+       "variant": "info",
+       "title": "Packet Tracer",
+       "md": "Packet Tracer - ACL Demonstration. Сам файл активности в выгрузку не попал, ниже инструкция из курса."
+      },
+      {
+       "t": "p",
+       "md": "In this Packet Tracer activity, you will complete the following objectives:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Part 1: Verify Local Connectivity and Test Access Control List",
+        "Part 2: Remove Access Control List and Repeat Test"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Objectives"
+      },
+      {
+       "t": "p",
+       "md": "Part 1: Verify Local Connectivity and Test Access Control List"
+      },
+      {
+       "t": "p",
+       "md": "Part 2: Remove Access Control List and Repeat Test"
+      },
+      {
+       "t": "p",
+       "md": "Background"
+      },
+      {
+       "t": "p",
+       "md": "In this activity, you will observe how an access control list (ACL) can be used to prevent a ping from reaching hosts on remote networks. After removing the ACL from the configuration, the pings will be successful."
+      },
+      {
+       "t": "p",
+       "md": "Instructions"
+      },
+      {
+       "t": "p",
+       "md": "Part 1: Verify Local Connectivity and Test Access Control List"
+      },
+      {
+       "t": "p",
+       "md": "Step 1: Ping devices on the local network to verify connectivity."
+      },
+      {
+       "t": "list",
+       "items": [
+        "From the command prompt of PC1, ping PC2.",
+        "From the command prompt of PC1, ping PC3."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Part 2: Remove ACL and Repeat Test"
+      },
+      {
+       "t": "p",
+       "md": "Step 1: Use show commands to investigate the ACL configuration."
+      },
+      {
+       "t": "list",
+       "items": [
+        "Use the show run and show access-lists commands to view the currently configured ACLs. To quickly view the current ACLs, use show access-lists. Enter the show access-lists command, followed by a space and a question mark (?) to view the available options:"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "R1# show access-lists ?"
+      },
+      {
+       "t": "p",
+       "md": "<1-199> ACL number"
+      },
+      {
+       "t": "p",
+       "md": "WORD ACL name"
+      },
+      {
+       "t": "p",
+       "md": "<cr>"
+      },
+      {
+       "t": "p",
+       "md": "If you know the ACL number or name, you can filter the show output further. However, R1 only has one ACL; therefore, the show access-lists command will suffice."
+      },
+      {
+       "t": "p",
+       "md": "R1# show access-lists"
+      },
+      {
+       "t": "p",
+       "md": "Standard IP access list 11"
+      },
+      {
+       "t": "p",
+       "md": "10 deny 192.168.10.0 0.0.0.255"
+      },
+      {
+       "t": "p",
+       "md": "20 permit any"
+      },
+      {
+       "t": "p",
+       "md": "The first line of the ACL prevents any packets originating in the 192.168.10.0/24 network, which includes Internet Control Message Protocol (ICMP) echoes (ping requests). The second line of the ACL allows all other ip traffic from any source to transverse the router."
+      },
+      {
+       "t": "list",
+       "items": [
+        "For an ACL to impact router operation, it must be applied to an interface in a specific direction. In this scenario, the ACL is used to filter traffic exiting an interface. Therefore, all traffic leaving the specified interface of R1 will be inspected against ACL 11."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Although you can view IP information with the show ip interface command, it may be more efficient in some situations to simply use the show run command."
+      },
+      {
+       "t": "p",
+       "md": "Step 2: Remove access list 11 from the configuration."
+      },
+      {
+       "t": "p",
+       "md": "You can remove ACLs from the configuration by issuing the no access list [number of the ACL] command. The no access-list command deletes all ACLs configured on the router. The no access-list [number of the ACL] command removes only a specific ACL."
+      },
+      {
+       "t": "p",
+       "md": "a. Under the Serial0/0/0 interface, remove access-list 11, previously applied to the interface as an outgoing filter:"
+      },
+      {
+       "t": "p",
+       "md": "R1(config)# int se0/0/0"
+      },
+      {
+       "t": "p",
+       "md": "R1(config-if)#no ip access-group 11 out"
+      },
+      {
+       "t": "p",
+       "md": "b. In global configuration mode, remove the ACL by entering the following command:"
+      },
+      {
+       "t": "p",
+       "md": "R1(config)# no access-list 11"
+      },
+      {
+       "t": "p",
+       "md": "c. Verify that PC1 can now ping the DNS Server and PC4."
+      }
+     ]
+    },
+    {
+     "id": "6.2.5",
+     "title": "SNMP",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Simple Network Management Protocol (SNMP) allows administrators to manage end devices such as servers, workstations, routers, switches, and security appliances, on an IP network. It enables network administrators to monitor and manage network performance, find and solve network problems, and plan for network growth."
+      },
+      {
+       "t": "p",
+       "md": "SNMP is an application layer protocol that provides a message format for communication between managers and agents."
+      },
+      {
+       "t": "p",
+       "md": "As shown in the figure, the SNMP system consists of two elements."
+      },
+      {
+       "t": "list",
+       "items": [
+        "SNMP manager that runs SNMP management software.",
+        "SNMP agents which are the nodes being monitored and managed."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "The Management Information Base (MIB) is a database on the agents that stores data and operational statistics about the device."
+      },
+      {
+       "t": "p",
+       "md": "To configure SNMP on a networking device, it is first necessary to define the relationship between the manager and the agent."
+      },
+      {
+       "t": "p",
+       "md": "The SNMP manager is part of a network management system (NMS). The SNMP manager runs SNMP management software. As shown in the figure, the SNMP manager can collect information from an SNMP agent by using the “get” action and can change configurations on an agent by using the “set” action. In addition, SNMP agents can forward information directly to a network manager by using “traps”."
+      }
+     ]
+    },
+    {
+     "id": "6.2.6",
+     "title": "NetFlow",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "NetFlow is a Cisco IOS technology that provides statistics on packets flowing through a Cisco router or multilayer switch. While SNMP attempts to provide a very wide range of network management features and options, NetFlow is focused on providing statistics on IP packets flowing through network devices."
+      },
+      {
+       "t": "p",
+       "md": "NetFlow provides data to enable network and security monitoring, network planning, traffic analysis to include identification of network bottlenecks, and IP accounting for billing purposes. For example, in the figure, PC 1 connects to PC 2 using an application such as HTTPS."
+      },
+      {
+       "t": "p",
+       "md": "NetFlow in the Network"
+      },
+      {
+       "t": "p",
+       "md": "NetFlow can monitor that application connection, tracking byte and packet counts for that individual application flow. It then pushes the statistics over to an external server called a NetFlow collector."
+      },
+      {
+       "t": "p",
+       "md": "NetFlow technology has seen several generations that provide more sophistication in defining traffic flows, but “original NetFlow” distinguished flows using a combination of seven fields. Should one of these fields vary in value from another packet, the packets could be safely determined to be from different flows:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Source IP address",
+        "Destination IP address",
+        "Source port number",
+        "Destination port number",
+        "Layer 3 protocol type",
+        "Type of Service (ToS) marking",
+        "Input logical interface"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "The first four of the fields NetFlow uses to identify a flow should be familiar. The source and destination IP addresses, plus the source and destination ports, identify the connection between source and destination application. The Layer 3 protocol type identifies the type of header that follows the IP header (usually TCP or UDP, but other options include ICMP). The ToS byte in the IPv4 header holds information about how devices should apply quality of service (QoS) rules to the packets in that flow."
+      }
+     ]
+    },
+    {
+     "id": "6.2.7",
+     "title": "Traffic Sniffing Using a Switch",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A packet analyzer (also known as a packet sniffer or traffic sniffer) is typically software that captures packets entering and exiting the network interface card (NIC). It is not always possible or desirable to have the packet analyzer on the device that is being monitored. Sometimes it is better on a separate station designated to capture the packets."
+      },
+      {
+       "t": "p",
+       "md": "Because network switches can isolate traffic, traffic sniffers or other network monitors, such as IDS, cannot access all the traffic on a network segment. Port mirroring is a feature that allows a switch to make duplicate copies of traffic passing through a switch, and then send it out a port with a network monitor attached. The original traffic is forwarded in the usual manner. An example of port mirroring is illustrated in the figure."
+      }
+     ]
+    },
+    {
+     "id": "6.2.8",
+     "title": "Syslog Servers",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "When certain events occur on a network, networking devices have trusted mechanisms to notify the administrator with detailed system messages. These messages can be either non-critical or significant. Network administrators have a variety of options for storing, interpreting, and displaying these messages, and for being alerted to those messages that could have the greatest impact on the network infrastructure."
+      },
+      {
+       "t": "p",
+       "md": "The most common method of accessing system messages is to use a protocol called syslog."
+      },
+      {
+       "t": "p",
+       "md": "Many networking devices support syslog, including routers, switches, application servers, firewalls, and other network appliances. The syslog protocol allows networking devices to send their system messages across the network to syslog servers as shown in the figure."
+      },
+      {
+       "t": "p",
+       "md": "The syslog logging service provides three primary functions:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "The ability to gather logging information for monitoring and troubleshooting",
+        "The ability to select the type of logging information that is captured",
+        "The ability to specify the destination of captured syslog messages"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "6.2.9",
+     "title": "NTP",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "It is important to synchronize the time across all devices on the network because all aspects of managing, securing, troubleshooting, and planning networks require accurate and consistent timestamping. When the time is not synchronized between devices, it will be impossible to determine the order of the events that have occurred in different parts of the network."
+      },
+      {
+       "t": "p",
+       "md": "Typically, the date and time settings on a network device can be set using one of two methods:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Manual configuration of the date and time",
+        "Configuring the Network Time Protocol (NTP)"
+       ]
+      },
+      {
+       "t": "p",
+       "md": "As a network grows, it becomes difficult to ensure that all infrastructure devices are operating with synchronized time. Even in a smaller network environment, the manual method is not ideal. If a device reboots, how will it get an accurate date and timestamp?"
+      },
+      {
+       "t": "p",
+       "md": "A better solution is to configure the NTP on the network. This protocol allows routers on the network to synchronize their time settings with an NTP server. A group of NTP clients that obtain time and date information from a single source have more consistent time settings. When NTP is implemented in the network, it can be set up to synchronize to a private primary clock or it can synchronize to a publicly available NTP server on the Internet."
+      },
+      {
+       "t": "p",
+       "md": "NTP networks use a hierarchical system of time sources. Each level in this hierarchical system is called a stratum. The stratum level is defined as the number of hop counts from the authoritative source. The synchronized time is distributed across the network using NTP. The figure displays a sample NTP network."
+      },
+      {
+       "t": "p",
+       "md": "NTP servers are arranged in three levels known as strata:"
+      },
+      {
+       "t": "list",
+       "items": [
+        "Stratum 0 - An NTP network gets the time from authoritative time sources. These authoritative time sources, also referred to as stratum 0 devices, are high-precision timekeeping devices assumed to be accurate and with little or no delay associated with them.",
+        "Stratum 1 -The stratum 1 devices are directly connected to the authoritative time sources. They act as the primary network time standard.",
+        "Stratum 2 and lower strata - The stratum 2 servers are connected to stratum 1 devices through network connections. Stratum 2 devices, such as NTP clients, synchronize their time using the NTP packets from stratum 1 servers. They could also act as servers for stratum 3 devices."
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Smaller stratum numbers indicate that the server is closer to the authorized time source than larger stratum numbers. The larger the stratum number, the lower the stratum level. The max hop count is 15. Stratum 16, the lowest stratum level, indicates that a device is unsynchronized. Time servers on the same stratum level can be configured to act as a peer with other time servers on the same stratum level for backup or verification of time."
+      }
+     ]
+    },
+    {
+     "id": "6.2.10",
+     "title": "AAA Servers",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Select the headings to find out the three independent security functions provided by the AAA architectural framework."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Authentication",
+         "md": "• Users and administrators must prove that they are who they say they are. • Authentication can be established using username and password combinations, challenge and response questions, token cards, and other methods. • AAA authentication provides a centralized way to control access to the network."
+        },
+        {
+         "title": "Authorization",
+         "md": "• After the user is authenticated, authorization services determine which resources the user can access and which operations the user is allowed to perform. • An example is “User ‘student’ can access host serverXYZ using SSH only.”"
+        },
+        {
+         "title": "Accounting",
+         "md": "• Accounting records what the user does, including what is accessed, the amount of time the resource is accessed, and any changes that were made. • Accounting keeps track of how network resources are used. • An example is “User ‘student’ accessed host serverXYZ using SSH for 15 minutes.”"
+        }
+       ]
+      },
+      {
+       "t": "p",
+       "md": "Terminal Access Controller Access-Control System Plus (TACACS+) and Remote Authentication Dial-In User Service (RADIUS) are both authentication protocols that are used to communicate with AAA servers. Whether TACACS+ or RADIUS is selected depends on the needs of the organization."
+      },
+      {
+       "t": "p",
+       "md": "While both protocols can be used to communicate between a router and AAA servers, TACACS+ is considered the more secure protocol. This is because all TACACS+ protocol exchanges are encrypted, while RADIUS only encrypts the user’s password. RADIUS does not encrypt usernames, accounting information, or any other information carried in the RADIUS message."
+      },
+      {
+       "t": "p",
+       "md": "The table lists the differences between the two protocols."
+      },
+      {
+       "t": "table",
+       "headers": [
+        "",
+        "TACACS+",
+        "RADIUS"
+       ],
+       "rows": [
+        [
+         "Functionality",
+         "Separates AAA according to the AAA architecture, allowing modularity of the security server implementation",
+         "Combines authentication and authorization but separates accounting, allowing less flexibility in implementation than TACACS+"
+        ],
+        [
+         "Standard",
+         "Mostly Cisco supported",
+         "Open/RFC standard"
+        ],
+        [
+         "Transport",
+         "TCP",
+         "UDP"
+        ],
+        [
+         "Protocol CHAP",
+         "Bidirectional challenge and response as used in Challenge Handshake Authentication Protocol (CHAP)",
+         "Unidirectional challenge and response from the RADIUS security server to the RADIUS client"
+        ],
+        [
+         "Confidentiality",
+         "Entire packet encrypted",
+         "Password encrypted"
+        ],
+        [
+         "Customization",
+         "Provides authorization of router commands on a per-user or per-group basis",
+         "Has no option to authorize router commands on a per-user or per-group basis"
+        ],
+        [
+         "Accounting",
+         "Limited",
+         "Extensive"
+        ]
+       ],
+       "caption": "AAA Servers"
+      }
+     ]
+    },
+    {
+     "id": "6.2.11",
+     "title": "VPN",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "A VPN is a private network that is created over a public network, usually the internet, as shown in the figure."
+      },
+      {
+       "t": "p",
+       "md": "Instead of using a dedicated physical connection, a VPN uses virtual connections that are routed through the internet from the organization to the remote site. The first VPNs were strictly IP tunnels that did not include authentication or encryption of the data. For example, Generic Routing Encapsulation (GRE) is a tunneling protocol developed by Cisco that can encapsulate a wide variety of network layer protocol packet types inside IP tunnels. This creates a virtual point-to-point link to Cisco routers at remote points over an IP internetwork."
+      },
+      {
+       "t": "p",
+       "md": "A VPN is virtual in that it carries information within a private network, but that information is actually transported over a public network. A VPN is private in that the traffic is encrypted to keep the data confidential while it is transported across the public network."
+      },
+      {
+       "t": "p",
+       "md": "A VPN is a communications environment in which access is strictly controlled to permit peer connections within a defined community of interest. Confidentiality is achieved by encrypting the traffic within the VPN. Today, a secure implementation of VPN with encryption is what is generally equated with the concept of virtual private networking."
+      },
+      {
+       "t": "p",
+       "md": "In the simplest sense, a VPN connects two endpoints, such as a remote office to a central office, over a public network, to form a logical connection. The logical connections can be made at either Layer 2 or Layer 3. Common examples of Layer 3 VPNs are GRE, Multiprotocol Label Switching (MPLS), and IPsec. Layer 3 VPNs can be point-to-point site connections, such as GRE and IPsec, or they can establish any-to-any connectivity to many sites using MPLS."
+      },
+      {
+       "t": "p",
+       "md": "IPsec is a suite of protocols developed with the backing of the IETF to achieve secure services over IP packet-switched networks."
+      },
+      {
+       "t": "p",
+       "md": "IPsec services allow for authentication, integrity, access control, and confidentiality. With IPsec, the information exchanged between remote sites can be encrypted and verified. VPNs are commonly deployed in a site-to-site topology to securely connect central sites with remote locations. They are also deployed in a remote-access topology to provide secure remote access to external users travelling or working from home. Both remote-access and site-to-site VPNs can be deployed using IPsec."
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "mcq",
+     "q": "What allows a switch to make duplicate copies of traffic passing through it, and then send it out a port with a network monitor attached?",
+     "options": [
+      "AAA Server",
+      "ACL",
+      "Port Mirroring",
+      "VPN"
+     ],
+     "answers": [
+      "Port Mirroring"
+     ],
+     "id": "6.2-q7",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. Port mirroring is a feature that allows a switch to make duplicate copies of traffic passing through it, and then send it out a port with a network monitor attached."
+    },
+    {
+     "type": "mcq",
+     "q": "What is a series of commands that control whether a device forwards or drops packets based on information found in the packet header?",
+     "options": [
+      "AAA Server",
+      "ACL",
+      "Port Mirroring",
+      "VPN"
+     ],
+     "answers": [
+      "ACL"
+     ],
+     "id": "6.2-q8",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. ACLs are a series of commands that control whether a device forwards or drops packets based on information found in the packet header."
+    },
+    {
+     "type": "mcq",
+     "q": "What provides statistics on packet flows passing through a networking device?",
+     "options": [
+      "NetFlow",
+      "NTP",
+      "SNMP",
+      "Syslog Servers"
+     ],
+     "answers": [
+      "NetFlow"
+     ],
+     "id": "6.2-q9",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. NetFlow provides statistics on packet flows that are passing through a networking device."
+    },
+    {
+     "type": "mcq",
+     "q": "What is a private network that is created over a public network?",
+     "options": [
+      "AAA Server",
+      "ACL",
+      "Port Mirroring",
+      "VPN"
+     ],
+     "answers": [
+      "VPN"
+     ],
+     "id": "6.2-q10",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. A VPN is a private network that is created over a public network."
+    },
+    {
+     "type": "mcq",
+     "q": "What sets the date and time on network devices?",
+     "options": [
+      "NetFlow",
+      "NTP",
+      "SNMP",
+      "Syslog Servers"
+     ],
+     "answers": [
+      "NTP"
+     ],
+     "id": "6.2-q11",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. NTP sets the date and time on network devices."
+    },
+    {
+     "type": "mcq",
+     "q": "What gathers a variety of statistics for devices that are configured to send and log status messages?",
+     "options": [
+      "NetFlow",
+      "NTP",
+      "SNMP",
+      "Syslog"
+     ],
+     "answers": [
+      "Syslog"
+     ],
+     "id": "6.2-q12",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. Syslog servers gather a variety of statistics for devices configured to log and send messages."
+    },
+    {
+     "type": "mcq",
+     "q": "Which option allows administrators to monitor and manage network devices?",
+     "options": [
+      "NetFlow",
+      "NTP",
+      "SNMP",
+      "Syslog"
+     ],
+     "answers": [
+      "SNMP"
+     ],
+     "id": "6.2-q13",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. SNMP allows administrators to monitor and manage network devices."
+    },
+    {
+     "type": "mcq",
+     "q": "What authenticates users to allow access to specific network resources and records what the user does while connected to the resource?",
+     "options": [
+      "AAA Server",
+      "ACL",
+      "Port Mirroring",
+      "VPN"
+     ],
+     "answers": [
+      "AAA Server"
+     ],
+     "id": "6.2-q14",
+     "lesson": "6.2.12",
+     "why": "That’s right, well done. A AAA server authenticates users to access specific network resources and records what the user does while connected to the resource."
+    }
+   ]
+  },
+  {
+   "id": "6.3",
+   "title": "Network Security Infrastructure Summary",
+   "lessons": [
+    {
+     "id": "6.3.1",
+     "title": "What Did I Learn in this Module?",
+     "blocks": [
+      {
+       "t": "p",
+       "md": "Click the headings to see a summary of the topics covered in this module."
+      },
+      {
+       "t": "accordion",
+       "items": [
+        {
+         "title": "Security Devices",
+         "md": "There are several different types of firewalls. Packet filtering (stateless) firewalls provide Layer 3 and sometimes Layer 4 filtering. Firewall design is primarily about device interfaces permitting or denying traffic based on the source, the destination, and the type of traffic. A stateful inspection firewall allows or blocks traffic based on state, port, and protocol. Application gateway firewalls (proxy firewall) filter information at Layers 3, 4, 5, and 7. Next-generation firewalls provide additional services beyond application gateways such as Integrated intrusion prevention, application awareness and control to see and block risky apps, access to future information feeds, and techniques to address evolving security threats. Intrusion prevention systems (IPS) and intrusion detection systems (IDS) are used to detect potential security risks and alert/stop unsafe traffic. IDS/IPS can be implemented as host-based or network based with specific advantages and disadvantages to each implementation. Specialized security appliances are available including Cisco Advanced Malware Protection (AMP), Cisco Web Security Appliance (WSA), and Cisco Email Security Appliance (WSA). These security appliances utilize the services of the Cisco Talos Security Intelligence and Research Group. Talos detects and correlates threats in real time using the largest threat-detection network in the world."
+        },
+        {
+         "title": "Security Services",
+         "md": "Network security services include the following technologies. ACLs are a series of statements that control whether a device forwards or drops packets based on information found in the packet header. NTP synchronizes the system time across all devices on the network to ensure accurate and consistent timestamping of system messages. Syslog servers compile and provide access to the system messages generated by networking devices. SNMP enables network administrators to monitor and manage network performance, find and solve network problems, and plan for network growth. NetFlow provides statistics on packets that are flowing through a Cisco router or multilayer switch. Port mirroring is a feature that allows a switch to make duplicate copies of traffic that is passing through the switch, and then send it out a port that has a network monitor attached. AAA is a framework for configuring user authentication, authorization, and accounting services. AAA typically uses a TACACS+ or RADIUS server for this purpose. VPNs are private networks that are created between two endpoints across a public network."
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "quiz": [
+    {
+     "type": "mcq",
+     "q": "What is the purpose of a personal firewall on a computer?",
+     "options": [
+      "to protect the hardware against fire hazard",
+      "to filter the traffic that is moving in and out of the PC",
+      "to protect the computer from viruses and malware",
+      "to increase the speed of the Internet connection"
+     ],
+     "answers": [
+      "to filter the traffic that is moving in and out of the PC"
+     ],
+     "id": "6.3-q15",
+     "lesson": "6.3.1",
+     "why": "The purpose of a firewall is to filter the traffic that is moving in and out of the PC. A computer firewall cannot deny all illegal traffic from a computer or increase the speed of any connection. It is also not able to protect hardware against fire hazards."
+    },
+    {
+     "type": "mcq",
+     "q": "What is the main difference between the implementation of IDS and IPS devices?",
+     "options": [
+      "An IDS can negatively impact the packet flow, whereas an IPS can not.",
+      "An IDS needs to be deployed together with a firewall device, whereas an IPS can replace a firewall.",
+      "An IDS would allow malicious traffic to pass before it is addressed, whereas an IPS stops it immediately.",
+      "An IDS uses signature-based technology to detect malicious packets, whereas an IPS uses profile-based technology."
+     ],
+     "answers": [
+      "An IDS would allow malicious traffic to pass before it is addressed, whereas an IPS stops it immediately."
+     ],
+     "id": "6.3-q16",
+     "lesson": "6.3.1",
+     "why": "An IPS is deployed in inline mode and will not allow malicious traffic to enter the internal network without first analyzing it. An advantage of this is that it can stop an attack immediately. An IDS is deployed in promiscuous mode. It copies the traffic patterns and analyzes them offline, thus it cannot stop the attack immediately and it relies on another device to take further actions once it detects an attack. Being deployed in inline mode, an IPS can negatively impact the traffic flow. Both IDS and IPS can use signature-based technology to detect malicious packets. An IPS cannot replace other security devices, such as firewalls, because they perform different tasks."
+    },
+    {
+     "type": "mcq",
+     "q": "Which protocol provides authentication, integrity, and confidentiality services and is a type of VPN?",
+     "options": [
+      "AES",
+      "ESP",
+      "IPsec",
+      "MD5"
+     ],
+     "answers": [
+      "IPsec"
+     ],
+     "id": "6.3-q17",
+     "lesson": "6.3.1",
+     "why": "IPsec services allow for authentication, integrity, access control, and confidentiality. With IPsec, the information exchanged between remote sites can be encrypted and verified. Both remote-access and site-to-site VPNs can be deployed using IPsec."
+    },
+    {
+     "type": "mcq",
+     "q": "What is a feature of the TACACS+ protocol?",
+     "options": [
+      "It combines authentication and authorization as one process.",
+      "It encrypts the entire body of the packet for more secure communications.",
+      "It utilizes UDP to provide more efficient packet transfer.",
+      "It hides passwords during transmission using PAP and sends the rest of the packet in plaintext."
+     ],
+     "answers": [
+      "It encrypts the entire body of the packet for more secure communications."
+     ],
+     "id": "6.3-q18",
+     "lesson": "6.3.1",
+     "why": "TACACS+ has the following features: • separates authentication and authorization • encrypts all communication • uses TCP port 49"
+    },
+    {
+     "type": "mcq",
+     "q": "Which firewall feature is used to ensure that packets coming into a network are legitimate responses to requests initiated from internal hosts?",
+     "options": [
+      "stateful packet inspection",
+      "URL filtering",
+      "application filtering",
+      "packet filtering"
+     ],
+     "answers": [
+      "stateful packet inspection"
+     ],
+     "id": "6.3-q19",
+     "lesson": "6.3.1",
+     "why": "Stateful packet inspection on a firewall checks that incoming packets are actually legitimate responses to requests originating from hosts inside the network. Packet filtering can be used to permit or deny access to resources based on IP or MAC address. Application filtering can permit or deny access based on port number. URL filtering is used to permit or deny access based on URL or on keywords."
+    },
+    {
+     "type": "mcq",
+     "q": "Refer to the exhibit. The network \"A\" contains multiple corporate servers that are accessed by hosts from the Internet for information about the corporation. What term is used to describe the network marked as \"A\"?",
+     "options": [
+      "DMZ",
+      "internal network",
+      "perimeter security boundary",
+      "untrusted network"
+     ],
+     "answers": [
+      "DMZ"
+     ],
+     "id": "6.3-q20",
+     "lesson": "6.3.1",
+     "why": "A demilitarized zone or DMZ is a network area protected by one or more firewalls. The DMZ typically contains servers that are commonly accessed by external users. A web server is commonly contained in a DMZ."
+    },
+    {
+     "type": "mcq",
+     "q": "Which statement describes the Cisco Cloud Web Security?",
+     "options": [
+      "It is a secure web server specifically designed for cloud computing.",
+      "It is an advanced firewall solution to guard web servers against security threats.",
+      "It is a cloud-based security service to scan traffic for malware and policy enforcement.",
+      "It is a security appliance that provides an all-in-one solution for securing and controlling web traffic."
+     ],
+     "answers": [
+      "It is a cloud-based security service to scan traffic for malware and policy enforcement."
+     ],
+     "id": "6.3-q21",
+     "lesson": "6.3.1",
+     "why": "The Cisco Cloud Web Security (CWS) is a cloud-based security service that uses web proxies in the Cisco cloud environment to scan traffic for malware and policy enforcement. It is not a firewall or web server solution. The Cisco Web Security Appliance (WSA) combines multiple security solutions to provide an all-in-one solution on a single platform to address the challenges of securing and controlling web traffic."
+    },
+    {
+     "type": "multi",
+     "q": "Which two statements are true about NTP servers in an enterprise network? (Choose two.)",
+     "options": [
+      "There can only be one NTP server on an enterprise network.",
+      "All NTP servers synchronize directly to a stratum 1 time source.",
+      "NTP servers at stratum 1 are directly connected to an authoritative time source.",
+      "NTP servers ensure an accurate time stamp on logging and debugging information.",
+      "NTP servers control the mean time between failures (MTBF) for key network devices."
+     ],
+     "answers": [
+      "NTP servers at stratum 1 are directly connected to an authoritative time source.",
+      "NTP servers ensure an accurate time stamp on logging and debugging information."
+     ],
+     "id": "6.3-q22",
+     "lesson": "6.3.1",
+     "why": "Network Time Protocol (NTP) is used to synchronize the time across all devices on the network to make sure accurate timestamping on devices for managing, securing and troubleshooting. NTP networks use a hierarchical system of time sources. Each level in this hierarchical system is called a stratum. The stratum 1 devices are directly connected to the authoritative time sources."
+    },
+    {
+     "type": "mcq",
+     "q": "How is a source IP address used in a standard ACL?",
+     "options": [
+      "It is the criterion that is used to filter traffic.",
+      "It is used to determine the default gateway of the router that has the ACL applied.",
+      "It is the address to be used by a router to determine the best path to forward packets.",
+      "It is the address that is unknown, so the ACL must be placed on the interface closest to the source address."
+     ],
+     "answers": [
+      "It is the criterion that is used to filter traffic."
+     ],
+     "id": "6.3-q23",
+     "lesson": "6.3.1",
+     "why": "The only filter that can be applied with a standard ACL is the source IP address. An extended ACL is used to filter on such traffic as the source IP address, destination IP address, type of traffic, and type of message."
+    },
+    {
+     "type": "mcq",
+     "q": "Which network service allows administrators to monitor and manage network devices?",
+     "options": [
+      "NTP",
+      "SNMP",
+      "syslog",
+      "NetFlow"
+     ],
+     "answers": [
+      "SNMP"
+     ],
+     "id": "6.3-q24",
+     "lesson": "6.3.1",
+     "why": "SNMP is an application layer protocol that allows administrators to manage and monitor devices on the network such as routers, switches, and servers."
+    },
+    {
+     "type": "mcq",
+     "q": "What is a function of a proxy firewall?",
+     "options": [
+      "connects to remote servers on behalf of clients",
+      "filters IP traffic between bridged interfaces",
+      "uses signatures to detect patterns in network traffic",
+      "drops or forwards traffic based on packet header information"
+     ],
+     "answers": [
+      "connects to remote servers on behalf of clients"
+     ],
+     "id": "6.3-q25",
+     "lesson": "6.3.1",
+     "why": "Proxy firewalls filter traffic through the application layer of the TPC/IP model and shield client information by connecting to remote servers on behalf of clients."
+    },
+    {
+     "type": "mcq",
+     "q": "What network monitoring technology enables a switch to copy and forward traffic sent and received on multiple interfaces out another interface toward a network analysis device?",
+     "options": [
+      "NetFlow",
+      "network tap",
+      "port mirroring",
+      "SNMP"
+     ],
+     "answers": [
+      "port mirroring"
+     ],
+     "id": "6.3-q26",
+     "lesson": "6.3.1",
+     "why": "When enabled on a switch, port mirroring copies frames sent and recieved by the switch and forwards them to another port, which has a analysis device attached."
+    }
+   ]
+  }
+ ]
+}

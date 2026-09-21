@@ -1,1 +1,1949 @@
-{"modules":[{"id":1,"title":"Cybersecurity Threats, Vulnerabilities, and Attacks","islands":[{"id":"1.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"1.3","title":"Cyber Attacks","lessons":13,"atoms":["1.3-q5","1.3-q6"]},{"id":"1.4","title":"Wireless and Mobile Device Attacks","lessons":8,"atoms":["1.4-q7"]},{"id":"1.5","title":"Application Attacks","lessons":15,"atoms":["1.5-q8","1.5-q9"]},{"id":"1.6","title":"Cybersecurity Threats, Vulnerabilities, and Attacks Summary","lessons":1,"atoms":["1.6-q10","1.6-q11","1.6-q12","1.6-q13","1.6-q14","1.6-q15","1.6-q16","1.6-q17","1.6-q18","1.6-q19","1.6-q20","1.6-q21"]}]},{"id":2,"title":"Securing Networks","islands":[{"id":"2.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"2.2","title":"Who is Attacking Our Network?","lessons":7,"atoms":["2.2-q1"]},{"id":"2.3","title":"Securing Networks Summary","lessons":1,"atoms":["2.3-q2","2.3-q3","2.3-q4","2.3-q5","2.3-q6","2.3-q7","2.3-q8","2.3-q9","2.3-q10","2.3-q11","2.3-q12","2.3-q13","2.3-q14","2.3-q15","2.3-q16","2.3-q17","2.3-q18","2.3-q19","2.3-q20","2.3-q21"]}]},{"id":3,"title":"Attacking the Foundation","islands":[{"id":"3.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"3.1","title":"IP PDU Details","lessons":4,"atoms":[]},{"id":"3.2","title":"IP Vulnerabilities","lessons":4,"atoms":["3.2-q1","3.2-q2","3.2-q3","3.2-q4","3.2-q5"]},{"id":"3.3","title":"TCP and UDP Vulnerabilities","lessons":3,"atoms":["3.3-q6","3.3-q7","3.3-q8","3.3-q9"]},{"id":"3.4","title":"Attacking the Foundation Summary","lessons":1,"atoms":["3.4-q10","3.4-q11","3.4-q12","3.4-q13","3.4-q14","3.4-q15","3.4-q16","3.4-q17","3.4-q18","3.4-q19","3.4-q20","3.4-q21"]}]},{"id":4,"title":"Attacking What We Do","islands":[{"id":"4.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"4.1","title":"IP Services","lessons":6,"atoms":[]},{"id":"4.2","title":"Enterprise Services","lessons":9,"atoms":["4.2-q1","4.2-q2","4.2-q3","4.2-q4"]},{"id":"4.3","title":"Mitigating Common Network Attacks","lessons":6,"atoms":[]},{"id":"4.4","title":"Attacking What We Do Summary","lessons":1,"atoms":["4.4-q5","4.4-q6","4.4-q7","4.4-q8","4.4-q9","4.4-q10","4.4-q11","4.4-q12","4.4-q13","4.4-q14","4.4-q15","4.4-q16","4.4-q17"]}]},{"id":5,"title":"Wireless Network Communication","islands":[{"id":"5.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"5.1","title":"Wireless Communications","lessons":7,"atoms":["5.1-q1","5.1-q2","5.1-q3","5.1-q4","5.1-q5","5.1-q6"]},{"id":"5.2","title":"WLAN Threats","lessons":5,"atoms":["5.2-q7","5.2-q8","5.2-q9"]},{"id":"5.3","title":"Secure WLANs","lessons":10,"atoms":["5.3-q10","5.3-q11","5.3-q12","5.3-q13","5.3-q14"]},{"id":"5.4","title":"Wireless Network Communication Summary","lessons":1,"atoms":["5.4-q15","5.4-q16","5.4-q17","5.4-q18","5.4-q19","5.4-q20","5.4-q21","5.4-q22","5.4-q23","5.4-q24","5.4-q25","5.4-q26","5.4-q27","5.4-q28"]}]},{"id":6,"title":"Network Security Infrastructure","islands":[{"id":"6.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"6.1","title":"Security Devices","lessons":6,"atoms":["6.1-q1","6.1-q2","6.1-q3","6.1-q4","6.1-q5","6.1-q6"]},{"id":"6.2","title":"Security Services","lessons":9,"atoms":["6.2-q7","6.2-q8","6.2-q9","6.2-q10","6.2-q11","6.2-q12","6.2-q13","6.2-q14"]},{"id":"6.3","title":"Network Security Infrastructure Summary","lessons":1,"atoms":["6.3-q15","6.3-q16","6.3-q17","6.3-q18","6.3-q19","6.3-q20","6.3-q21","6.3-q22","6.3-q23","6.3-q24","6.3-q25","6.3-q26"]}]},{"id":7,"title":"The Windows Operating System","islands":[{"id":"7.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"7.1","title":"Windows History","lessons":4,"atoms":[]},{"id":"7.2","title":"Windows Architecture and Operations","lessons":11,"atoms":["7.2-q1","7.2-q2","7.2-q3","7.2-q4","7.2-q5"]},{"id":"7.3","title":"Windows Configuration and Monitoring","lessons":13,"atoms":[]},{"id":"7.4","title":"Windows Security","lessons":6,"atoms":["7.4-q6","7.4-q7","7.4-q8","7.4-q9","7.4-q10","7.4-q11","7.4-q12","7.4-q13"]},{"id":"7.5","title":"The Windows Operating System Summary","lessons":1,"atoms":["7.5-q14","7.5-q15","7.5-q16","7.5-q17","7.5-q18","7.5-q19","7.5-q20","7.5-q21","7.5-q22","7.5-q23","7.5-q24","7.5-q25","7.5-q26"]}]},{"id":8,"title":"Linux Overview","islands":[{"id":"8.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"8.1","title":"Linux Basics","lessons":4,"atoms":[]},{"id":"8.2","title":"Working in the Linux Shell","lessons":7,"atoms":[]},{"id":"8.3","title":"Linux Servers and Clients","lessons":6,"atoms":[]},{"id":"8.4","title":"Basic Server Administration","lessons":4,"atoms":[]},{"id":"8.5","title":"The Linux File System","lessons":4,"atoms":[]},{"id":"8.6","title":"Working with the Linux GUI","lessons":2,"atoms":[]},{"id":"8.7","title":"Working on a Linux Host","lessons":8,"atoms":[]},{"id":"8.8","title":"Linux Basics Summary","lessons":1,"atoms":["8.8-q1","8.8-q2","8.8-q3","8.8-q4","8.8-q5","8.8-q6","8.8-q7","8.8-q8","8.8-q9","8.8-q10","8.8-q11","8.8-q12","8.8-q13","8.8-q14"]}]},{"id":9,"title":"System and Endpoint Protection","islands":[{"id":"9.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"9.1","title":"Defending Systems and Devices","lessons":14,"atoms":["9.1-q1","9.1-q2"]},{"id":"9.2","title":"Antimalware Protection","lessons":4,"atoms":["9.2-q3","9.2-q4","9.2-q5","9.2-q6","9.2-q7"]},{"id":"9.3","title":"Host-Based Intrusion Prevention","lessons":4,"atoms":["9.3-q8","9.3-q9","9.3-q10","9.3-q11"]},{"id":"9.4","title":"Application Security","lessons":4,"atoms":[]},{"id":"9.5","title":"Endpoint Protection Summary","lessons":1,"atoms":["9.5-q12","9.5-q13","9.5-q14","9.5-q15","9.5-q16","9.5-q17","9.5-q18","9.5-q19","9.5-q20","9.5-q21","9.5-q22","9.5-q23","9.5-q24","9.5-q25","9.5-q26","9.5-q27","9.5-q28"]}]},{"id":10,"title":"Cybersecurity Principles, Practices, and Processes","islands":[{"id":"10.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"10.1","title":"The Three Dimensions","lessons":13,"atoms":["10.1-q1","10.1-q2"]},{"id":"10.2","title":"States of Data","lessons":9,"atoms":["10.2-q3"]},{"id":"10.3","title":"Cybersecurity Countermeasures","lessons":9,"atoms":[]},{"id":"10.4","title":"Cybersecurity Principles, Practices, and Processes","lessons":1,"atoms":["10.4-q4","10.4-q5","10.4-q6","10.4-q7","10.4-q8","10.4-q9","10.4-q10","10.4-q11","10.4-q12","10.4-q13","10.4-q14"]}]},{"id":11,"title":"Understanding Defense","islands":[{"id":"11.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"11.1","title":"Defense-in-Depth","lessons":11,"atoms":["11.1-q1"]},{"id":"11.2","title":"Cybersecurity Operations Management","lessons":7,"atoms":["11.2-q2"]},{"id":"11.3","title":"Security Policies, Regulations, and Standards","lessons":5,"atoms":[]},{"id":"11.4","title":"Understanding Defense Summary","lessons":1,"atoms":["11.4-q3","11.4-q4","11.4-q5","11.4-q6","11.4-q7","11.4-q8","11.4-q9","11.4-q10","11.4-q11","11.4-q12"]}]},{"id":12,"title":"System and Network Defense","islands":[{"id":"12.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"12.1","title":"Physical Security","lessons":7,"atoms":["12.1-q1"]},{"id":"12.2","title":"Application Security","lessons":12,"atoms":["12.2-q2"]},{"id":"12.3","title":"Network Hardening: Services and Protocols","lessons":6,"atoms":["12.3-q3"]},{"id":"12.4","title":"Network Hardening: Segmentation","lessons":4,"atoms":["12.4-q4"]},{"id":"12.5","title":"Hardening Wireless and Mobile Devices","lessons":12,"atoms":["12.5-q5","12.5-q6"]},{"id":"12.6","title":"Cybersecurity Resilience","lessons":17,"atoms":["12.6-q7"]},{"id":"12.7","title":"Embedded and Specialized Systems","lessons":13,"atoms":[]},{"id":"12.8","title":"System and Network Defense Summary","lessons":1,"atoms":["12.8-q8","12.8-q9","12.8-q10","12.8-q11","12.8-q12","12.8-q13","12.8-q14","12.8-q15","12.8-q16","12.8-q17","12.8-q18","12.8-q19"]}]},{"id":13,"title":"Access Control","islands":[{"id":"13.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"13.1","title":"Access Controls","lessons":16,"atoms":["13.1-q1"]},{"id":"13.2","title":"Access Control Concepts","lessons":3,"atoms":["13.2-q2","13.2-q3","13.2-q4"]},{"id":"13.3","title":"Account Management","lessons":15,"atoms":["13.3-q5","13.3-q6"]},{"id":"13.4","title":"AAA usage and operation","lessons":4,"atoms":["13.4-q7"]},{"id":"13.5","title":"Access Control Summary","lessons":1,"atoms":["13.5-q8","13.5-q9","13.5-q10","13.5-q11","13.5-q12","13.5-q13","13.5-q14","13.5-q15","13.5-q16","13.5-q17","13.5-q18","13.5-q19","13.5-q20","13.5-q21"]}]},{"id":14,"title":"Access Control Lists","islands":[{"id":"14.0","title":"Introduction","lessons":3,"atoms":[]},{"id":"14.1","title":"Introduction to Access Control Lists","lessons":4,"atoms":[]},{"id":"14.2","title":"Wildcard Masking","lessons":4,"atoms":["14.2-q1","14.2-q2","14.2-q3","14.2-q4"]},{"id":"14.3","title":"Configure ACLs","lessons":9,"atoms":[]},{"id":"14.4","title":"Named Standard IPv4 ACL Syntax","lessons":4,"atoms":[]},{"id":"14.5","title":"Implement ACLs","lessons":10,"atoms":["14.5-q5","14.5-q6","14.5-q7","14.5-q8","14.5-q9","14.5-q10","14.5-q11","14.5-q12","14.5-q13","14.5-q14","14.5-q15","14.5-q16","14.5-q17"]},{"id":"14.6","title":"Mitigate Attacks with ACLs","lessons":5,"atoms":[]},{"id":"14.7","title":"IPv6 ACLs","lessons":3,"atoms":[]},{"id":"14.8","title":"Access Control Lists Summary","lessons":1,"atoms":["14.8-q18","14.8-q19","14.8-q20","14.8-q21","14.8-q22","14.8-q23","14.8-q24","14.8-q25","14.8-q26","14.8-q27","14.8-q28","14.8-q29","14.8-q30","14.8-q31"]}]},{"id":15,"title":"Firewall Technologies","islands":[{"id":"15.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"15.1","title":"Secure Networks with Firewalls","lessons":4,"atoms":["15.1-q1","15.1-q2","15.1-q3","15.1-q4","15.1-q5"]},{"id":"15.2","title":"Firewalls in Network Design","lessons":2,"atoms":["15.2-q6","15.2-q7","15.2-q8","15.2-q9","15.2-q10"]},{"id":"15.3","title":"Firewall Technologies Summary","lessons":1,"atoms":["15.3-q11","15.3-q12","15.3-q13","15.3-q14","15.3-q15","15.3-q16","15.3-q17","15.3-q18","15.3-q19","15.3-q20","15.3-q21","15.3-q22"]}]},{"id":16,"title":"Zone-Based Policy Firewalls","islands":[{"id":"16.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"16.1","title":"ZPF Overview","lessons":2,"atoms":[]},{"id":"16.2","title":"ZPF Operation","lessons":2,"atoms":["16.2-q1","16.2-q2"]},{"id":"16.3","title":"Configure a ZPF","lessons":11,"atoms":[]},{"id":"16.4","title":"Zone-Based Firewalls Summary","lessons":1,"atoms":["16.4-q3","16.4-q4","16.4-q5","16.4-q6","16.4-q7","16.4-q8","16.4-q9","16.4-q10","16.4-q11","16.4-q12","16.4-q13","16.4-q14"]}]},{"id":17,"title":"Cloud Security","islands":[{"id":"17.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"17.1","title":"Virtualization and Cloud Computing","lessons":8,"atoms":["17.1-q1","17.1-q2","17.1-q3","17.1-q4"]},{"id":"17.2","title":"The Domains of Cloud Security","lessons":1,"atoms":[]},{"id":"17.3","title":"Cloud Infrastructure Security","lessons":3,"atoms":["17.3-q5","17.3-q6","17.3-q7","17.3-q8"]},{"id":"17.4","title":"Cloud Application Security","lessons":8,"atoms":["17.4-q9"]},{"id":"17.5","title":"Cloud Data Security","lessons":3,"atoms":["17.5-q10","17.5-q11","17.5-q12","17.5-q13"]},{"id":"17.6","title":"Protecting VMs","lessons":2,"atoms":[]},{"id":"17.7","title":"Cloud Security Summary","lessons":1,"atoms":["17.7-q14","17.7-q15","17.7-q16","17.7-q17","17.7-q18","17.7-q19","17.7-q20","17.7-q21","17.7-q22","17.7-q23","17.7-q24"]}]},{"id":18,"title":"Cryptography","islands":[{"id":"18.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"18.1","title":"Confidentiality","lessons":13,"atoms":["18.1-q1","18.1-q2","18.1-q3","18.1-q4"]},{"id":"18.2","title":"Obscuring Data","lessons":5,"atoms":[]},{"id":"18.3","title":"Integrity and Authenticity","lessons":5,"atoms":[]},{"id":"18.4","title":"Using Hashes","lessons":8,"atoms":["18.4-q5","18.4-q6"]},{"id":"18.5","title":"Public Key Cryptography","lessons":5,"atoms":[]},{"id":"18.6","title":"Authorities and the PKI Trust System","lessons":5,"atoms":["18.6-q7","18.6-q8","18.6-q9","18.6-q10"]},{"id":"18.7","title":"Applications and Impacts of Cryptography","lessons":3,"atoms":["18.7-q11","18.7-q12","18.7-q13","18.7-q14"]},{"id":"18.8","title":"Cryptography Summary","lessons":1,"atoms":["18.8-q15","18.8-q16","18.8-q17","18.8-q18","18.8-q19","18.8-q20","18.8-q21","18.8-q22","18.8-q23","18.8-q24","18.8-q25","18.8-q26"]}]},{"id":19,"title":"Technologies and Protocols","islands":[{"id":"19.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"19.1","title":"Monitoring Common Protocols","lessons":2,"atoms":["19.1-q1","19.1-q2","19.1-q3","19.1-q4"]},{"id":"19.2","title":"Security Technologies","lessons":2,"atoms":["19.2-q5","19.2-q6","19.2-q7","19.2-q8"]},{"id":"19.3","title":"Technologies and Protocols Summary","lessons":1,"atoms":["19.3-q9","19.3-q10","19.3-q11","19.3-q12","19.3-q13","19.3-q14","19.3-q15","19.3-q16","19.3-q17","19.3-q18","19.3-q19","19.3-q20","19.3-q21","19.3-q22"]}]},{"id":20,"title":"Network Security Data","islands":[{"id":"20.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"20.1","title":"Types of Security Data","lessons":4,"atoms":["20.1-q1","20.1-q2","20.1-q3","20.1-q4","20.1-q5","20.1-q6"]},{"id":"20.2","title":"End Device Logs","lessons":4,"atoms":["20.2-q7","20.2-q8","20.2-q9","20.2-q10","20.2-q11"]},{"id":"20.3","title":"Network Logs","lessons":7,"atoms":["20.3-q12","20.3-q13","20.3-q14","20.3-q15","20.3-q16","20.3-q17","20.3-q18","20.3-q19","20.3-q20"]},{"id":"20.4","title":"Network Security Data Summary","lessons":1,"atoms":["20.4-q21","20.4-q22","20.4-q23","20.4-q24","20.4-q25","20.4-q26","20.4-q27","20.4-q28","20.4-q29","20.4-q30","20.4-q31","20.4-q32"]}]},{"id":21,"title":"Evaluating Alerts","islands":[{"id":"21.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"21.1","title":"Sources of Alerts","lessons":7,"atoms":[]},{"id":"21.2","title":"Overview of Alert Evaluation","lessons":4,"atoms":["21.2-q1","21.2-q2","21.2-q3","21.2-q4","21.2-q5","21.2-q6"]},{"id":"21.3","title":"Evaluating Alerts Summary","lessons":2,"atoms":["21.3-q7","21.3-q8","21.3-q9","21.3-q10","21.3-q11","21.3-q12","21.3-q13","21.3-q14","21.3-q15","21.3-q16","21.3-q17","21.3-q18"]}]},{"id":22,"title":"Governance and Compliance","islands":[{"id":"22.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"22.1","title":"Governance","lessons":7,"atoms":["22.1-q1"]},{"id":"22.2","title":"The Ethics of Cybersecurity","lessons":14,"atoms":["22.2-q2","22.2-q3"]},{"id":"22.3","title":"IT Security Management Framework","lessons":12,"atoms":["22.3-q4","22.3-q5"]},{"id":"22.4","title":"Governance","lessons":1,"atoms":["22.4-q6","22.4-q7","22.4-q8","22.4-q9","22.4-q10","22.4-q11","22.4-q12","22.4-q13","22.4-q14","22.4-q15","22.4-q16","22.4-q17"]}]},{"id":23,"title":"Network Security Testing","islands":[{"id":"23.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"23.1","title":"Security Assessments","lessons":8,"atoms":["23.1-q1"]},{"id":"23.2","title":"Network Security Testing Techniques","lessons":4,"atoms":[]},{"id":"23.3","title":"Network Security Testing Tools","lessons":4,"atoms":["23.3-q2","23.3-q3","23.3-q4"]},{"id":"23.4","title":"Penetration Testing","lessons":8,"atoms":[]},{"id":"23.5","title":"Network Security Testing Summary","lessons":1,"atoms":["23.5-q5","23.5-q6","23.5-q7","23.5-q8","23.5-q9","23.5-q10","23.5-q11","23.5-q12","23.5-q13","23.5-q14","23.5-q15","23.5-q16","23.5-q17","23.5-q18"]}]},{"id":24,"title":"Threat Intelligence","islands":[{"id":"24.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"24.1","title":"Information Sources","lessons":4,"atoms":[]},{"id":"24.2","title":"Threat Intelligence Services","lessons":7,"atoms":["24.2-q1","24.2-q2","24.2-q3","24.2-q4"]},{"id":"24.3","title":"Threat Intelligence Summary","lessons":1,"atoms":["24.3-q5","24.3-q6","24.3-q7","24.3-q8","24.3-q9","24.3-q10","24.3-q11","24.3-q12","24.3-q13","24.3-q14"]}]},{"id":25,"title":"Endpoint Vulnerability Assessment","islands":[{"id":"25.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"25.1","title":"Network and Server Profiling","lessons":4,"atoms":["25.1-q1","25.1-q2","25.1-q3","25.1-q4"]},{"id":"25.2","title":"Common Vulnerability Scoring System (CVSS)","lessons":7,"atoms":["25.2-q5","25.2-q6","25.2-q7","25.2-q8","25.2-q9"]},{"id":"25.3","title":"Secure Device Management","lessons":7,"atoms":["25.3-q10","25.3-q11","25.3-q12","25.3-q13","25.3-q14","25.3-q15","25.3-q16","25.3-q17","25.3-q18"]},{"id":"25.4","title":"Endpoint Vulnerability Assessment Summary","lessons":1,"atoms":["25.4-q19","25.4-q20","25.4-q21","25.4-q22","25.4-q23","25.4-q24","25.4-q25","25.4-q26","25.4-q27","25.4-q28","25.4-q29","25.4-q30"]}]},{"id":26,"title":"Risk Management and Security Controls","islands":[{"id":"26.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"26.1","title":"Risk Management","lessons":5,"atoms":["26.1-q1"]},{"id":"26.2","title":"Risk Assessment","lessons":9,"atoms":[]},{"id":"26.3","title":"Security Controls","lessons":4,"atoms":["26.3-q2"]},{"id":"26.4","title":"Risk Management and Security Controls Summary","lessons":1,"atoms":["26.4-q3","26.4-q4","26.4-q5","26.4-q6","26.4-q7","26.4-q8","26.4-q9","26.4-q10","26.4-q11","26.4-q12","26.4-q13"]}]},{"id":27,"title":"Digital Forensics and Incident Analysis and Response","islands":[{"id":"27.0","title":"Introduction","lessons":2,"atoms":[]},{"id":"27.1","title":"Evidence Handling and Attack Attribution","lessons":8,"atoms":["27.1-q1","27.1-q2","27.1-q3","27.1-q4","27.1-q5","27.1-q6","27.1-q7","27.1-q8"]},{"id":"27.2","title":"The Cyber Kill Chain","lessons":8,"atoms":["27.2-q9","27.2-q10","27.2-q11","27.2-q12","27.2-q13"]},{"id":"27.3","title":"The Diamond Model of Intrusion Analysis","lessons":2,"atoms":["27.3-q14","27.3-q15","27.3-q16","27.3-q17","27.3-q18","27.3-q19"]},{"id":"27.4","title":"Incident Response","lessons":6,"atoms":["27.4-q20","27.4-q21","27.4-q22","27.4-q23","27.4-q24","27.4-q25","27.4-q26","27.4-q27","27.4-q28","27.4-q29","27.4-q30"]},{"id":"27.5","title":"Disaster Recovery","lessons":13,"atoms":["27.5-q31","27.5-q32","27.5-q33","27.5-q34","27.5-q35","27.5-q36","27.5-q37","27.5-q38","27.5-q39"]},{"id":"27.6","title":"Digital Forensics and Incident Analysis and Response Summary","lessons":1,"atoms":["27.6-q40","27.6-q41","27.6-q42","27.6-q43","27.6-q44","27.6-q45","27.6-q46","27.6-q47","27.6-q48","27.6-q49","27.6-q50","27.6-q51","27.6-q52"]}]}]}
+{
+ "modules": [
+  {
+   "id": 1,
+   "title": "Cybersecurity Threats, Vulnerabilities, and Attacks",
+   "islands": [
+    {
+     "id": "1.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "1.3",
+     "title": "Cyber Attacks",
+     "lessons": 13,
+     "atoms": [
+      "1.3-q5",
+      "1.3-q6"
+     ]
+    },
+    {
+     "id": "1.4",
+     "title": "Wireless and Mobile Device Attacks",
+     "lessons": 8,
+     "atoms": [
+      "1.4-q7"
+     ]
+    },
+    {
+     "id": "1.5",
+     "title": "Application Attacks",
+     "lessons": 15,
+     "atoms": [
+      "1.5-q8",
+      "1.5-q9"
+     ]
+    },
+    {
+     "id": "1.6",
+     "title": "Cybersecurity Threats, Vulnerabilities, and Attacks Summary",
+     "lessons": 1,
+     "atoms": [
+      "1.6-q10",
+      "1.6-q11",
+      "1.6-q12",
+      "1.6-q13",
+      "1.6-q14",
+      "1.6-q15",
+      "1.6-q16",
+      "1.6-q17",
+      "1.6-q18",
+      "1.6-q19",
+      "1.6-q20",
+      "1.6-q21"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "title": "Securing Networks",
+   "islands": [
+    {
+     "id": "2.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "2.2",
+     "title": "Who is Attacking Our Network?",
+     "lessons": 7,
+     "atoms": [
+      "2.2-q1"
+     ]
+    },
+    {
+     "id": "2.3",
+     "title": "Securing Networks Summary",
+     "lessons": 1,
+     "atoms": [
+      "2.3-q2",
+      "2.3-q3",
+      "2.3-q4",
+      "2.3-q5",
+      "2.3-q6",
+      "2.3-q7",
+      "2.3-q8",
+      "2.3-q9",
+      "2.3-q10",
+      "2.3-q11",
+      "2.3-q12",
+      "2.3-q13",
+      "2.3-q14",
+      "2.3-q15",
+      "2.3-q16",
+      "2.3-q17",
+      "2.3-q18",
+      "2.3-q19",
+      "2.3-q20",
+      "2.3-q21"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "title": "Attacking the Foundation",
+   "islands": [
+    {
+     "id": "3.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "3.1",
+     "title": "IP PDU Details",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "3.2",
+     "title": "IP Vulnerabilities",
+     "lessons": 4,
+     "atoms": [
+      "3.2-q1",
+      "3.2-q2",
+      "3.2-q3",
+      "3.2-q4",
+      "3.2-q5"
+     ]
+    },
+    {
+     "id": "3.3",
+     "title": "TCP and UDP Vulnerabilities",
+     "lessons": 3,
+     "atoms": [
+      "3.3-q6",
+      "3.3-q7",
+      "3.3-q8",
+      "3.3-q9"
+     ]
+    },
+    {
+     "id": "3.4",
+     "title": "Attacking the Foundation Summary",
+     "lessons": 1,
+     "atoms": [
+      "3.4-q10",
+      "3.4-q11",
+      "3.4-q12",
+      "3.4-q13",
+      "3.4-q14",
+      "3.4-q15",
+      "3.4-q16",
+      "3.4-q17",
+      "3.4-q18",
+      "3.4-q19",
+      "3.4-q20",
+      "3.4-q21"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "title": "Attacking What We Do",
+   "islands": [
+    {
+     "id": "4.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "4.1",
+     "title": "IP Services",
+     "lessons": 6,
+     "atoms": []
+    },
+    {
+     "id": "4.2",
+     "title": "Enterprise Services",
+     "lessons": 9,
+     "atoms": [
+      "4.2-q1",
+      "4.2-q2",
+      "4.2-q3",
+      "4.2-q4"
+     ]
+    },
+    {
+     "id": "4.3",
+     "title": "Mitigating Common Network Attacks",
+     "lessons": 6,
+     "atoms": []
+    },
+    {
+     "id": "4.4",
+     "title": "Attacking What We Do Summary",
+     "lessons": 1,
+     "atoms": [
+      "4.4-q5",
+      "4.4-q6",
+      "4.4-q7",
+      "4.4-q8",
+      "4.4-q9",
+      "4.4-q10",
+      "4.4-q11",
+      "4.4-q12",
+      "4.4-q13",
+      "4.4-q14",
+      "4.4-q15",
+      "4.4-q16",
+      "4.4-q17"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "title": "Wireless Network Communication",
+   "islands": [
+    {
+     "id": "5.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "5.1",
+     "title": "Wireless Communications",
+     "lessons": 7,
+     "atoms": [
+      "5.1-q1",
+      "5.1-q2",
+      "5.1-q3",
+      "5.1-q4",
+      "5.1-q5",
+      "5.1-q6",
+      "5.1-t1",
+      "5.1-t2",
+      "5.1-t3",
+      "5.1-t4",
+      "5.1-t5",
+      "5.1-t6",
+      "5.1-t7",
+      "5.1-t8",
+      "5.1-t9",
+      "5.1-t10",
+      "5.1-t11",
+      "5.1-t12",
+      "5.1-t13",
+      "5.1-t14",
+      "5.1-t15",
+      "5.1-t16",
+      "5.1-t17",
+      "5.1-t18",
+      "5.1-t19",
+      "5.1-t20",
+      "5.1-t21",
+      "5.1-t22",
+      "5.1-t23",
+      "5.1-t24",
+      "5.1-t25",
+      "5.1-t26",
+      "5.1-t27"
+     ]
+    },
+    {
+     "id": "5.2",
+     "title": "WLAN Threats",
+     "lessons": 5,
+     "atoms": [
+      "5.2-q7",
+      "5.2-q8",
+      "5.2-q9",
+      "5.2-t1",
+      "5.2-t2",
+      "5.2-t3",
+      "5.2-t4",
+      "5.2-t5",
+      "5.2-t6",
+      "5.2-t7",
+      "5.2-t8",
+      "5.2-t9",
+      "5.2-t10",
+      "5.2-t11",
+      "5.2-t12",
+      "5.2-t13",
+      "5.2-t14",
+      "5.2-t15"
+     ]
+    },
+    {
+     "id": "5.3",
+     "title": "Secure WLANs",
+     "lessons": 10,
+     "atoms": [
+      "5.3-q10",
+      "5.3-q11",
+      "5.3-q12",
+      "5.3-q13",
+      "5.3-q14",
+      "5.3-t1",
+      "5.3-t2",
+      "5.3-t3",
+      "5.3-t4",
+      "5.3-t5",
+      "5.3-t6",
+      "5.3-t7",
+      "5.3-t8",
+      "5.3-t9",
+      "5.3-t10",
+      "5.3-t11",
+      "5.3-t12",
+      "5.3-t13",
+      "5.3-t14",
+      "5.3-t15",
+      "5.3-t16",
+      "5.3-t17",
+      "5.3-t18",
+      "5.3-t19",
+      "5.3-t20",
+      "5.3-t21",
+      "5.3-t22",
+      "5.3-t23",
+      "5.3-t24",
+      "5.3-t25",
+      "5.3-t26",
+      "5.3-t27",
+      "5.3-t28",
+      "5.3-t29",
+      "5.3-t30",
+      "5.3-t31",
+      "5.3-t32",
+      "5.3-t33",
+      "5.3-t34",
+      "5.3-t35"
+     ]
+    },
+    {
+     "id": "5.4",
+     "title": "Wireless Network Communication Summary",
+     "lessons": 1,
+     "atoms": [
+      "5.4-q15",
+      "5.4-q16",
+      "5.4-q17",
+      "5.4-q18",
+      "5.4-q19",
+      "5.4-q20",
+      "5.4-q21",
+      "5.4-q22",
+      "5.4-q23",
+      "5.4-q24",
+      "5.4-q25",
+      "5.4-q26",
+      "5.4-q27",
+      "5.4-q28"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "title": "Network Security Infrastructure",
+   "islands": [
+    {
+     "id": "6.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "6.1",
+     "title": "Security Devices",
+     "lessons": 8,
+     "atoms": [
+      "6.1-q1",
+      "6.1-q2",
+      "6.1-q3",
+      "6.1-q4",
+      "6.1-q5",
+      "6.1-q6",
+      "6.1-t1",
+      "6.1-t2",
+      "6.1-t3",
+      "6.1-t4",
+      "6.1-t5",
+      "6.1-t6",
+      "6.1-t7",
+      "6.1-t8",
+      "6.1-t9",
+      "6.1-t10",
+      "6.1-t11",
+      "6.1-t12",
+      "6.1-t13",
+      "6.1-t14",
+      "6.1-t15",
+      "6.1-t16",
+      "6.1-t17",
+      "6.1-t18",
+      "6.1-t19",
+      "6.1-t20",
+      "6.1-t21",
+      "6.1-t22",
+      "6.1-t23",
+      "6.1-t24",
+      "6.1-t25",
+      "6.1-t26",
+      "6.1-t27",
+      "6.1-t28",
+      "6.1-t29",
+      "6.1-t30",
+      "6.1-t31",
+      "6.1-t32",
+      "6.1-t33",
+      "6.1-t34",
+      "6.1-t35",
+      "6.1-t36",
+      "6.1-t37",
+      "6.1-t38",
+      "6.1-t39",
+      "6.1-t40",
+      "6.1-t41",
+      "6.1-t42",
+      "6.1-t43",
+      "6.1-t44"
+     ]
+    },
+    {
+     "id": "6.2",
+     "title": "Security Services",
+     "lessons": 11,
+     "atoms": [
+      "6.2-q7",
+      "6.2-q8",
+      "6.2-q9",
+      "6.2-q10",
+      "6.2-q11",
+      "6.2-q12",
+      "6.2-q13",
+      "6.2-q14",
+      "6.2-t1",
+      "6.2-t2",
+      "6.2-t3",
+      "6.2-t4",
+      "6.2-t5",
+      "6.2-t6",
+      "6.2-t7",
+      "6.2-t8",
+      "6.2-t9",
+      "6.2-t10",
+      "6.2-t11",
+      "6.2-t12",
+      "6.2-t13",
+      "6.2-t14",
+      "6.2-t15",
+      "6.2-t16",
+      "6.2-t17",
+      "6.2-t18",
+      "6.2-t19",
+      "6.2-t20",
+      "6.2-t21",
+      "6.2-t22",
+      "6.2-t23",
+      "6.2-t24",
+      "6.2-t25",
+      "6.2-t26",
+      "6.2-t27",
+      "6.2-t28",
+      "6.2-t29",
+      "6.2-t30",
+      "6.2-t31",
+      "6.2-t32",
+      "6.2-t33",
+      "6.2-t34",
+      "6.2-t35",
+      "6.2-t36",
+      "6.2-t37",
+      "6.2-t38",
+      "6.2-t39",
+      "6.2-t40",
+      "6.2-t41",
+      "6.2-t42",
+      "6.2-t43",
+      "6.2-t44",
+      "6.2-t45",
+      "6.2-t46",
+      "6.2-t47",
+      "6.2-t48",
+      "6.2-t49",
+      "6.2-t50",
+      "6.2-t51",
+      "6.2-t52",
+      "6.2-t53",
+      "6.2-t54"
+     ]
+    },
+    {
+     "id": "6.3",
+     "title": "Network Security Infrastructure Summary",
+     "lessons": 1,
+     "atoms": [
+      "6.3-q15",
+      "6.3-q16",
+      "6.3-q17",
+      "6.3-q18",
+      "6.3-q19",
+      "6.3-q20",
+      "6.3-q21",
+      "6.3-q22",
+      "6.3-q23",
+      "6.3-q24",
+      "6.3-q25",
+      "6.3-q26"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "title": "The Windows Operating System",
+   "islands": [
+    {
+     "id": "7.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "7.1",
+     "title": "Windows History",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "7.2",
+     "title": "Windows Architecture and Operations",
+     "lessons": 11,
+     "atoms": [
+      "7.2-q1",
+      "7.2-q2",
+      "7.2-q3",
+      "7.2-q4",
+      "7.2-q5"
+     ]
+    },
+    {
+     "id": "7.3",
+     "title": "Windows Configuration and Monitoring",
+     "lessons": 13,
+     "atoms": []
+    },
+    {
+     "id": "7.4",
+     "title": "Windows Security",
+     "lessons": 6,
+     "atoms": [
+      "7.4-q6",
+      "7.4-q7",
+      "7.4-q8",
+      "7.4-q9",
+      "7.4-q10",
+      "7.4-q11",
+      "7.4-q12",
+      "7.4-q13"
+     ]
+    },
+    {
+     "id": "7.5",
+     "title": "The Windows Operating System Summary",
+     "lessons": 1,
+     "atoms": [
+      "7.5-q14",
+      "7.5-q15",
+      "7.5-q16",
+      "7.5-q17",
+      "7.5-q18",
+      "7.5-q19",
+      "7.5-q20",
+      "7.5-q21",
+      "7.5-q22",
+      "7.5-q23",
+      "7.5-q24",
+      "7.5-q25",
+      "7.5-q26"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "title": "Linux Overview",
+   "islands": [
+    {
+     "id": "8.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "8.1",
+     "title": "Linux Basics",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "8.2",
+     "title": "Working in the Linux Shell",
+     "lessons": 7,
+     "atoms": []
+    },
+    {
+     "id": "8.3",
+     "title": "Linux Servers and Clients",
+     "lessons": 6,
+     "atoms": []
+    },
+    {
+     "id": "8.4",
+     "title": "Basic Server Administration",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "8.5",
+     "title": "The Linux File System",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "8.6",
+     "title": "Working with the Linux GUI",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "8.7",
+     "title": "Working on a Linux Host",
+     "lessons": 8,
+     "atoms": []
+    },
+    {
+     "id": "8.8",
+     "title": "Linux Basics Summary",
+     "lessons": 1,
+     "atoms": [
+      "8.8-q1",
+      "8.8-q2",
+      "8.8-q3",
+      "8.8-q4",
+      "8.8-q5",
+      "8.8-q6",
+      "8.8-q7",
+      "8.8-q8",
+      "8.8-q9",
+      "8.8-q10",
+      "8.8-q11",
+      "8.8-q12",
+      "8.8-q13",
+      "8.8-q14"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "title": "System and Endpoint Protection",
+   "islands": [
+    {
+     "id": "9.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "9.1",
+     "title": "Defending Systems and Devices",
+     "lessons": 14,
+     "atoms": [
+      "9.1-q1",
+      "9.1-q2"
+     ]
+    },
+    {
+     "id": "9.2",
+     "title": "Antimalware Protection",
+     "lessons": 4,
+     "atoms": [
+      "9.2-q3",
+      "9.2-q4",
+      "9.2-q5",
+      "9.2-q6",
+      "9.2-q7"
+     ]
+    },
+    {
+     "id": "9.3",
+     "title": "Host-Based Intrusion Prevention",
+     "lessons": 4,
+     "atoms": [
+      "9.3-q8",
+      "9.3-q9",
+      "9.3-q10",
+      "9.3-q11"
+     ]
+    },
+    {
+     "id": "9.4",
+     "title": "Application Security",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "9.5",
+     "title": "Endpoint Protection Summary",
+     "lessons": 1,
+     "atoms": [
+      "9.5-q12",
+      "9.5-q13",
+      "9.5-q14",
+      "9.5-q15",
+      "9.5-q16",
+      "9.5-q17",
+      "9.5-q18",
+      "9.5-q19",
+      "9.5-q20",
+      "9.5-q21",
+      "9.5-q22",
+      "9.5-q23",
+      "9.5-q24",
+      "9.5-q25",
+      "9.5-q26",
+      "9.5-q27",
+      "9.5-q28"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "title": "Cybersecurity Principles, Practices, and Processes",
+   "islands": [
+    {
+     "id": "10.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "10.1",
+     "title": "The Three Dimensions",
+     "lessons": 13,
+     "atoms": [
+      "10.1-q1",
+      "10.1-q2"
+     ]
+    },
+    {
+     "id": "10.2",
+     "title": "States of Data",
+     "lessons": 9,
+     "atoms": [
+      "10.2-q3"
+     ]
+    },
+    {
+     "id": "10.3",
+     "title": "Cybersecurity Countermeasures",
+     "lessons": 9,
+     "atoms": []
+    },
+    {
+     "id": "10.4",
+     "title": "Cybersecurity Principles, Practices, and Processes",
+     "lessons": 1,
+     "atoms": [
+      "10.4-q4",
+      "10.4-q5",
+      "10.4-q6",
+      "10.4-q7",
+      "10.4-q8",
+      "10.4-q9",
+      "10.4-q10",
+      "10.4-q11",
+      "10.4-q12",
+      "10.4-q13",
+      "10.4-q14"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "title": "Understanding Defense",
+   "islands": [
+    {
+     "id": "11.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "11.1",
+     "title": "Defense-in-Depth",
+     "lessons": 11,
+     "atoms": [
+      "11.1-q1"
+     ]
+    },
+    {
+     "id": "11.2",
+     "title": "Cybersecurity Operations Management",
+     "lessons": 7,
+     "atoms": [
+      "11.2-q2"
+     ]
+    },
+    {
+     "id": "11.3",
+     "title": "Security Policies, Regulations, and Standards",
+     "lessons": 5,
+     "atoms": []
+    },
+    {
+     "id": "11.4",
+     "title": "Understanding Defense Summary",
+     "lessons": 1,
+     "atoms": [
+      "11.4-q3",
+      "11.4-q4",
+      "11.4-q5",
+      "11.4-q6",
+      "11.4-q7",
+      "11.4-q8",
+      "11.4-q9",
+      "11.4-q10",
+      "11.4-q11",
+      "11.4-q12"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "title": "System and Network Defense",
+   "islands": [
+    {
+     "id": "12.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "12.1",
+     "title": "Physical Security",
+     "lessons": 7,
+     "atoms": [
+      "12.1-q1"
+     ]
+    },
+    {
+     "id": "12.2",
+     "title": "Application Security",
+     "lessons": 12,
+     "atoms": [
+      "12.2-q2"
+     ]
+    },
+    {
+     "id": "12.3",
+     "title": "Network Hardening: Services and Protocols",
+     "lessons": 6,
+     "atoms": [
+      "12.3-q3"
+     ]
+    },
+    {
+     "id": "12.4",
+     "title": "Network Hardening: Segmentation",
+     "lessons": 4,
+     "atoms": [
+      "12.4-q4"
+     ]
+    },
+    {
+     "id": "12.5",
+     "title": "Hardening Wireless and Mobile Devices",
+     "lessons": 12,
+     "atoms": [
+      "12.5-q5",
+      "12.5-q6"
+     ]
+    },
+    {
+     "id": "12.6",
+     "title": "Cybersecurity Resilience",
+     "lessons": 17,
+     "atoms": [
+      "12.6-q7"
+     ]
+    },
+    {
+     "id": "12.7",
+     "title": "Embedded and Specialized Systems",
+     "lessons": 13,
+     "atoms": []
+    },
+    {
+     "id": "12.8",
+     "title": "System and Network Defense Summary",
+     "lessons": 1,
+     "atoms": [
+      "12.8-q8",
+      "12.8-q9",
+      "12.8-q10",
+      "12.8-q11",
+      "12.8-q12",
+      "12.8-q13",
+      "12.8-q14",
+      "12.8-q15",
+      "12.8-q16",
+      "12.8-q17",
+      "12.8-q18",
+      "12.8-q19"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "title": "Access Control",
+   "islands": [
+    {
+     "id": "13.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "13.1",
+     "title": "Access Controls",
+     "lessons": 16,
+     "atoms": [
+      "13.1-q1"
+     ]
+    },
+    {
+     "id": "13.2",
+     "title": "Access Control Concepts",
+     "lessons": 3,
+     "atoms": [
+      "13.2-q2",
+      "13.2-q3",
+      "13.2-q4"
+     ]
+    },
+    {
+     "id": "13.3",
+     "title": "Account Management",
+     "lessons": 15,
+     "atoms": [
+      "13.3-q5",
+      "13.3-q6"
+     ]
+    },
+    {
+     "id": "13.4",
+     "title": "AAA usage and operation",
+     "lessons": 4,
+     "atoms": [
+      "13.4-q7"
+     ]
+    },
+    {
+     "id": "13.5",
+     "title": "Access Control Summary",
+     "lessons": 1,
+     "atoms": [
+      "13.5-q8",
+      "13.5-q9",
+      "13.5-q10",
+      "13.5-q11",
+      "13.5-q12",
+      "13.5-q13",
+      "13.5-q14",
+      "13.5-q15",
+      "13.5-q16",
+      "13.5-q17",
+      "13.5-q18",
+      "13.5-q19",
+      "13.5-q20",
+      "13.5-q21"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "title": "Access Control Lists",
+   "islands": [
+    {
+     "id": "14.0",
+     "title": "Introduction",
+     "lessons": 3,
+     "atoms": []
+    },
+    {
+     "id": "14.1",
+     "title": "Introduction to Access Control Lists",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "14.2",
+     "title": "Wildcard Masking",
+     "lessons": 4,
+     "atoms": [
+      "14.2-q1",
+      "14.2-q2",
+      "14.2-q3",
+      "14.2-q4"
+     ]
+    },
+    {
+     "id": "14.3",
+     "title": "Configure ACLs",
+     "lessons": 9,
+     "atoms": []
+    },
+    {
+     "id": "14.4",
+     "title": "Named Standard IPv4 ACL Syntax",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "14.5",
+     "title": "Implement ACLs",
+     "lessons": 10,
+     "atoms": [
+      "14.5-q5",
+      "14.5-q6",
+      "14.5-q7",
+      "14.5-q8",
+      "14.5-q9",
+      "14.5-q10",
+      "14.5-q11",
+      "14.5-q12",
+      "14.5-q13",
+      "14.5-q14",
+      "14.5-q15",
+      "14.5-q16",
+      "14.5-q17"
+     ]
+    },
+    {
+     "id": "14.6",
+     "title": "Mitigate Attacks with ACLs",
+     "lessons": 5,
+     "atoms": []
+    },
+    {
+     "id": "14.7",
+     "title": "IPv6 ACLs",
+     "lessons": 3,
+     "atoms": []
+    },
+    {
+     "id": "14.8",
+     "title": "Access Control Lists Summary",
+     "lessons": 1,
+     "atoms": [
+      "14.8-q18",
+      "14.8-q19",
+      "14.8-q20",
+      "14.8-q21",
+      "14.8-q22",
+      "14.8-q23",
+      "14.8-q24",
+      "14.8-q25",
+      "14.8-q26",
+      "14.8-q27",
+      "14.8-q28",
+      "14.8-q29",
+      "14.8-q30",
+      "14.8-q31"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "title": "Firewall Technologies",
+   "islands": [
+    {
+     "id": "15.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "15.1",
+     "title": "Secure Networks with Firewalls",
+     "lessons": 4,
+     "atoms": [
+      "15.1-q1",
+      "15.1-q2",
+      "15.1-q3",
+      "15.1-q4",
+      "15.1-q5"
+     ]
+    },
+    {
+     "id": "15.2",
+     "title": "Firewalls in Network Design",
+     "lessons": 2,
+     "atoms": [
+      "15.2-q6",
+      "15.2-q7",
+      "15.2-q8",
+      "15.2-q9",
+      "15.2-q10"
+     ]
+    },
+    {
+     "id": "15.3",
+     "title": "Firewall Technologies Summary",
+     "lessons": 1,
+     "atoms": [
+      "15.3-q11",
+      "15.3-q12",
+      "15.3-q13",
+      "15.3-q14",
+      "15.3-q15",
+      "15.3-q16",
+      "15.3-q17",
+      "15.3-q18",
+      "15.3-q19",
+      "15.3-q20",
+      "15.3-q21",
+      "15.3-q22"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "title": "Zone-Based Policy Firewalls",
+   "islands": [
+    {
+     "id": "16.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "16.1",
+     "title": "ZPF Overview",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "16.2",
+     "title": "ZPF Operation",
+     "lessons": 2,
+     "atoms": [
+      "16.2-q1",
+      "16.2-q2"
+     ]
+    },
+    {
+     "id": "16.3",
+     "title": "Configure a ZPF",
+     "lessons": 11,
+     "atoms": []
+    },
+    {
+     "id": "16.4",
+     "title": "Zone-Based Firewalls Summary",
+     "lessons": 1,
+     "atoms": [
+      "16.4-q3",
+      "16.4-q4",
+      "16.4-q5",
+      "16.4-q6",
+      "16.4-q7",
+      "16.4-q8",
+      "16.4-q9",
+      "16.4-q10",
+      "16.4-q11",
+      "16.4-q12",
+      "16.4-q13",
+      "16.4-q14"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "title": "Cloud Security",
+   "islands": [
+    {
+     "id": "17.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "17.1",
+     "title": "Virtualization and Cloud Computing",
+     "lessons": 8,
+     "atoms": [
+      "17.1-q1",
+      "17.1-q2",
+      "17.1-q3",
+      "17.1-q4"
+     ]
+    },
+    {
+     "id": "17.2",
+     "title": "The Domains of Cloud Security",
+     "lessons": 1,
+     "atoms": []
+    },
+    {
+     "id": "17.3",
+     "title": "Cloud Infrastructure Security",
+     "lessons": 3,
+     "atoms": [
+      "17.3-q5",
+      "17.3-q6",
+      "17.3-q7",
+      "17.3-q8"
+     ]
+    },
+    {
+     "id": "17.4",
+     "title": "Cloud Application Security",
+     "lessons": 8,
+     "atoms": [
+      "17.4-q9"
+     ]
+    },
+    {
+     "id": "17.5",
+     "title": "Cloud Data Security",
+     "lessons": 3,
+     "atoms": [
+      "17.5-q10",
+      "17.5-q11",
+      "17.5-q12",
+      "17.5-q13"
+     ]
+    },
+    {
+     "id": "17.6",
+     "title": "Protecting VMs",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "17.7",
+     "title": "Cloud Security Summary",
+     "lessons": 1,
+     "atoms": [
+      "17.7-q14",
+      "17.7-q15",
+      "17.7-q16",
+      "17.7-q17",
+      "17.7-q18",
+      "17.7-q19",
+      "17.7-q20",
+      "17.7-q21",
+      "17.7-q22",
+      "17.7-q23",
+      "17.7-q24"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "title": "Cryptography",
+   "islands": [
+    {
+     "id": "18.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "18.1",
+     "title": "Confidentiality",
+     "lessons": 13,
+     "atoms": [
+      "18.1-q1",
+      "18.1-q2",
+      "18.1-q3",
+      "18.1-q4"
+     ]
+    },
+    {
+     "id": "18.2",
+     "title": "Obscuring Data",
+     "lessons": 5,
+     "atoms": []
+    },
+    {
+     "id": "18.3",
+     "title": "Integrity and Authenticity",
+     "lessons": 5,
+     "atoms": []
+    },
+    {
+     "id": "18.4",
+     "title": "Using Hashes",
+     "lessons": 8,
+     "atoms": [
+      "18.4-q5",
+      "18.4-q6"
+     ]
+    },
+    {
+     "id": "18.5",
+     "title": "Public Key Cryptography",
+     "lessons": 5,
+     "atoms": []
+    },
+    {
+     "id": "18.6",
+     "title": "Authorities and the PKI Trust System",
+     "lessons": 5,
+     "atoms": [
+      "18.6-q7",
+      "18.6-q8",
+      "18.6-q9",
+      "18.6-q10"
+     ]
+    },
+    {
+     "id": "18.7",
+     "title": "Applications and Impacts of Cryptography",
+     "lessons": 3,
+     "atoms": [
+      "18.7-q11",
+      "18.7-q12",
+      "18.7-q13",
+      "18.7-q14"
+     ]
+    },
+    {
+     "id": "18.8",
+     "title": "Cryptography Summary",
+     "lessons": 1,
+     "atoms": [
+      "18.8-q15",
+      "18.8-q16",
+      "18.8-q17",
+      "18.8-q18",
+      "18.8-q19",
+      "18.8-q20",
+      "18.8-q21",
+      "18.8-q22",
+      "18.8-q23",
+      "18.8-q24",
+      "18.8-q25",
+      "18.8-q26"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "title": "Technologies and Protocols",
+   "islands": [
+    {
+     "id": "19.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "19.1",
+     "title": "Monitoring Common Protocols",
+     "lessons": 2,
+     "atoms": [
+      "19.1-q1",
+      "19.1-q2",
+      "19.1-q3",
+      "19.1-q4"
+     ]
+    },
+    {
+     "id": "19.2",
+     "title": "Security Technologies",
+     "lessons": 2,
+     "atoms": [
+      "19.2-q5",
+      "19.2-q6",
+      "19.2-q7",
+      "19.2-q8"
+     ]
+    },
+    {
+     "id": "19.3",
+     "title": "Technologies and Protocols Summary",
+     "lessons": 1,
+     "atoms": [
+      "19.3-q9",
+      "19.3-q10",
+      "19.3-q11",
+      "19.3-q12",
+      "19.3-q13",
+      "19.3-q14",
+      "19.3-q15",
+      "19.3-q16",
+      "19.3-q17",
+      "19.3-q18",
+      "19.3-q19",
+      "19.3-q20",
+      "19.3-q21",
+      "19.3-q22"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "title": "Network Security Data",
+   "islands": [
+    {
+     "id": "20.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "20.1",
+     "title": "Types of Security Data",
+     "lessons": 4,
+     "atoms": [
+      "20.1-q1",
+      "20.1-q2",
+      "20.1-q3",
+      "20.1-q4",
+      "20.1-q5",
+      "20.1-q6"
+     ]
+    },
+    {
+     "id": "20.2",
+     "title": "End Device Logs",
+     "lessons": 4,
+     "atoms": [
+      "20.2-q7",
+      "20.2-q8",
+      "20.2-q9",
+      "20.2-q10",
+      "20.2-q11"
+     ]
+    },
+    {
+     "id": "20.3",
+     "title": "Network Logs",
+     "lessons": 7,
+     "atoms": [
+      "20.3-q12",
+      "20.3-q13",
+      "20.3-q14",
+      "20.3-q15",
+      "20.3-q16",
+      "20.3-q17",
+      "20.3-q18",
+      "20.3-q19",
+      "20.3-q20"
+     ]
+    },
+    {
+     "id": "20.4",
+     "title": "Network Security Data Summary",
+     "lessons": 1,
+     "atoms": [
+      "20.4-q21",
+      "20.4-q22",
+      "20.4-q23",
+      "20.4-q24",
+      "20.4-q25",
+      "20.4-q26",
+      "20.4-q27",
+      "20.4-q28",
+      "20.4-q29",
+      "20.4-q30",
+      "20.4-q31",
+      "20.4-q32"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "title": "Evaluating Alerts",
+   "islands": [
+    {
+     "id": "21.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "21.1",
+     "title": "Sources of Alerts",
+     "lessons": 7,
+     "atoms": []
+    },
+    {
+     "id": "21.2",
+     "title": "Overview of Alert Evaluation",
+     "lessons": 4,
+     "atoms": [
+      "21.2-q1",
+      "21.2-q2",
+      "21.2-q3",
+      "21.2-q4",
+      "21.2-q5",
+      "21.2-q6"
+     ]
+    },
+    {
+     "id": "21.3",
+     "title": "Evaluating Alerts Summary",
+     "lessons": 2,
+     "atoms": [
+      "21.3-q7",
+      "21.3-q8",
+      "21.3-q9",
+      "21.3-q10",
+      "21.3-q11",
+      "21.3-q12",
+      "21.3-q13",
+      "21.3-q14",
+      "21.3-q15",
+      "21.3-q16",
+      "21.3-q17",
+      "21.3-q18"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "title": "Governance and Compliance",
+   "islands": [
+    {
+     "id": "22.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "22.1",
+     "title": "Governance",
+     "lessons": 7,
+     "atoms": [
+      "22.1-q1"
+     ]
+    },
+    {
+     "id": "22.2",
+     "title": "The Ethics of Cybersecurity",
+     "lessons": 14,
+     "atoms": [
+      "22.2-q2",
+      "22.2-q3"
+     ]
+    },
+    {
+     "id": "22.3",
+     "title": "IT Security Management Framework",
+     "lessons": 12,
+     "atoms": [
+      "22.3-q4",
+      "22.3-q5"
+     ]
+    },
+    {
+     "id": "22.4",
+     "title": "Governance",
+     "lessons": 1,
+     "atoms": [
+      "22.4-q6",
+      "22.4-q7",
+      "22.4-q8",
+      "22.4-q9",
+      "22.4-q10",
+      "22.4-q11",
+      "22.4-q12",
+      "22.4-q13",
+      "22.4-q14",
+      "22.4-q15",
+      "22.4-q16",
+      "22.4-q17"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "title": "Network Security Testing",
+   "islands": [
+    {
+     "id": "23.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "23.1",
+     "title": "Security Assessments",
+     "lessons": 8,
+     "atoms": [
+      "23.1-q1"
+     ]
+    },
+    {
+     "id": "23.2",
+     "title": "Network Security Testing Techniques",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "23.3",
+     "title": "Network Security Testing Tools",
+     "lessons": 4,
+     "atoms": [
+      "23.3-q2",
+      "23.3-q3",
+      "23.3-q4"
+     ]
+    },
+    {
+     "id": "23.4",
+     "title": "Penetration Testing",
+     "lessons": 8,
+     "atoms": []
+    },
+    {
+     "id": "23.5",
+     "title": "Network Security Testing Summary",
+     "lessons": 1,
+     "atoms": [
+      "23.5-q5",
+      "23.5-q6",
+      "23.5-q7",
+      "23.5-q8",
+      "23.5-q9",
+      "23.5-q10",
+      "23.5-q11",
+      "23.5-q12",
+      "23.5-q13",
+      "23.5-q14",
+      "23.5-q15",
+      "23.5-q16",
+      "23.5-q17",
+      "23.5-q18"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "title": "Threat Intelligence",
+   "islands": [
+    {
+     "id": "24.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "24.1",
+     "title": "Information Sources",
+     "lessons": 4,
+     "atoms": []
+    },
+    {
+     "id": "24.2",
+     "title": "Threat Intelligence Services",
+     "lessons": 7,
+     "atoms": [
+      "24.2-q1",
+      "24.2-q2",
+      "24.2-q3",
+      "24.2-q4"
+     ]
+    },
+    {
+     "id": "24.3",
+     "title": "Threat Intelligence Summary",
+     "lessons": 1,
+     "atoms": [
+      "24.3-q5",
+      "24.3-q6",
+      "24.3-q7",
+      "24.3-q8",
+      "24.3-q9",
+      "24.3-q10",
+      "24.3-q11",
+      "24.3-q12",
+      "24.3-q13",
+      "24.3-q14"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "title": "Endpoint Vulnerability Assessment",
+   "islands": [
+    {
+     "id": "25.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "25.1",
+     "title": "Network and Server Profiling",
+     "lessons": 4,
+     "atoms": [
+      "25.1-q1",
+      "25.1-q2",
+      "25.1-q3",
+      "25.1-q4"
+     ]
+    },
+    {
+     "id": "25.2",
+     "title": "Common Vulnerability Scoring System (CVSS)",
+     "lessons": 7,
+     "atoms": [
+      "25.2-q5",
+      "25.2-q6",
+      "25.2-q7",
+      "25.2-q8",
+      "25.2-q9"
+     ]
+    },
+    {
+     "id": "25.3",
+     "title": "Secure Device Management",
+     "lessons": 7,
+     "atoms": [
+      "25.3-q10",
+      "25.3-q11",
+      "25.3-q12",
+      "25.3-q13",
+      "25.3-q14",
+      "25.3-q15",
+      "25.3-q16",
+      "25.3-q17",
+      "25.3-q18"
+     ]
+    },
+    {
+     "id": "25.4",
+     "title": "Endpoint Vulnerability Assessment Summary",
+     "lessons": 1,
+     "atoms": [
+      "25.4-q19",
+      "25.4-q20",
+      "25.4-q21",
+      "25.4-q22",
+      "25.4-q23",
+      "25.4-q24",
+      "25.4-q25",
+      "25.4-q26",
+      "25.4-q27",
+      "25.4-q28",
+      "25.4-q29",
+      "25.4-q30"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "title": "Risk Management and Security Controls",
+   "islands": [
+    {
+     "id": "26.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "26.1",
+     "title": "Risk Management",
+     "lessons": 5,
+     "atoms": [
+      "26.1-q1"
+     ]
+    },
+    {
+     "id": "26.2",
+     "title": "Risk Assessment",
+     "lessons": 9,
+     "atoms": []
+    },
+    {
+     "id": "26.3",
+     "title": "Security Controls",
+     "lessons": 4,
+     "atoms": [
+      "26.3-q2"
+     ]
+    },
+    {
+     "id": "26.4",
+     "title": "Risk Management and Security Controls Summary",
+     "lessons": 1,
+     "atoms": [
+      "26.4-q3",
+      "26.4-q4",
+      "26.4-q5",
+      "26.4-q6",
+      "26.4-q7",
+      "26.4-q8",
+      "26.4-q9",
+      "26.4-q10",
+      "26.4-q11",
+      "26.4-q12",
+      "26.4-q13"
+     ]
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "title": "Digital Forensics and Incident Analysis and Response",
+   "islands": [
+    {
+     "id": "27.0",
+     "title": "Introduction",
+     "lessons": 2,
+     "atoms": []
+    },
+    {
+     "id": "27.1",
+     "title": "Evidence Handling and Attack Attribution",
+     "lessons": 8,
+     "atoms": [
+      "27.1-q1",
+      "27.1-q2",
+      "27.1-q3",
+      "27.1-q4",
+      "27.1-q5",
+      "27.1-q6",
+      "27.1-q7",
+      "27.1-q8"
+     ]
+    },
+    {
+     "id": "27.2",
+     "title": "The Cyber Kill Chain",
+     "lessons": 8,
+     "atoms": [
+      "27.2-q9",
+      "27.2-q10",
+      "27.2-q11",
+      "27.2-q12",
+      "27.2-q13"
+     ]
+    },
+    {
+     "id": "27.3",
+     "title": "The Diamond Model of Intrusion Analysis",
+     "lessons": 2,
+     "atoms": [
+      "27.3-q14",
+      "27.3-q15",
+      "27.3-q16",
+      "27.3-q17",
+      "27.3-q18",
+      "27.3-q19"
+     ]
+    },
+    {
+     "id": "27.4",
+     "title": "Incident Response",
+     "lessons": 6,
+     "atoms": [
+      "27.4-q20",
+      "27.4-q21",
+      "27.4-q22",
+      "27.4-q23",
+      "27.4-q24",
+      "27.4-q25",
+      "27.4-q26",
+      "27.4-q27",
+      "27.4-q28",
+      "27.4-q29",
+      "27.4-q30"
+     ]
+    },
+    {
+     "id": "27.5",
+     "title": "Disaster Recovery",
+     "lessons": 13,
+     "atoms": [
+      "27.5-q31",
+      "27.5-q32",
+      "27.5-q33",
+      "27.5-q34",
+      "27.5-q35",
+      "27.5-q36",
+      "27.5-q37",
+      "27.5-q38",
+      "27.5-q39"
+     ]
+    },
+    {
+     "id": "27.6",
+     "title": "Digital Forensics and Incident Analysis and Response Summary",
+     "lessons": 1,
+     "atoms": [
+      "27.6-q40",
+      "27.6-q41",
+      "27.6-q42",
+      "27.6-q43",
+      "27.6-q44",
+      "27.6-q45",
+      "27.6-q46",
+      "27.6-q47",
+      "27.6-q48",
+      "27.6-q49",
+      "27.6-q50",
+      "27.6-q51",
+      "27.6-q52"
+     ]
+    }
+   ]
+  }
+ ]
+}
